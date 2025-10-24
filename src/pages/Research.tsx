@@ -103,7 +103,7 @@ export default function Research() {
               href="mailto:dna38{at}cornell.edu"
               style={{ color: 'var(--text-primary)', textDecoration: 'underline' }}
             >
-              dna38{at}cornell.edu
+              dna38&#123;at&#125;cornell.edu
             </a>
           </li>
         </ul>

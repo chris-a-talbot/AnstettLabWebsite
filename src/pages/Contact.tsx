@@ -52,7 +52,7 @@ export default function Contact() {
             color: 'var(--text-primary)',
             textDecoration: 'underline'
           }}>
-            dna38{at}cornell.edu
+            dna38&#123;at&#125;cornell.edu
           </a>
         </p>
       </section>
