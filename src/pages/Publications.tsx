@@ -14,7 +14,7 @@ export default function Publications() {
       <div>
         <div style={{ marginBottom: '2rem' }}>
           <a 
-            href="https://scholar.google.com/citations?user=GOOGLE_SCHOLAR_ID" 
+            href="https://scholar.google.com/citations?user=9vyKmwIAAAAJ&hl=en" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{ 
