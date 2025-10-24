@@ -128,4 +128,4 @@ src/
 
 ---
 
-Built with 🌿 for The Anstett Lab at Cornell University
+Built for The Anstett Lab at Cornell University

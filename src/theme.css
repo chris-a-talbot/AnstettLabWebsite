@@ -1,5 +1,5 @@
 /* Clean, sketch-y herbarium theme matching reference designs */
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Special+Elite&family=Merriweather:wght@900&display=swap');
 
 :root {
   --text-primary: #3d3d3d;
@@ -11,6 +11,7 @@
   --card-bg: #fdfcf7; /* Lighter paper for cards with green text */
   --font-main: 'Courier Prime', 'Courier New', monospace;
   --font-specimen: 'Special Elite', 'Courier Prime', monospace;
+  --font-title: 'Merriweather', Georgia, serif;
 }
 
 * {
@@ -65,17 +66,18 @@ body::before {
 
 .site-title {
   text-align: center;
-  font-size: 2.5rem;
-  font-weight: 400;
+  font-size: 3rem;
+  font-weight: 900;
   color: var(--text-primary);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.01em;
   margin-bottom: 1.5rem;
   padding: 0.75rem 3rem;
   background-color: var(--accent-green);
   border-radius: 20px;
   display: inline-block;
   width: auto;
-  font-family: var(--font-main);
+  font-family: var(--font-title);
+  text-transform: none;
 }
 
 .site-title-wrapper {
