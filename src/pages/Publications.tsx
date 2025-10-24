@@ -12,198 +12,182 @@ export default function Publications() {
     }}>
       {/* Publications content on the left */}
       <div>
+        <div style={{ marginBottom: '2rem' }}>
+          <a 
+            href="https://scholar.google.com/citations?user=GOOGLE_SCHOLAR_ID" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ 
+              fontSize: '1.1rem',
+              color: '#2563eb',
+              textDecoration: 'none',
+              fontWeight: '500'
+            }}
+          >
+            View Google Scholar Profile →
+          </a>
+        </div>
+
+        <div style={{ 
+          marginBottom: '2rem', 
+          padding: '1rem', 
+          backgroundColor: '#f3f4f6', 
+          borderRadius: '8px',
+          fontSize: '0.9rem'
+        }}>
+          <strong>Key:</strong> <strong>Bold</strong> = Principal Investigator | <em>Italics</em> = Lab Member
+        </div>
+
         <div className="year-header">2025</div>
         <div className="publication-entry">
           <strong>Haploblocks contribute to parallel climate adaptation following global invasion of a cosmopolitan plant</strong><br />
-          P Battlay, BT Hendrickson, JI Mendez-Reneau, JS Santangelo, LJ Albano, ...<br />
-          <em>Nature ecology & evolution</em>, 1-15
+          Battlay P, Hendrickson BT, Mendez-Reneau JI, Santangelo JS, Albano LJ, ..., <strong>Anstett DN</strong> (19 of 49), ..., Hodgins KA, Kooyers NJ<br />
+          <em>Nature Ecology & Evolution</em> 9 (8) (2025)<br />
+          <a href="https://doi.org/10.1038/s41559-025-02751-2" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1038/s41559-025-02751-2</a>
         </div>
-        
+
         <div className="publication-entry">
           <strong>Resilient plants, sustainable future</strong><br />
-          SY Rhee, DN Anstett, EB Cahoon, AA Covarrubias-Robles, E Danquah, ...<br />
-          <em>Trends in Plant Science</em> 30 (4), 382-388<br />
-          8 citations
+          Rhee SY, <strong>Anstett DN</strong> (2 of 21), ..., Way D, Weber APM<br />
+          <em>Trends in Plant Science</em> 30 (4), 382-388 (2025)<br />
+          <a href="https://doi.org/10.1016/j.tplants.2024.11.001" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1016/j.tplants.2024.11.001</a>
         </div>
 
         <div className="year-header">2024</div>
         <div className="publication-entry">
-          <strong>Evolutionary rescue during extreme drought</strong><br />
-          DN Anstett, J Anstett, SN Sheth, DR Moxley, HA Branch, M Jahani, ...<br />
-          <em>bioRxiv</em>, 2024.10. 24.619808<br />
-          5 citations
-        </div>
-        
-        <div className="publication-entry">
-          <strong>Structural variants underlie parallel adaptation following global invasion</strong><br />
-          P Battlay, BT Hendrickson, JI Mendez-Reneau, JS Santangelo, LJ Albano, ...<br />
-          <em>bioRxiv</em>, 2024.07. 09.602765<br />
-          7 citations
-        </div>
-        
-        <div className="publication-entry">
           <strong>Effects of urban-induced mutations on ecology, evolution and health</strong><br />
-          MTJ Johnson, I Arif, F Marchetti, J Munshi-South, RW Ness, M Szulkin, ...<br />
-          <em>Nature ecology & evolution</em> 8 (6), 1074-1086<br />
-          16 citations
+          Johnson MTJ, Arif I, Marchetti F, Munshi-South J, Ness RW, ..., <strong>Anstett DN</strong> (9 of 20), ..., Rosenberg MS, Winchell KM<br />
+          <em>Nature Ecology & Evolution</em> 8 (6), 1074-1086 (2024)<br />
+          <a href="https://doi.org/10.1038/s41559-024-02401-z" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1038/s41559-024-02401-z</a>
         </div>
-        
+
         <div className="publication-entry">
           <strong>Phenotypic lags influence rapid evolution throughout a drought cycle</strong><br />
-          HA Branch, DN Anstett, AL Angert<br />
-          <em>Evolution</em> 78 (6), 1067-1077<br />
-          4 citations
+          Branch HA, <strong>Anstett DN</strong>, Angert AL<br />
+          <em>Evolution</em> 78 (6), 1067-1077 (2024)<br />
+          <a href="https://doi.org/10.1093/evolut/qpae037" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1093/evolut/qpae037</a>
         </div>
-        
+
         <div className="publication-entry">
           <strong>Does urbanisation lead to parallel demographic shifts across the world in a cosmopolitan plant?</strong><br />
-          AE Caizergues, JS Santangelo, RW Ness, F Angeoletto, DN Anstett, ...<br />
-          <em>Molecular Ecology</em> 33 (7), e17311<br />
-          12 citations
+          Caizergues AE, Santangelo JS, Ness RW, Angeoletto F, <strong>Anstett DN</strong> (5 of 26), ..., Tack AJM, Johnson MTJ<br />
+          <em>Molecular Ecology</em> 33 (7) (2024)<br />
+          <a href="https://doi.org/10.1111/mec.17311" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1111/mec.17311</a>
         </div>
 
         <div className="year-header">2023</div>
         <div className="publication-entry">
           <strong>Plant size, latitude, and phylogeny explain within-population variability in herbivory</strong><br />
-          Herbivory Variability Network*†, ML Robinson, PG Hahn, BD Inouye, ...<br />
-          <em>Science</em> 382 (6671), 679-683<br />
-          38 citations
-        </div>
-        
-        <div className="publication-entry">
-          <strong>Temperature, phenology, and plant defenses predict fitness near colder range limit</strong><br />
-          DN Anstett<br />
-          <em>bioRxiv</em>, 2023.09. 11.557202
+          The Herbivory Variability Network (including <strong>Anstett DN</strong>)<br />
+          <em>Science</em> 382 (6671), 679-683 (2023)<br />
+          <a href="https://doi.org/10.1126/science.adh8830" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1126/science.adh8830</a>
         </div>
 
         <div className="year-header">2022</div>
         <div className="publication-entry">
           <strong>Global urban environmental change drives adaptation in white clover</strong><br />
-          JS Santangelo, RW Ness, B Cohan, CR Fitzpatrick, SG Innes, S Koch, ...<br />
-          <em>Science</em> 375 (6586), 1275-1281<br />
-          188 citations
+          Santangelo JS, ..., <strong>Anstett DN</strong> (21 of 287), ..., Zytynska SE, Johnson MTJ<br />
+          <em>Science</em> 375 (6586), 1275-1281 (2022)<br />
+          <a href="https://doi.org/10.1126/science.abk0989" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1126/science.abk0989</a>
         </div>
 
         <div className="year-header">2021</div>
         <div className="publication-entry">
           <strong>Adaptation across geographic ranges is consistent with strong selection in marginal climates and legacies of range expansion</strong><br />
-          M Bontrager, T Usui, JA Lee-Yaw, DN Anstett, HA Branch, AL Hargreaves, ...<br />
-          <em>Evolution</em> 75 (6), 1316-1333<br />
-          55 citations
+          Bontrager M, Usui T, Lee-Yaw JA, <strong>Anstett DN</strong>, Branch HA, Hargreaves AL, Muir CD, Angert AL<br />
+          <em>Evolution</em> 75 (6), 1316-1333 (2021)<br />
+          <a href="https://doi.org/10.1111/evo.14231" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1111/evo.14231</a>
         </div>
-        
+
         <div className="publication-entry">
           <strong>Regional differences in rapid evolution during severe drought</strong><br />
-          DN Anstett, HA Branch, AL Angert<br />
-          <em>Evolution letters</em> 5 (2), 130-142<br />
-          47 citations
+          <strong>Anstett DN</strong>, Branch HA, Angert AL<br />
+          <em>Evolution Letters</em> 5 (2), 130-142 (2021)<br />
+          <a href="https://doi.org/10.1002/evl3.218" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1002/evl3.218</a>
         </div>
 
         <div className="year-header">2020</div>
         <div className="publication-entry">
           <strong>Pelagic fish predation is stronger at temperate latitudes than near the equator</strong><br />
-          M Roesti, DN Anstett, BG Freeman, JA Lee-Yaw, D Schluter, L Chavarie, ...<br />
-          <em>Nature Communications</em> 11 (1), 1527<br />
-          29 citations
+          Roesti M, <strong>Anstett DN</strong>, Freeman BG, Lee-Yaw JA, Schluter D, Chavarie L, Rolland J, Holzman R<br />
+          <em>Nature Communications</em> 11 (1), 1527 (2020)<br />
+          <a href="https://doi.org/10.1038/s41467-020-15335-4" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1038/s41467-020-15335-4</a>
         </div>
 
         <div className="year-header">2019</div>
         <div className="publication-entry">
-          <strong>Ellagitannins from the Onagraceae decrease the performance of generalist and specialist herbivores</strong><br />
-          DN Anstett, I Cheval, C D'Souza, JP Salminen, MTJ Johnson<br />
-          <em>Journal of Chemical Ecology</em> 45 (1), 86-94<br />
-          29 citations
+          <strong>Ellagitannins from the Onagraceae Decrease the Performance of Generalist and Specialist Herbivores</strong><br />
+          <strong>Anstett DN</strong>, Cheval I, D'Souza C, Salminen J-P, Johnson MTJ<br />
+          <em>Journal of Chemical Ecology</em> 45 (1), 86-94 (2019)<br />
+          <a href="https://doi.org/10.1007/s10886-018-1038-x" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1007/s10886-018-1038-x</a>
         </div>
 
         <div className="year-header">2018</div>
         <div className="publication-entry">
           <strong>Testing for latitudinal gradients in defense at the macroevolutionary scale</strong><br />
-          DN Anstett, JR Ahern, MTJ Johnson, JP Salminen<br />
-          <em>Evolution</em> 72 (10), 2129-2143<br />
-          24 citations
-        </div>
-        
-        <div className="publication-entry">
-          <strong>The influence of range‐wide plant genetic variation on soil invertebrate communities</strong><br />
-          CR Fitzpatrick, AV Mikhailitchenko, DN Anstett, MTJ Johnson<br />
-          <em>Ecography</em> 41 (7), 1135-1146<br />
-          7 citations
+          <strong>Anstett DN</strong>, Ahern JR, Johnson MTJ, Salminen J-P<br />
+          <em>Evolution</em> 72 (10), 2129-2143 (2018)<br />
+          <a href="https://doi.org/10.1111/evo.13579" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1111/evo.13579</a>
         </div>
 
-        <div className="year-header">2017</div>
         <div className="publication-entry">
-          <strong>Latitudinal Gradients in Herbivory and Plant Defence Across the Onagraceae</strong><br />
-          D Anstett<br />
-          University of Toronto (Canada)
+          <strong>The influence of range-wide plant genetic variation on soil invertebrate communities</strong><br />
+          Fitzpatrick CR, Mikhailitchenko AV, <strong>Anstett DN</strong>, Johnson MTJ<br />
+          <em>Ecography</em> 41 (7), 1135-1146 (2018)<br />
+          <a href="https://doi.org/10.1111/ecog.03347" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1111/ecog.03347</a>
         </div>
 
         <div className="year-header">2016</div>
         <div className="publication-entry">
-          <strong>Sources of controversy surrounding latitudinal patterns in herbivory and defense</strong><br />
-          DN Anstett, KA Nunes, C Baskett, PM Kotanen<br />
-          <em>Trends in Ecology & Evolution</em> 31 (10), 789-802<br />
-          178 citations
+          <strong>Sources of Controversy Surrounding Latitudinal Patterns in Herbivory and Defense</strong><br />
+          <strong>Anstett DN</strong>, Nunes KA, Baskett C, Kotanen PM<br />
+          <em>Trends in Ecology & Evolution</em> 31 (10), 789-802 (2016)<br />
+          <a href="https://doi.org/10.1016/j.tree.2016.07.011" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1016/j.tree.2016.07.011</a>
         </div>
-        
+
         <div className="publication-entry">
-          <strong>Latitudinal gradients in induced and constitutive resistance against herbivores</strong><br />
-          DN Anstett, W Chen, MTJ Johnson<br />
-          <em>Journal of Chemical Ecology</em> 42 (8), 772-781<br />
-          28 citations
+          <strong>Latitudinal Gradients in Induced and Constitutive Resistance against Herbivores</strong><br />
+          <strong>Anstett DN</strong>, Chen W, Johnson MTJ<br />
+          <em>Journal of Chemical Ecology</em> 42 (8), 772-781 (2016)<br />
+          <a href="https://doi.org/10.1007/s10886-016-0735-6" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1007/s10886-016-0735-6</a>
         </div>
 
         <div className="year-header">2015</div>
         <div className="publication-entry">
           <strong>Can genetically based clines in plant defence explain greater herbivory at higher latitudes?</strong><br />
-          DN Anstett, JR Ahern, J Glinos, N Nawar, JP Salminen, MTJ Johnson<br />
-          <em>Ecology Letters</em> 18 (12), 1376-1386<br />
-          74 citations
+          <strong>Anstett DN</strong>, Ahern JR, Glinos J, Nawar N, Salminen J-P, Johnson MTJ<br />
+          <em>Ecology Letters</em> 18 (12), 1376-1386 (2015)<br />
+          <a href="https://doi.org/10.1111/ele.12532" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1111/ele.12532</a>
         </div>
 
         <div className="year-header">2014</div>
         <div className="publication-entry">
           <strong>Latitudinal gradients in herbivory on Oenothera biennis vary according to herbivore guild and specialization</strong><br />
-          DN Anstett, I Naujokaitis-Lewis, MTJ Johnson<br />
-          <em>Ecology</em> 95 (10), 2915-2923<br />
-          97 citations
+          <strong>Anstett DN</strong>, Naujokaitis-Lewis I, Johnson MTJ<br />
+          <em>Ecology</em> 95 (10), 2915-2923 (2014)<br />
+          <a href="https://doi.org/10.1890/13-0932.1" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1890/13-0932.1</a>
         </div>
-        
+
         <div className="publication-entry">
           <strong>Growing foliose lichens on cover slips: a method for asexual propagation and observing development</strong><br />
-          DN Anstett, A Salcedo, EW Larsen<br />
-          <em>The Bryologist</em> 117 (2), 179-186<br />
-          8 citations
+          <strong>Anstett DN</strong>, Salcedo A, Larsen EW<br />
+          <em>Bryologist</em> 117 (2), 179-186 (2014)<br />
+          <a href="https://doi.org/10.1639/0007-2745-117.2.179" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1639/0007-2745-117.2.179</a>
         </div>
 
         <div className="year-header">2013</div>
         <div className="publication-entry">
           <strong>Dispersal analysis of three Peltigera species based on landscape genetics data</strong><br />
-          DN Anstett, H O'Brien, EW Larsen, R Troy McMullin, MJ Fortin<br />
-          <em>Mycology</em> 4 (4), 187-195<br />
-          4 citations
+          <strong>Anstett DN</strong>, O'Brien H, Larsen EW, Troy McMullin R, Fortin M-J<br />
+          <em>Mycology</em> 4 (4), 187-195 (2013)<br />
+          <a href="https://doi.org/10.1080/21501203.2013.875955" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1080/21501203.2013.875955</a>
         </div>
-        
+
         <div className="publication-entry">
           <strong>Integrating landscape genomics and spatially explicit approaches to detect loci under selection in clinal populations</strong><br />
-          MR Jones, BR Forester, AI Teufel, RV Adams, DN Anstett, BA Goodrich, ...<br />
-          <em>Evolution</em> 67 (12), 3455-3468<br />
-          90 citations
-        </div>
-
-        <div className="year-header">2011</div>
-        <div className="publication-entry">
-          <strong>Interactions of coral, algae, fish and abiotic factors on a eutrophic fringing reef in Barbados</strong><br />
-          D Anstett, M Makhani, Y Liang<br />
-          <em>University of Toronto Journal of Undergraduate Life Sciences</em> 5 (1)<br />
-          1 citation
-        </div>
-
-        <div className="year-header">2010</div>
-        <div className="publication-entry">
-          <strong>The influence of wind and light exposure on the extent of lichen coverage in an alpine environment</strong><br />
-          D Anstett, H Coiner<br />
-          <em>University of Toronto Journal of Undergraduate Life Sciences</em> 4 (1)<br />
-          12 citations
+          Jones MR, Forester BR, Teufel AI, Adams RV, <strong>Anstett DN</strong> (5 of 9), ..., Joost S, Manel S<br />
+          <em>Evolution</em> 67 (12), 3455-3468 (2013)<br />
+          <a href="https://doi.org/10.1111/evo.12237" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb' }}>DOI: 10.1111/evo.12237</a>
         </div>
       </div>
 

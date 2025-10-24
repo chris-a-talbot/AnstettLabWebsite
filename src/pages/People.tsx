@@ -44,7 +44,7 @@ export default function People() {
           <p style={{ 
             fontSize: '1rem', 
             fontWeight: 600, 
-            color: 'var(--accent-green)', 
+            color: 'var(--accent-green-dark)', 
             marginBottom: '0.75rem',
             fontFamily: 'var(--font-main)'
           }}>
@@ -115,7 +115,7 @@ export default function People() {
           <p style={{ 
             fontSize: '1rem', 
             fontWeight: 600, 
-            color: 'var(--accent-green)', 
+            color: 'var(--accent-green-dark)', 
             marginBottom: '0.75rem',
             fontFamily: 'var(--font-main)'
           }}>
@@ -183,7 +183,7 @@ export default function People() {
           <p style={{ 
             fontSize: '1rem', 
             fontWeight: 600, 
-            color: 'var(--accent-green)', 
+            color: 'var(--accent-green-dark)', 
             marginBottom: '0.75rem',
             fontFamily: 'var(--font-main)'
           }}>
@@ -267,7 +267,7 @@ export default function People() {
           <p style={{ 
             fontSize: '1rem', 
             fontWeight: 600, 
-            color: 'var(--accent-green)', 
+            color: 'var(--accent-green-dark)', 
             marginBottom: '0.75rem',
             fontFamily: 'var(--font-main)'
           }}>
@@ -367,7 +367,7 @@ export default function People() {
             <p style={{ 
               fontSize: '1rem', 
               fontWeight: 600, 
-              color: 'var(--accent-green)', 
+              color: 'var(--accent-green-dark)', 
               marginBottom: '0.75rem',
               fontFamily: 'var(--font-main)'
             }}>
@@ -424,7 +424,7 @@ export default function People() {
             <p style={{ 
               fontSize: '1rem', 
               fontWeight: 600, 
-              color: 'var(--accent-green)', 
+              color: 'var(--accent-green-dark)', 
               marginBottom: '0.75rem',
               fontFamily: 'var(--font-main)'
             }}>
@@ -480,7 +480,7 @@ export default function People() {
             <p style={{ 
               fontSize: '1rem', 
               fontWeight: 600, 
-              color: 'var(--accent-green)', 
+              color: 'var(--accent-green-dark)', 
               marginBottom: '0.75rem',
               fontFamily: 'var(--font-main)'
             }}>

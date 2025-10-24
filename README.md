@@ -1,15 +1,16 @@
 # AnstettLab — React + TypeScript + Vite
 
-A beautiful herbarium-themed academic lab website built with React, TypeScript, and Vite. Features an aged paper aesthetic with integrated WordPress blog functionality.
+A beautiful herbarium specimen-inspired academic lab website built with React, TypeScript, and Vite. Features an aged paper aesthetic reminiscent of traditional botanical collections.
 
 ## Features
 
-- 🌿 Herbarium-inspired design with aged paper texture
+- 🌿 Authentic herbarium-inspired design with aged paper background
 - 📱 Fully responsive layout
-- 🧭 Multi-page navigation (Lab Home, About, People, Research, Photos, Contact, Blog)
+- 🧭 Multi-page navigation (Home, Research, People, Publications, Photos, Contact, Blog)
 - 📝 WordPress REST API integration for blog posts
-- 🎨 Consistent theme across all pages
+- 🎨 Clean, sketch-style typography with Courier Prime and Special Elite fonts
 - ⚡ Fast development with Vite + HMR
+- 🖼️ Botanical imagery with pressed flower specimens
 
 ## Quick Start
 
@@ -35,46 +36,54 @@ A beautiful herbarium-themed academic lab website built with React, TypeScript, 
 
 ## Site Structure
 
-- **Lab Home** - Welcome page with pressed flower imagery and recent news
-- **About** - Lab mission, research focus, and philosophy
-- **People** - Team members and alumni
-- **Research** - Current projects and publications
-- **Photos** - Field work and herbarium specimen gallery (displays your pressed flower images)
-- **Contact** - Location and contact information
-- **Blog** - WordPress-integrated blog posts
+- **Home** - Welcome page with lab overview and botanical imagery
+- **Research** - Lab mission, research focus, and current projects
+- **People** - Team members with photos and bios, including alumni section
+- **Publications** - Chronologically organized publications by year
+- **Photos** - Gallery of pressed flower specimens and field work
+- **Contact** - Lab location and contact information with Cornell affiliation
+- **Blog** - WordPress-integrated blog posts (optional)
 
-## WordPress Integration
+## WordPress Integration (Optional)
 
-WordPress posts are fetched from the REST API endpoint `wp-json/wp/v2/posts` using a small client in `src/lib/wp.ts`. The UI component `src/components/Posts.tsx` renders the latest 5 posts using the site URL from `VITE_WORDPRESS_URL`.
+The blog page integrates with WordPress REST API to display posts. Set up is optional - the site works perfectly without it.
 
-To connect to a WordPress.com or self-hosted WordPress instance:
+WordPress posts are fetched from the REST API endpoint `wp-json/wp/v2/posts` using a client in `src/lib/wp.ts`. The UI component `src/components/Posts.tsx` renders the latest 5 posts.
 
-- Ensure your site exposes the REST API at `https://your-site.com/wp-json/`
-- If your site has CORS restrictions, allow your dev origin (default `http://localhost:5173`) in your WordPress or reverse proxy configuration
-- For private sites or authenticated endpoints, you can extend the client to add headers/tokens
+**To connect to WordPress:**
+
+1. Copy `env.example` to `.env`
+2. Set `VITE_WORDPRESS_URL=https://your-site.com` in `.env`
+3. Ensure your WordPress site has REST API enabled (enabled by default)
+4. If you have CORS restrictions, allow `http://localhost:5173` in your WordPress settings
+
+**No WordPress?** Leave the `.env` file blank and the blog page will show a setup message.
 
 ## Customization
 
 ### Theme Colors
 
-The herbarium color scheme is defined in `src/theme.css` with CSS variables:
+The herbarium specimen aesthetic is defined in `src/theme.css` with CSS variables:
 
-- `--herbarium-bg`: Aged paper background (#f4ead5)
-- `--herbarium-accent`: Soft sage green (#9cac7e)
-- `--header-bg`: Light sage header (#c5d4a8)
+- `--background`: Aged paper background (#f4ead5)
+- `--card-bg`: Card background for contrast (#ede3c8)
+- `--accent-green`: Soft botanical green for accents (#b8c99f)
+- `--text-primary`: Dark gray for main text (#3d3d3d)
+- `--text-secondary`: Medium gray for body text (#5a5a5a)
 
-Feel free to adjust these to match your preferred aesthetic!
+Adjust these colors to customize the aged paper effect or change the overall aesthetic!
 
 ### Adding Content
 
 Edit the page components in `src/pages/` to add your lab's specific information:
 
-- `Home.tsx` - Update welcome text and news items
-- `About.tsx` - Add lab mission and research focus
-- `People.tsx` - List team members and their information
-- `Research.tsx` - Describe current projects and publications
-- `Photos.tsx` - Already displays your flower images from `src/assets/flowers/`
-- `Contact.tsx` - Add your lab's contact details and address
+- `Home.tsx` - Update welcome text, lab overview, and intro
+- `Research.tsx` - Describe research focus, philosophy, and current projects
+- `People.tsx` - Add team members with photos, bios, and alumni
+- `Publications.tsx` - Add publications organized by year
+- `Photos.tsx` - Add images to `src/assets/flowers/` (currently displays flower1-6.png)
+- `Contact.tsx` - Update lab address, email, and contact details
+- `Blog.tsx` - Integrates with WordPress (optional)
 
 ## Build for Production
 
@@ -86,12 +95,37 @@ The production-ready files will be in the `dist/` directory.
 
 ## Tech Stack
 
-- **React 19** - UI library
-- **TypeScript** - Type safety
-- **Vite** - Build tool and dev server
-- **React Router** - Client-side routing
-- **WordPress REST API** - Blog integration
+- **React 19** - Modern UI library with latest features
+- **TypeScript** - Type safety and better developer experience
+- **Vite 7** - Lightning-fast build tool and dev server with HMR
+- **React Router 7** - Client-side routing for seamless navigation
+- **WordPress REST API** - Optional blog integration
+- **Google Fonts** - Courier Prime and Special Elite for authentic typewriter aesthetic
+
+## Project Structure
+
+```
+src/
+├── assets/          # Images and static files
+│   ├── flowers/     # Pressed flower specimen images
+│   └── people/      # Team member photos
+├── components/      # Reusable React components
+│   ├── Layout.tsx   # Main layout with header and navigation
+│   └── Posts.tsx    # WordPress blog post display
+├── pages/           # Page components
+│   ├── Home.tsx
+│   ├── Research.tsx
+│   ├── People.tsx
+│   ├── Publications.tsx
+│   ├── Photos.tsx
+│   ├── Contact.tsx
+│   └── Blog.tsx
+├── lib/             # Utilities and helpers
+│   └── wp.ts        # WordPress API client
+├── theme.css        # Global theme and styling
+└── main.tsx         # Application entry point
+```
 
 ---
 
-Built with 🌿 for The Anstett Lab
+Built with 🌿 for The Anstett Lab at Cornell University

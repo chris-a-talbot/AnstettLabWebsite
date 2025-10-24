@@ -78,8 +78,8 @@ export default function Layout() {
       </main>
       
       <footer style={{
-        backgroundColor: '#f8f9fa',
-        borderTop: '1px solid #e0e0e0',
+        backgroundColor: 'var(--card-bg)',
+        borderTop: '1px solid var(--border-subtle)',
         padding: '1.5rem 0',
         marginTop: '4rem',
         textAlign: 'center',
