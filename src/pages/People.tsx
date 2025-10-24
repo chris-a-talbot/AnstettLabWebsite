@@ -4,6 +4,11 @@ import flower3 from '../assets/flowers/flower3.png'
 import flower4 from '../assets/flowers/flower4.png'
 import flower5 from '../assets/flowers/flower5.png'
 import flower6 from '../assets/flowers/flower6.png'
+import danielImg from '../assets/people/daniel.jpg'
+import katieImg from '../assets/people/katie.jpg'
+import chrisImg from '../assets/people/chris.jpg'
+import arctostaphylosImg from '../assets/people/arctostaphylos.jpg'
+import mrLittleGuyImg from '../assets/people/mrlittleguy.jpg'
 
 export default function People() {
   return (
@@ -23,19 +28,16 @@ export default function People() {
         zIndex: 1
       }}>
         <div style={{ textAlign: 'center' }}>
-          <div style={{
-            width: '180px',
-            height: '180px',
-            borderRadius: '30px',
-            backgroundColor: '#ddd',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '0.9rem',
-            color: '#888'
-          }}>
-            Photo placeholder
-          </div>
+          <img 
+            src={danielImg}
+            alt="Daniel Anstett"
+            style={{
+              width: '180px',
+              height: '180px',
+              borderRadius: '30px',
+              objectFit: 'cover'
+            }}
+          />
         </div>
         <div>
           <h2 className="person-name">Daniel Anstett</h2>
@@ -55,7 +57,7 @@ export default function People() {
             in trait evolution.
           </p>
           <p style={{ marginTop: '0.75rem', fontSize: '0.9rem' }}>
-            <a href="mailto:dna38@cornell.edu" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
+            <a href="mailto:dna38{at}cornell.edu" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
               Email
             </a>
             <a href="https://scholar.google.ca/citations?hl=en&user=9vyKmwIAAAAJ" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
@@ -126,7 +128,7 @@ export default function People() {
             voluptate velit esse cillum dolore eu fugiat nulla pariatur.
           </p>
           <p style={{ marginTop: '0.75rem', fontSize: '0.9rem' }}>
-            <a href="mailto:example@cornell.edu" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
+            <a href="mailto:example{at}cornell.edu" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
               Email
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
@@ -145,25 +147,9 @@ export default function People() {
         alt="" 
         style={{ 
           position: 'absolute',
-          top: '340px',
+          top: '250px',
           left: '20px',
-          width: '220px',
-          height: 'auto',
-          opacity: 0.9,
-          zIndex: 5,
-          pointerEvents: 'none'
-        }}
-      />
-
-      {/* Small accent flower on right edge */}
-      <img 
-        src={flower5} 
-        alt="" 
-        style={{ 
-          position: 'absolute',
-          top: '520px',
-          right: '100px',
-          width: '100px',
+          width: '200px',
           height: 'auto',
           opacity: 0.85,
           zIndex: 5,
@@ -181,19 +167,16 @@ export default function People() {
         zIndex: 1
       }}>
         <div style={{ textAlign: 'center' }}>
-          <div style={{
-            width: '180px',
-            height: '180px',
-            borderRadius: '30px',
-            backgroundColor: '#ddd',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '0.9rem',
-            color: '#888'
-          }}>
-            Photo placeholder
-          </div>
+          <img 
+            src={katieImg}
+            alt="Katie Debbas"
+            style={{
+              width: '180px',
+              height: '180px',
+              borderRadius: '30px',
+              objectFit: 'cover'
+            }}
+          />
         </div>
         <div>
           <h2 className="person-name">Katie Debbas</h2>
@@ -213,7 +196,7 @@ export default function People() {
             sit aspernatur aut odit aut fugit.
           </p>
           <p style={{ marginTop: '0.75rem', fontSize: '0.9rem' }}>
-            <a href="mailto:example@cornell.edu" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
+            <a href="mailto:example{at}cornell.edu" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
               Email
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
@@ -233,10 +216,10 @@ export default function People() {
         style={{ 
           position: 'absolute',
           right: '60px',
-          top: '720px',
-          width: '200px',
+          top: '900px',
+          width: '180px',
           height: 'auto',
-          opacity: 0.9,
+          opacity: 0.85,
           zIndex: 5,
           pointerEvents: 'none'
         }}
@@ -249,7 +232,7 @@ export default function People() {
         style={{ 
           position: 'absolute',
           right: '-20px',
-          top: '900px',
+          top: '1100px',
           width: '160px',
           height: 'auto',
           opacity: 0.85,
@@ -268,19 +251,16 @@ export default function People() {
         zIndex: 1
       }}>
         <div style={{ textAlign: 'center' }}>
-          <div style={{
-            width: '180px',
-            height: '180px',
-            borderRadius: '30px',
-            backgroundColor: '#ddd',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '0.9rem',
-            color: '#888'
-          }}>
-            Photo placeholder
-          </div>
+          <img 
+            src={chrisImg}
+            alt="Chris Talbot"
+            style={{
+              width: '180px',
+              height: '180px',
+              borderRadius: '30px',
+              objectFit: 'cover'
+            }}
+          />
         </div>
         <div>
           <h2 className="person-name">Chris Talbot</h2>
@@ -299,7 +279,7 @@ export default function People() {
             cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.
           </p>
           <p style={{ marginTop: '0.75rem', fontSize: '0.9rem' }}>
-            <a href="mailto:example@cornell.edu" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
+            <a href="mailto:example{at}cornell.edu" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
               Email
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
@@ -319,7 +299,7 @@ export default function People() {
         style={{ 
           position: 'absolute',
           left: '40px',
-          top: '1080px',
+          top: '1500px',
           width: '180px',
           height: 'auto',
           opacity: 0.9,
@@ -338,6 +318,22 @@ export default function People() {
         }}>
           Lab Pets
         </h2>
+
+        {/* Flower accent near pets title - right side */}
+        <img 
+          src={flower2} 
+          alt="" 
+          style={{ 
+            position: 'absolute',
+            top: '-40px',
+            right: '100px',
+            width: '150px',
+            height: 'auto',
+            opacity: 0.75,
+            zIndex: 5,
+            pointerEvents: 'none'
+          }}
+        />
 
         {/* Totoro the dog - Left aligned */}
         <div className="person-card" style={{
@@ -375,12 +371,29 @@ export default function People() {
               Lab Dog
             </p>
             <p className="person-bio">
-              Totoro provides essential moral support and helps with field work supervision. 
-              Specialties include outdoor exploration, welcoming visitors to the lab, and 
-              ensuring everyone takes regular breaks for walks.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             </p>
           </div>
         </div>
+
+        {/* Flower by Totoro - right side */}
+        <img 
+          src={flower5} 
+          alt="" 
+          style={{ 
+            position: 'absolute',
+            top: '100px',
+            right: '40px',
+            width: '120px',
+            height: 'auto',
+            opacity: 0.8,
+            zIndex: 5,
+            pointerEvents: 'none',
+            transform: 'rotate(15deg)'
+          }}
+        />
 
         {/* Arctostaphylos uva-ursi the cat - Right aligned */}
         <div className="person-card" style={{
@@ -391,23 +404,20 @@ export default function People() {
           position: 'relative',
           zIndex: 1
         }}>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{
+        <div style={{ textAlign: 'center' }}>
+          <img 
+            src={arctostaphylosImg}
+            alt="Arctostaphylos uva-ursi"
+            style={{
               width: '180px',
               height: '180px',
               borderRadius: '30px',
-              backgroundColor: '#ddd',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '0.9rem',
-              color: '#888'
-            }}>
-              Photo placeholder
-            </div>
-          </div>
-          <div>
-            <h2 className="person-name">Arctostaphylos uva-ursi</h2>
+              objectFit: 'cover'
+            }}
+          />
+        </div>
+        <div>
+          <h2 className="person-name">Arctostaphylos uva-ursi</h2>
             <p style={{ 
               fontSize: '1rem', 
               fontWeight: 600, 
@@ -418,12 +428,28 @@ export default function People() {
               Lab Cat
             </p>
             <p className="person-bio">
-              Named after the bearberry plant (Arctostaphylos uva-ursi), this lab cat brings 
-              botanical expertise and excellent keyboard-warming capabilities to the team. 
-              Known for attending virtual meetings and providing plant identification assistance.
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 
+              laudantium. Totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi 
+              architecto beatae vitae dicta sunt explicabo.
             </p>
           </div>
         </div>
+
+        {/* Flower by Arctostaphylos - left side */}
+        <img 
+          src={flower3} 
+          alt="" 
+          style={{ 
+            position: 'absolute',
+            top: '280px',
+            left: '60px',
+            width: '140px',
+            height: 'auto',
+            opacity: 0.75,
+            zIndex: 5,
+            pointerEvents: 'none'
+          }}
+        />
 
         {/* Mr. Little Guy the cat - Left aligned */}
         <div className="person-card" style={{
@@ -434,23 +460,20 @@ export default function People() {
           position: 'relative',
           zIndex: 1
         }}>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{
+        <div style={{ textAlign: 'center' }}>
+          <img 
+            src={mrLittleGuyImg}
+            alt="Mr. Little Guy"
+            style={{
               width: '180px',
               height: '180px',
               borderRadius: '30px',
-              backgroundColor: '#ddd',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '0.9rem',
-              color: '#888'
-            }}>
-              Photo placeholder
-            </div>
-          </div>
-          <div>
-            <h2 className="person-name">Mr. Little Guy</h2>
+              objectFit: 'cover'
+            }}
+          />
+        </div>
+        <div>
+          <h2 className="person-name">Mr. Little Guy</h2>
             <p style={{ 
               fontSize: '1rem', 
               fontWeight: 600, 
@@ -461,12 +484,29 @@ export default function People() {
               Lab Cat
             </p>
             <p className="person-bio">
-              Mr. Little Guy assists with paper review (by sitting on them) and provides 
-              critical feedback during lab meetings through strategic vocalizations. 
-              Particularly skilled at detecting open food containers and monitoring office chair occupancy.
+              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium 
+              voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint 
+              occaecati cupiditate non provident.
             </p>
           </div>
         </div>
+
+        {/* Flower by Mr. Little Guy - right side */}
+        <img 
+          src={flower1} 
+          alt="" 
+          style={{ 
+            position: 'absolute',
+            top: '1050px',
+            right: '125px',
+            width: '130px',
+            height: 'auto',
+            opacity: 0.8,
+            zIndex: 5,
+            pointerEvents: 'none',
+            transform: 'rotate(-20deg)'
+          }}
+        />
       </div>
 
       {/* Small accent on bottom */}

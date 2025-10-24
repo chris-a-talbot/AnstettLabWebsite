@@ -100,10 +100,10 @@ export default function Research() {
           </li>
           <li style={{ marginBottom: '0.5rem' }}>
             <a 
-              href="mailto:dna38@cornell.edu"
+              href="mailto:dna38{at}cornell.edu"
               style={{ color: 'var(--text-primary)', textDecoration: 'underline' }}
             >
-              dna38@cornell.edu
+              dna38{at}cornell.edu
             </a>
           </li>
         </ul>

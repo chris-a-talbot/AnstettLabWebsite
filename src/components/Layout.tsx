@@ -61,6 +61,20 @@ export default function Layout() {
           <Outlet />
         </div>
       </main>
+      
+      <footer style={{
+        backgroundColor: '#f8f9fa',
+        borderTop: '1px solid #e0e0e0',
+        padding: '1.5rem 0',
+        marginTop: '4rem',
+        textAlign: 'center',
+        color: 'var(--text-secondary)',
+        fontSize: '0.875rem'
+      }}>
+        <div className="container">
+          © {new Date().getFullYear()} Chris Talbot. All rights reserved.
+        </div>
+      </footer>
     </div>
   )
 }

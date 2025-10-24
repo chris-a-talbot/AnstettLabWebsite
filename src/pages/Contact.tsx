@@ -48,11 +48,11 @@ export default function Contact() {
           Email
         </h2>
         <p style={{ lineHeight: 1.7, fontSize: '0.95rem' }}>
-          <a href="mailto:dna38@cornell.edu" style={{ 
+          <a href="mailto:dna38{at}cornell.edu" style={{ 
             color: 'var(--text-primary)',
             textDecoration: 'underline'
           }}>
-            dna38@cornell.edu
+            dna38{at}cornell.edu
           </a>
         </p>
       </section>
