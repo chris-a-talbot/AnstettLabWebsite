@@ -1,12 +1,27 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, Link } from 'react-router-dom'
+import cornellLogo from '../assets/cornell_logo.png'
 
 export default function Layout() {
   return (
     <div className="site-wrapper">
       <header className="site-header">
         <div className="container">
-          <div className="site-title-wrapper">
-            <h1 className="site-title">The Anstett Lab</h1>
+          <div className="site-title-wrapper" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <h1 className="site-title" style={{ margin: 0 }}>The Anstett Lab</h1>
+            </Link>
+            <a 
+              href="https://cals.cornell.edu/news/2024/10/meet-our-faculty-daniel-anstett" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ position: 'absolute', right: 0 }}
+            >
+              <img 
+                src={cornellLogo} 
+                alt="Cornell University - Meet Daniel Anstett" 
+                style={{ height: '50px', width: 'auto', display: 'block' }}
+              />
+            </a>
           </div>
           <nav className="site-nav">
             <NavLink 
@@ -71,8 +86,15 @@ export default function Layout() {
         color: 'var(--text-secondary)',
         fontSize: '0.875rem'
       }}>
-        <div className="container">
-          © {new Date().getFullYear()} Chris Talbot. All rights reserved.
+        <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
+          <img 
+            src={cornellLogo} 
+            alt="Cornell University" 
+            style={{ height: '40px', width: 'auto', opacity: 0.7 }}
+          />
+          <div>
+            © {new Date().getFullYear()} Chris Talbot. All rights reserved.
+          </div>
         </div>
       </footer>
     </div>

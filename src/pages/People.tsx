@@ -285,6 +285,9 @@ export default function People() {
             <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
               Google Scholar
             </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
+              GitHub
+            </a>
             <a href="https://chris-a-talbot.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'underline' }}>
               Website
             </a>
