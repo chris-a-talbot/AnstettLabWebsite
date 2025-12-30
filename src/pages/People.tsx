@@ -1,42 +1,32 @@
-import flower1 from '../assets/flowers/flower1.png'
-import flower2 from '../assets/flowers/flower2.png'
-import flower3 from '../assets/flowers/flower3.png'
-import flower4 from '../assets/flowers/flower4.png'
-import flower5 from '../assets/flowers/flower5.png'
-import flower6 from '../assets/flowers/flower6.png'
 import danielImg from '../assets/people/daniel.jpg'
 import katieImg from '../assets/people/katie.jpg'
 import chrisImg from '../assets/people/chris.jpg'
 import arctostaphylosImg from '../assets/people/arctostaphylos.jpg'
 import mrLittleGuyImg from '../assets/people/mrlittleguy.jpg'
+import annaImg from '../assets/people/anna.png'
 
 export default function People() {
   return (
-    <div className="people-page" style={{ 
-      maxWidth: '1200px',
+    <div className="people-page fade-in" style={{
+      maxWidth: '1000px',
       margin: '0 auto',
-      position: 'relative',
-      paddingBottom: '4rem'
+      position: 'relative'
     }}>
-      {/* PI - Daniel Anstett - Left aligned, 2/3 width */}
-      <div className="person-card" style={{
-        boxShadow: '8px 8px 0px var(--accent-green)',
-        width: '66%',
-        marginLeft: '0',
-        marginRight: 'auto',
-        position: 'relative',
-        zIndex: 1
+      <h1 style={{ 
+        fontSize: '2.5rem',
+        marginBottom: '3rem',
+        fontWeight: 700
       }}>
-        <div style={{ textAlign: 'center' }}>
-          <img 
+        People
+      </h1>
+
+      {/* PI - Daniel Anstett */}
+      <div className="person-card">
+        <div>
+          <img
             src={danielImg}
             alt="Daniel Anstett"
-            style={{
-              width: '180px',
-              height: '180px',
-              borderRadius: '30px',
-              objectFit: 'cover'
-            }}
+            className="person-photo"
           />
         </div>
         <div>
@@ -44,138 +34,62 @@ export default function People() {
           <p style={{ 
             fontSize: '1rem', 
             fontWeight: 600, 
-            color: 'var(--accent-green-dark)', 
-            marginBottom: '0.75rem',
-            fontFamily: 'var(--font-main)'
+            color: 'var(--text-secondary)', 
+            marginBottom: '1rem'
           }}>
             Principal Investigator
           </p>
           <p className="person-bio">
-            Daniel studies evolutionary ecology across large spatial scales with a focus on understanding 
-            range-wide differences in adaptive traits. He uses a combination of latitudinal surveys, 
-            common gardens, plant chemistry, and landscape genomics to research geographical variation 
+            Daniel studies evolutionary ecology across large spatial scales with a focus on understanding
+            range-wide differences in adaptive traits. He uses a combination of latitudinal surveys,
+            common gardens, plant chemistry, and landscape genomics to research geographical variation
             in trait evolution.
           </p>
-          <p style={{ marginTop: '0.75rem', fontSize: '0.9rem' }}>
-            <a href="mailto:dna38{at}cornell.edu" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
-              Email
-            </a>
-            <a href="https://scholar.google.ca/citations?hl=en&user=9vyKmwIAAAAJ" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
-              Google Scholar
-            </a>
-            <a href="#" style={{ color: 'var(--text-primary)', textDecoration: 'underline' }}>
-              Website
-            </a>
+          <p style={{ marginTop: '1rem', lineHeight: 2 }}>
+            <a href="mailto:dna38@cornell.edu">Email</a> • 
+            <a href="https://scholar.google.ca/citations?hl=en&user=9vyKmwIAAAAJ" target="_blank" rel="noopener noreferrer"> Google Scholar</a>
           </p>
         </div>
       </div>
 
-      {/* Flower overlaying right side of first card (no text there) */}
-      <img 
-        src={flower2} 
-        alt="" 
-        style={{ 
-          position: 'absolute',
-          top: '20px',
-          right: '80px',
-          width: '280px',
-          height: 'auto',
-          opacity: 0.9,
-          zIndex: 5,
-          pointerEvents: 'none'
-        }}
-      />
-
-      {/* Post-doc - Anna Peschel - Right aligned, 2/3 width */}
-      <div className="person-card" style={{
-        boxShadow: '8px 8px 0px var(--accent-green)',
-        width: '66%',
-        marginLeft: 'auto',
-        marginRight: '0',
-        position: 'relative',
-        zIndex: 1
-      }}>
-        <div style={{ textAlign: 'center' }}>
-          <div style={{
-            width: '180px',
-            height: '180px',
-            borderRadius: '30px',
-            backgroundColor: '#ddd',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '0.9rem',
-            color: '#888'
-          }}>
-            Photo placeholder
-          </div>
+      {/* Post-doc - Anna Peschel */}
+      <div className="person-card">
+        <div>
+          <img
+            src={annaImg}
+            alt="Anna Peschel"
+            className="person-photo"
+          />
         </div>
         <div>
           <h2 className="person-name">Anna Peschel</h2>
           <p style={{ 
             fontSize: '1rem', 
             fontWeight: 600, 
-            color: 'var(--accent-green-dark)', 
-            marginBottom: '0.75rem',
-            fontFamily: 'var(--font-main)'
+            color: 'var(--text-secondary)', 
+            marginBottom: '1rem'
           }}>
             Post-doctoral Researcher
           </p>
           <p className="person-bio">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Anna investigates the molecular mechanisms underlying plant adaptation to environmental stress.
+            Her work combines genomics, transcriptomics, and physiological studies to understand how plants
+            respond to climate change at the molecular level.
           </p>
-          <p style={{ marginTop: '0.75rem', fontSize: '0.9rem' }}>
-            <a href="mailto:example{at}cornell.edu" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
-              Email
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
-              Google Scholar
-            </a>
-            <a href="#" style={{ color: 'var(--text-primary)', textDecoration: 'underline' }}>
-              Website
-            </a>
+          <p style={{ marginTop: '1rem', lineHeight: 2 }}>
+            <a href="mailto:example@cornell.edu">Email</a> • 
+            <a href="#"> Google Scholar</a>
           </p>
         </div>
       </div>
 
-      {/* Tall flower overlaying left side of second card */}
-      <img 
-        src={flower3} 
-        alt="" 
-        style={{ 
-          position: 'absolute',
-          top: '250px',
-          left: '20px',
-          width: '200px',
-          height: 'auto',
-          opacity: 0.85,
-          zIndex: 5,
-          pointerEvents: 'none'
-        }}
-      />
-
-      {/* PhD Student - Katie Debbas - Left aligned, 2/3 width */}
-      <div className="person-card" style={{
-        boxShadow: '8px 8px 0px var(--accent-green)',
-        width: '66%',
-        marginLeft: '0',
-        marginRight: 'auto',
-        position: 'relative',
-        zIndex: 1
-      }}>
-        <div style={{ textAlign: 'center' }}>
-          <img 
+      {/* PhD Student - Katie Debbas */}
+      <div className="person-card">
+        <div>
+          <img
             src={katieImg}
             alt="Katie Debbas"
-            style={{
-              width: '180px',
-              height: '180px',
-              borderRadius: '30px',
-              objectFit: 'cover'
-            }}
+            className="person-photo"
           />
         </div>
         <div>
@@ -183,83 +97,30 @@ export default function People() {
           <p style={{ 
             fontSize: '1rem', 
             fontWeight: 600, 
-            color: 'var(--accent-green-dark)', 
-            marginBottom: '0.75rem',
-            fontFamily: 'var(--font-main)'
+            color: 'var(--text-secondary)', 
+            marginBottom: '1rem'
           }}>
             PhD Student
           </p>
           <p className="person-bio">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 
-            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi 
-            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas 
-            sit aspernatur aut odit aut fugit.
+            Katie studies latitudinal gradients in plant-herbivore interactions and the evolution of plant
+            defense mechanisms. Her research combines field surveys across climate gradients with common
+            garden experiments and chemical analysis of defensive compounds.
           </p>
-          <p style={{ marginTop: '0.75rem', fontSize: '0.9rem' }}>
-            <a href="mailto:example{at}cornell.edu" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
-              Email
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
-              Google Scholar
-            </a>
-            <a href="#" style={{ color: 'var(--text-primary)', textDecoration: 'underline' }}>
-              Website
-            </a>
+          <p style={{ marginTop: '1rem', lineHeight: 2 }}>
+            <a href="mailto:example@cornell.edu">Email</a> • 
+            <a href="#"> Google Scholar</a>
           </p>
         </div>
       </div>
 
-      {/* Yellow flowers overlaying right side of third card */}
-      <img 
-        src={flower4} 
-        alt="" 
-        style={{ 
-          position: 'absolute',
-          right: '60px',
-          top: '900px',
-          width: '180px',
-          height: 'auto',
-          opacity: 0.85,
-          zIndex: 5,
-          pointerEvents: 'none'
-        }}
-      />
-
-      {/* Delicate stems on right edge */}
-      <img 
-        src={flower6} 
-        alt="" 
-        style={{ 
-          position: 'absolute',
-          right: '-20px',
-          top: '1100px',
-          width: '160px',
-          height: 'auto',
-          opacity: 0.85,
-          zIndex: 5,
-          pointerEvents: 'none'
-        }}
-      />
-
-      {/* Collaborating PhD Student - Chris Talbot - Right aligned, 2/3 width */}
-      <div className="person-card" style={{
-        boxShadow: '8px 8px 0px var(--accent-green)',
-        width: '66%',
-        marginLeft: 'auto',
-        marginRight: '0',
-        position: 'relative',
-        zIndex: 1
-      }}>
-        <div style={{ textAlign: 'center' }}>
-          <img 
+      {/* Collaborating PhD Student - Chris Talbot */}
+      <div className="person-card">
+        <div>
+          <img
             src={chrisImg}
             alt="Chris Talbot"
-            style={{
-              width: '180px',
-              height: '180px',
-              borderRadius: '30px',
-              objectFit: 'cover'
-            }}
+            className="person-photo"
           />
         </div>
         <div>
@@ -267,267 +128,125 @@ export default function People() {
           <p style={{ 
             fontSize: '1rem', 
             fontWeight: 600, 
-            color: 'var(--accent-green-dark)', 
-            marginBottom: '0.75rem',
-            fontFamily: 'var(--font-main)'
+            color: 'var(--text-secondary)', 
+            marginBottom: '1rem'
           }}>
             Collaborating PhD Student
           </p>
           <p className="person-bio">
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium 
-            voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati 
-            cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.
+            Chris combines computational biology and field ecology to study evolutionary genomics.
+            His work integrates large-scale genomic data with ecological experiments to understand
+            how plants adapt to environmental change across time and space.
           </p>
-          <p style={{ marginTop: '0.75rem', fontSize: '0.9rem' }}>
-            <a href="mailto:example{at}cornell.edu" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
-              Email
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
-              Google Scholar
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'underline', marginRight: '1rem' }}>
-              GitHub
-            </a>
-            <a href="https://chris-a-talbot.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'underline' }}>
-              Website
-            </a>
+          <p style={{ marginTop: '1rem', lineHeight: 2 }}>
+            <a href="mailto:example@cornell.edu">Email</a> • 
+            <a href="https://chris-a-talbot.com" target="_blank" rel="noopener noreferrer"> Website</a> • 
+            <a href="#"> GitHub</a>
           </p>
         </div>
       </div>
 
-      {/* Orange flowers overlaying left side of fourth card */}
-      <img 
-        src={flower1} 
-        alt="" 
-        style={{ 
-          position: 'absolute',
-          left: '40px',
-          top: '1500px',
-          width: '180px',
-          height: 'auto',
-          opacity: 0.9,
-          zIndex: 5,
-          pointerEvents: 'none'
-        }}
-      />
+      {/* Lab Companions */}
+      <hr style={{ 
+        border: 'none',
+        borderTop: '1px solid var(--border-subtle)',
+        margin: '4rem 0 3rem'
+      }} />
+      
+      <h2 style={{ 
+        fontSize: '1.75rem', 
+        marginBottom: '2rem', 
+        fontWeight: 700
+      }}>
+        Lab Companions
+      </h2>
 
-      {/* Lab Pets Section */}
-      <div style={{ marginTop: '5rem', position: 'relative', zIndex: 1 }}>
-        <h2 style={{ 
-          fontSize: '1.75rem', 
-          marginBottom: '2rem', 
-          fontWeight: 700,
-          textAlign: 'center'
-        }}>
-          Lab Pets
-        </h2>
-
-        {/* Flower accent near pets title - right side */}
-        <img 
-          src={flower2} 
-          alt="" 
-          style={{ 
-            position: 'absolute',
-            top: '-40px',
-            right: '100px',
-            width: '150px',
-            height: 'auto',
-            opacity: 0.75,
-            zIndex: 5,
-            pointerEvents: 'none'
-          }}
-        />
-
-        {/* Totoro the dog - Left aligned */}
-        <div className="person-card" style={{
-          boxShadow: '8px 8px 0px var(--accent-green)',
-          width: '66%',
-          marginLeft: '0',
-          marginRight: 'auto',
-          position: 'relative',
-          zIndex: 1
-        }}>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{
-              width: '180px',
-              height: '180px',
-              borderRadius: '30px',
-              backgroundColor: '#ddd',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '0.9rem',
-              color: '#888'
-            }}>
-              Photo placeholder
-            </div>
-          </div>
-          <div>
-            <h2 className="person-name">Totoro</h2>
-            <p style={{ 
-              fontSize: '1rem', 
-              fontWeight: 600, 
-              color: 'var(--accent-green-dark)', 
-              marginBottom: '0.75rem',
-              fontFamily: 'var(--font-main)'
-            }}>
-              Lab Dog
-            </p>
-            <p className="person-bio">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
+      <div className="person-card">
+        <div>
+          <div style={{
+            width: '180px',
+            height: '180px',
+            backgroundColor: '#e8e8e8',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '0.9rem',
+            color: '#999',
+            border: '1px solid var(--border-subtle)'
+          }}>
+            Photo coming soon
           </div>
         </div>
+        <div>
+          <h2 className="person-name">Totoro</h2>
+          <p style={{ 
+            fontSize: '1rem', 
+            fontWeight: 600, 
+            color: 'var(--text-secondary)', 
+            marginBottom: '1rem'
+          }}>
+            Lab Dog
+          </p>
+          <p className="person-bio">
+            Totoro is our resident lab mascot and plant enthusiast. While not directly involved in
+            research, Totoro provides valuable emotional support during long days in the greenhouse
+            and helps keep the lab stress-free and full of joy.
+          </p>
+        </div>
+      </div>
 
-        {/* Flower by Totoro - right side */}
-        <img 
-          src={flower5} 
-          alt="" 
-          style={{ 
-            position: 'absolute',
-            top: '100px',
-            right: '40px',
-            width: '120px',
-            height: 'auto',
-            opacity: 0.8,
-            zIndex: 5,
-            pointerEvents: 'none',
-            transform: 'rotate(15deg)'
-          }}
-        />
-
-        {/* Arctostaphylos uva-ursi the cat - Right aligned */}
-        <div className="person-card" style={{
-          boxShadow: '8px 8px 0px var(--accent-green)',
-          width: '66%',
-          marginLeft: 'auto',
-          marginRight: '0',
-          position: 'relative',
-          zIndex: 1
-        }}>
-        <div style={{ textAlign: 'center' }}>
-          <img 
+      <div className="person-card">
+        <div>
+          <img
             src={arctostaphylosImg}
             alt="Arctostaphylos uva-ursi"
-            style={{
-              width: '180px',
-              height: '180px',
-              borderRadius: '30px',
-              objectFit: 'cover'
-            }}
+            className="person-photo"
           />
         </div>
         <div>
           <h2 className="person-name">Arctostaphylos uva-ursi</h2>
-            <p style={{ 
-              fontSize: '1rem', 
-              fontWeight: 600, 
-              color: 'var(--accent-green-dark)', 
-              marginBottom: '0.75rem',
-              fontFamily: 'var(--font-main)'
-            }}>
-              Lab Cat
-            </p>
-            <p className="person-bio">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 
-              laudantium. Totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi 
-              architecto beatae vitae dicta sunt explicabo.
-            </p>
-          </div>
+          <p style={{ 
+            fontSize: '1rem', 
+            fontWeight: 600, 
+            color: 'var(--text-secondary)', 
+            marginBottom: '1rem'
+          }}>
+            Lab Cat
+          </p>
+          <p className="person-bio">
+            Named after the plant species <em>Arctostaphylos uva-ursi</em> (bearberry), Arctostaphylos
+            brings a sense of calm to the lab environment. Their curiosity mirrors our scientific
+            approach to understanding plant evolution.
+          </p>
         </div>
+      </div>
 
-        {/* Flower by Arctostaphylos - left side */}
-        <img 
-          src={flower3} 
-          alt="" 
-          style={{ 
-            position: 'absolute',
-            top: '280px',
-            left: '60px',
-            width: '140px',
-            height: 'auto',
-            opacity: 0.75,
-            zIndex: 5,
-            pointerEvents: 'none'
-          }}
-        />
-
-        {/* Mr. Little Guy the cat - Left aligned */}
-        <div className="person-card" style={{
-          boxShadow: '8px 8px 0px var(--accent-green)',
-          width: '66%',
-          marginLeft: '0',
-          marginRight: 'auto',
-          position: 'relative',
-          zIndex: 1
-        }}>
-        <div style={{ textAlign: 'center' }}>
-          <img 
+      <div className="person-card">
+        <div>
+          <img
             src={mrLittleGuyImg}
             alt="Mr. Little Guy"
-            style={{
-              width: '180px',
-              height: '180px',
-              borderRadius: '30px',
-              objectFit: 'cover'
-            }}
+            className="person-photo"
           />
         </div>
         <div>
           <h2 className="person-name">Mr. Little Guy</h2>
-            <p style={{ 
-              fontSize: '1rem', 
-              fontWeight: 600, 
-              color: 'var(--accent-green-dark)', 
-              marginBottom: '0.75rem',
-              fontFamily: 'var(--font-main)'
-            }}>
-              Lab Cat
-            </p>
-            <p className="person-bio">
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium 
-              voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint 
-              occaecati cupiditate non provident.
-            </p>
-          </div>
+          <p style={{ 
+            fontSize: '1rem', 
+            fontWeight: 600, 
+            color: 'var(--text-secondary)', 
+            marginBottom: '1rem'
+          }}>
+            Lab Cat
+          </p>
+          <p className="person-bio">
+            Mr. Little Guy brings curiosity and playfulness to the lab environment. His presence reminds
+            us that scientific discovery often comes from unexpected places, much like the evolutionary
+            surprises we uncover in our plant studies.
+          </p>
         </div>
-
-        {/* Flower by Mr. Little Guy - right side */}
-        <img 
-          src={flower1} 
-          alt="" 
-          style={{ 
-            position: 'absolute',
-            top: '1050px',
-            right: '125px',
-            width: '130px',
-            height: 'auto',
-            opacity: 0.8,
-            zIndex: 5,
-            pointerEvents: 'none',
-            transform: 'rotate(-20deg)'
-          }}
-        />
       </div>
 
-      {/* Small accent on bottom */}
-      <img 
-        src={flower5} 
-        alt="" 
-        style={{ 
-          position: 'absolute',
-          right: '120px',
-          bottom: '100px',
-          width: '90px',
-          height: 'auto',
-          opacity: 0.85,
-          zIndex: 5,
-          pointerEvents: 'none',
-          transform: 'rotate(-30deg)'
-        }}
-      />
     </div>
   )
 }
