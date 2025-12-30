@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import erycar1 from '../assets/flowers/erycar_1.png';
 import dalpur1 from '../assets/flowers/dalpur_1.png';

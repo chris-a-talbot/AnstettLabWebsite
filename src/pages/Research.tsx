@@ -1,5 +1,3 @@
-import rubhir1 from '../assets/flowers/rubhir_1.png'
-
 export default function Research() {
   return (
     <div className="research-page fade-in" style={{ maxWidth: '900px', margin: '0 auto' }}>
