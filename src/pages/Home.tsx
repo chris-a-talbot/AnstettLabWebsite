@@ -16,6 +16,7 @@ export default function Home() {
   const [wpLoading, setWpLoading] = useState(true)
   const [wpError, setWpError] = useState<string | null>(null)
 
+
   // Calculate width-based opacity based on current screen width
   const getWidthBasedOpacity = useCallback((width: number): number => {
     if (width <= 500) return 0.20;
@@ -125,6 +126,23 @@ export default function Home() {
     };
   }, []);
 
+
+  // Function to scroll to the next section (research section)
+  const scrollToNextSection = useCallback(() => {
+    // Get the hero section height and scroll down by that amount plus some padding
+    const heroSection = document.querySelector('.hero-section') as HTMLElement;
+    if (heroSection) {
+      const heroHeight = heroSection.offsetHeight;
+      // Scroll down by hero height minus some overlap to show transition
+      const scrollDistance = heroHeight - 100; // Leave 100px of hero visible for context
+
+      window.scrollTo({
+        top: scrollDistance,
+        behavior: 'smooth'
+      });
+    }
+  }, []);
+
   return (
     <div className="home-wrapper">
       {/* Large overgrown specimen background */}
@@ -148,11 +166,18 @@ export default function Home() {
               <p className="hero-subtitle">
                 We study rapid adaptation in plants across space and time to understand when evolution can rescue populations from environmental extremes—and when it can&apos;t.
               </p>
-              <Link to="/research" className="btn btn-hero">
-                View Current Research
-              </Link>
             </div>
           </div>
+        </div>
+
+        {/* Scroll Arrow - Always visible */}
+        <div className="scroll-arrow" onClick={scrollToNextSection}>
+          <div className="scroll-arrow-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 10L12 15L17 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          <span className="scroll-arrow-text">Scroll to explore</span>
         </div>
       </section>
       
