@@ -1078,8 +1078,8 @@
 
 @media (max-width: 768px) {
   .hero-section {
-    min-height: auto;
-    padding: 2rem 0 3rem;
+    min-height: 50vh; /* Increased height to provide more space for scroll arrow */
+    padding: 1rem 0 10rem; /* Extra bottom padding for scroll arrow */
     display: block;
   }
 
@@ -1255,7 +1255,7 @@
 /* Responsive adjustments for scroll arrow */
 @media (max-width: 768px) {
   .scroll-arrow {
-    bottom: 1.5rem;
+    bottom: 2rem; /* Further increased spacing to avoid overlap with single-column content */
   }
 
   .scroll-arrow-icon {
