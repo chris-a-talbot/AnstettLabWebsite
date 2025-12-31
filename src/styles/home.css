@@ -120,7 +120,15 @@
 /* Adjust flower position on very large screens */
 @media (min-width: 1600px) {
   .overgrown-specimen {
-    --flower-horizontal-offset: 0%; /* Centered on very large screens */
+    --flower-horizontal-offset: 4%; /* Shift right to align with gap between notes */
+    top: 13vh;
+  }
+}
+
+/* Ultra-wide screens - shift further right */
+@media (min-width: 1920px) {
+  .overgrown-specimen {
+    --flower-horizontal-offset: 4%; /* Shift more right on ultra-wide displays */
     top: 13vh;
   }
 }
