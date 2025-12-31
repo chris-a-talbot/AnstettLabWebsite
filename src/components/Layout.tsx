@@ -2,6 +2,9 @@ import { Outlet, Link } from 'react-router-dom'
 import { useState } from 'react'
 import FolderTab from './FolderTab'
 import logoFlower from '../assets/logos/profile.png'
+import flickrIcon from '../assets/icons/flickr.png'
+import scholarIcon from '../assets/icons/scholar.png'
+import cornellIcon from '../assets/icons/cornell.svg'
 
 export default function Layout() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -122,7 +125,7 @@ export default function Layout() {
                 className="social-icon"
                 aria-label="Flickr"
               >
-                <img src="/src/assets/icons/flickr.png" alt="Flickr" />
+                <img src={flickrIcon} alt="Flickr" />
               </a>
 
               {/* Google Scholar */}
@@ -133,7 +136,7 @@ export default function Layout() {
                 className="social-icon"
                 aria-label="Google Scholar"
               >
-                <img src="/src/assets/icons/scholar.png" alt="Google Scholar" />
+                <img src={scholarIcon} alt="Google Scholar" />
               </a>
 
               {/* Cornell */}
@@ -144,7 +147,7 @@ export default function Layout() {
                 className="social-icon"
                 aria-label="Cornell University"
               >
-                <img src="/src/assets/icons/cornell.svg" alt="Cornell University" />
+                <img src={cornellIcon} alt="Cornell University" />
               </a>
             </div>
           </div>
