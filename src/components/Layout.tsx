@@ -2,6 +2,7 @@ import { Outlet, Link } from 'react-router-dom'
 import { useState } from 'react'
 import FolderTab from './FolderTab'
 import logoFlower from '../assets/logos/profile.png'
+import cornellLogoBlack from '../assets/logos/cornell_seal_simple_web_black.png'
 import flickrIcon from '../assets/icons/flickr.png'
 import scholarIcon from '../assets/icons/scholar.png'
 import cornellIcon from '../assets/icons/cornell.svg'
@@ -31,9 +32,9 @@ export default function Layout() {
               rel="noopener noreferrer"
               style={{ textDecoration: 'none' }}
             >
-              <img 
-                src="/src/assets/logos/cornell_seal_simple_web_black.png" 
-                alt="Cornell University" 
+              <img
+                src={cornellLogoBlack}
+                alt="Cornell University"
                 className="cornell-logo-header"
                 style={{ height: '60px', width: 'auto' }}
               />
@@ -89,7 +90,7 @@ export default function Layout() {
           <div className="footer-content">
             <div className="footer-left">
               <img
-                src="/src/assets/logos/cornell_seal_simple_web_black.png"
+                src={cornellLogoBlack}
                 alt="Cornell University School of Integrative Plant Science"
                 className="footer-logo"
               />
