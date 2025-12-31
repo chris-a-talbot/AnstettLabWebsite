@@ -33,7 +33,7 @@ export default function Publications() {
         data-separate-highlighted-section="false"
         data-highlighted-section-title="Featured Publications"
         data-author-highlighting-enabled="true"
-        data-max-authors-displayed="4"
+        data-max-authors-displayed="3"
         data-show-author-legend="bottom"
         data-google-scholar-url="https://scholar.google.com/citations?user=9vyKmwIAAAAJ&hl=en&oi=ao"
       ></div>
