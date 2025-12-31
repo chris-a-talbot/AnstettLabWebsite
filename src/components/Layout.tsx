@@ -99,7 +99,7 @@ export default function Layout() {
                 <br />
                 <span>Site designed by <a href="https://chris-a-talbot.com" target="_blank" rel="noopener noreferrer" className="footer-credit-link">Chris Talbot</a> | <a href="https://github.com/chris-a-talbot/AnstettLabWebsite" target="_blank" rel="noopener noreferrer" className="footer-credit-link">GitHub</a></span>
                 <br />
-                <span>Pressed flower photos courtesy of <a href="https://cals.cornell.edu/people/katie-debbas" target="_blank" rel="noopener noreferrer" className="footer-credit-link">Katie Debbas</a> and the <a href="http://bhort.bh.cornell.edu/" target="_blank" rel="noopener noreferrer" className="footer-credit-link">Cornell Bailey Hortorium</a></span>
+                <span>Pressed flower photos courtesy of <a href="https://cals.cornell.edu/people/katie-debbas" target="_blank" rel="noopener noreferrer" className="footer-credit-link">Katie Debbas</a> and the <a href="http://bhort.bh.cornell.edu/" target="_blank" rel="noopener noreferrer" className="footer-credit-link">L. H. Bailey Hortorium</a> at Cornell</span>
               </div>
               {/* Contact info for smaller screens */}
               <div className="footer-contact">
