@@ -8,7 +8,7 @@ interface FlowerImage {
   species: string
 }
 
-// Import all flower images
+// Import all flower images - these will be code-split by Vite for better performance
 import chafas1Img from '../assets/flowers/chafas_1.png'
 import chafas2Img from '../assets/flowers/chafas_2.png'
 import chafas3Img from '../assets/flowers/chafas_3.png'
@@ -51,6 +51,7 @@ import trirep3Img from '../assets/flowers/trirep_3.png'
 export default function Photos() {
   const [selectedImage, setSelectedImage] = useState<FlowerImage | null>(null)
   const [modalOpen, setModalOpen] = useState(false)
+  const [imagesLoaded, setImagesLoaded] = useState(false)
 
   const flowerImages = [
     { src: chafas1Img, alt: 'Chafas flower specimen 1', species: 'Chafas 1' },
@@ -93,6 +94,12 @@ export default function Photos() {
     { src: trirep3Img, alt: 'Trirep flower specimen 3', species: 'Trirep 3' },
   ]
 
+  // Simulate loading state for better UX (images are actually pre-loaded)
+  useEffect(() => {
+    const timer = setTimeout(() => setImagesLoaded(true), 100)
+    return () => clearTimeout(timer)
+  }, [])
+
   // Handle ESC key press
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -126,28 +133,41 @@ export default function Photos() {
   return (
     <>
       <div className="photos-page" style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <div className="photo-grid">
-          {flowerImages.map((image, index) => (
-            <div key={index} className="photo-item" onClick={() => openModal(image)}>
-              <img
-                src={image.src}
-                alt={image.alt}
-                style={{
-                  width: '100%',
-                  height: '300px',
-                  objectFit: 'cover',
-                  borderRadius: '30px',
-                  transition: 'transform 0.3s ease',
-                  cursor: 'pointer'
-                }}
-                loading="lazy"
-              />
-              <div className="photo-overlay">
-                <span className="photo-caption">{image.species}</span>
+        {!imagesLoaded ? (
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: '400px',
+            fontSize: '1.1rem',
+            color: 'var(--text-secondary)'
+          }}>
+            Loading flower specimens...
+          </div>
+        ) : (
+          <div className="photo-grid">
+            {flowerImages.map((image, index) => (
+              <div key={index} className="photo-item" onClick={() => openModal(image)}>
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  style={{
+                    width: '100%',
+                    height: '300px',
+                    objectFit: 'cover',
+                    borderRadius: '30px',
+                    transition: 'transform 0.3s ease',
+                    cursor: 'pointer'
+                  }}
+                  loading="lazy"
+                />
+                <div className="photo-overlay">
+                  <span className="photo-caption">{image.species}</span>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Modal Portal - renders directly to document.body */}

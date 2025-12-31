@@ -15,16 +15,16 @@ export default function Contact() {
         <div className="contact-grid-wrapper">
           {/* Decorative flower specimens */}
           <div className="flower-specimen flower-top-left">
-            <img src={chafas3} alt="Pressed flower specimen" />
+            <img src={chafas3} alt="Pressed flower specimen" loading="lazy" />
           </div>
           <div className="flower-specimen flower-top-right">
-            <img src={erycar8} alt="Pressed flower specimen" />
+            <img src={erycar8} alt="Pressed flower specimen" loading="lazy" />
           </div>
           <div className="flower-specimen flower-bottom-left">
-            <img src={trirep1} alt="Pressed flower specimen" />
+            <img src={trirep1} alt="Pressed flower specimen" loading="lazy" />
           </div>
           <div className="flower-specimen flower-bottom-right">
-            <img src={esccal4} alt="Pressed flower specimen" />
+            <img src={esccal4} alt="Pressed flower specimen" loading="lazy" />
           </div>
           
           <div className="contact-grid">
