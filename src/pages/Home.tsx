@@ -1,42 +1,152 @@
 import { Link } from 'react-router-dom'
+import { useEffect, useCallback, useState } from 'react'
 import '../styles/home.css'
 
+// Import background flower image
+import rubhir3 from '../assets/flowers/rubhir_3.png'
+
+// Import research images
+import genomicsImg from '../assets/research/genomics.png'
+import droughtImg from '../assets/research/drought.webp'
+import latitudeImg from '../assets/research/latitude.webp'
+
 export default function Home() {
+  // State for WordPress pages (blog uses pages instead of posts)
+  const [wpPages, setWpPages] = useState<any[]>([])
+  const [wpLoading, setWpLoading] = useState(true)
+  const [wpError, setWpError] = useState<string | null>(null)
+
+  // Calculate width-based opacity based on current screen width
+  const getWidthBasedOpacity = useCallback((width: number): number => {
+    if (width <= 500) return 0.20;
+    if (width <= 650) return 0.25;
+    if (width <= 825) return 0.35;
+    if (width <= 1100) return 0.60;
+    if (width <= 1250) return 0.90;
+    return 1.0; // Large screens
+  }, []);
+
+  // Handle scroll-based opacity changes
+  const handleScrollOpacity = useCallback(() => {
+    const flowerElement = document.querySelector('.overgrown-specimen') as HTMLElement;
+    if (!flowerElement) return;
+
+    const scrolled = window.pageYOffset;
+    const maxScroll = Math.max(
+      document.documentElement.scrollHeight - window.innerHeight,
+      1 // Prevent division by zero
+    );
+
+    // Calculate scroll progress (0 at top, 1 at bottom)
+    const scrollProgress = Math.min(scrolled / maxScroll, 1);
+
+    // Calculate scroll-based opacity (1.0 at top, 0.3 at bottom)
+    const scrollOpacity = 1 - (scrollProgress * 0.7);
+
+    // Get current width-based opacity
+    const widthOpacity = getWidthBasedOpacity(window.innerWidth);
+
+    // Apply multiplicative opacity (scroll opacity is always <= width opacity)
+    const finalOpacity = widthOpacity * scrollOpacity;
+
+    // Apply the opacity with smooth transition
+    flowerElement.style.opacity = finalOpacity.toString();
+  }, [getWidthBasedOpacity]);
+
+  // Set up scroll listener and initial opacity
+  useEffect(() => {
+    // Set initial opacity
+    handleScrollOpacity();
+
+    // Add scroll listener with passive option for better performance
+    window.addEventListener('scroll', handleScrollOpacity, { passive: true });
+
+    // Also listen for resize events to recalculate width-based opacity
+    const handleResize = () => {
+      handleScrollOpacity();
+    };
+
+    window.addEventListener('resize', handleResize, { passive: true });
+
+    // Cleanup listeners
+    return () => {
+      window.removeEventListener('scroll', handleScrollOpacity);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [handleScrollOpacity]);
+
+  // Fetch recent WordPress pages (blog uses pages instead of posts)
+  const fetchWpPosts = useCallback(async () => {
+    try {
+      setWpLoading(true)
+      const response = await fetch(
+        'https://public-api.wordpress.com/wp/v2/sites/dnanstett.wordpress.com/pages?per_page=5&_embed&orderby=modified&order=desc'
+      )
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch pages: ${response.status}`)
+      }
+
+      const pages = await response.json()
+      // Filter out the "Home" page since it's just the main landing page
+      const filteredPages = pages.filter((page: any) =>
+        page.slug !== 'about' && page.slug !== 'home' && page.slug !== ''
+      ).slice(0, 3) // Take only first 3
+
+      setWpPages(filteredPages)
+      setWpError(null)
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Unknown error'
+      setWpError(message)
+      console.error('Failed to fetch WordPress pages:', err)
+    } finally {
+      setWpLoading(false)
+    }
+  }, [])
+
+  // Load WordPress posts on component mount
+  useEffect(() => {
+    fetchWpPosts()
+  }, [fetchWpPosts])
+
+  // Load the publication widget script for recent publications
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://pubsync.christopher-a-talbot.workers.dev/widget.js';
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup script when component unmounts
+      const existingScript = document.querySelector('script[src="https://pubsync.christopher-a-talbot.workers.dev/widget.js"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, []);
+
   return (
     <div className="home-wrapper">
-      {/* Decorative botanical elements */}
-      <div className="botanical-bg botanical-left"></div>
-      <div className="botanical-bg botanical-right"></div>
-      
-      {/* Hero Section with Magnifying Glass */}
+      {/* Large overgrown specimen background */}
+      <div className="overgrown-specimen">
+        <img src={rubhir3} alt="Large pressed flower specimen" />
+      </div>
+
+      {/* Hero Section - Herbarium Display */}
       <section className="hero-section">
         <div className="container">
           <div className="hero-content">
-            <div className="magnifying-glass-wrapper">
-              <div className="magnifying-glass">
-                <div className="glass-rim">
-                  <div className="specimen-view">
-                    <div className="specimen-image"></div>
-                    <div className="specimen-label">
-                      <span className="label-text">SPECIMEN: <em>Arabidopsis thaliana</em></span>
-                      <span className="label-text">LOCATION: <em>Latitudinal Gradient</em></span>
-                      <span className="label-text">DATE: <em>2024</em></span>
-                    </div>
-                  </div>
-                </div>
-                <div className="glass-handle"></div>
-              </div>
-              <div className="mounted-slides-label">mounted slides</div>
+            {/* Empty space for flower head */}
+            <div className="specimen-display">
             </div>
             
             <div className="hero-text">
               <h2 className="hero-title">
-                <span className="title-word">Evolution</span>{' '}
-                <span className="title-word">in real time.</span>
+                <span className="title-word">Evolutionary ecology</span>{' '}
+                <span className="title-word">of change.</span>
               </h2>
               <p className="hero-subtitle">
-                Tracking rapid adaptation and biodiversity in a changing climate<br />
-                through biological collections and modern genomics.
+                We study rapid adaptation in plants across space and time to understand when evolution can rescue populations from environmental extremes—and when it can&apos;t.
               </p>
               <Link to="/research" className="btn btn-hero">
                 View Current Research
@@ -46,90 +156,150 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Expertise & Exploration Section */}
+      {/* Research Section */}
       <section className="expertise-section">
         <div className="container">
-          <h2 className="section-title">Expertise & Exploration</h2>
+          <h3 className="section-title">Research</h3>
           
           <div className="expertise-grid">
-            {/* Biology Box */}
-            <div className="expertise-box">
+            {/* Landscape genomics Box */}
+            <Link to="/research" className="expertise-box sticky-note">
               <div className="expertise-icon">
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M50 20 L50 80 M35 35 L50 20 L65 35" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M30 50 C30 50, 35 45, 40 50 C45 55, 45 60, 40 65 C35 70, 30 70, 30 70" stroke="currentColor" strokeWidth="2.5" fill="none"/>
-                  <path d="M70 50 C70 50, 65 45, 60 50 C55 55, 55 60, 60 65 C65 70, 70 70, 70 70" stroke="currentColor" strokeWidth="2.5" fill="none"/>
-                  <ellipse cx="50" cy="72" rx="8" ry="4" fill="var(--brown-medium)" opacity="0.3"/>
-                </svg>
+                <img src={genomicsImg} alt="Landscape genomics" className="expertise-flower" />
               </div>
-              <h3 className="expertise-title">Biology</h3>
-              <div className="expertise-label">
-                <span>Landscape Genomics</span>
-                <span>& Rapid Evolution</span>
-              </div>
+              <h3 className="expertise-title">Landscape genomics</h3>
+              <p className="sticky-subtitle">How do landscapes shape genetic diversity and adaptation?</p>
+            </Link>
+            
+            {/* Empty Box - Invisible */}
+            <div className="expertise-box expertise-box-invisible">
             </div>
             
-            {/* Herbarium Box */}
-            <div className="expertise-box">
+            {/* Rapid evolution Box */}
+            <Link to="/research" className="expertise-box sticky-note">
               <div className="expertise-icon">
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="25" y="15" width="50" height="70" stroke="currentColor" strokeWidth="2.5" fill="none"/>
-                  <line x1="30" y1="15" x2="30" y2="85" stroke="currentColor" strokeWidth="2"/>
-                  <rect x="35" y="25" width="30" height="15" fill="var(--green-sage)" opacity="0.4"/>
-                  <rect x="35" y="45" width="30" height="15" fill="var(--green-sage)" opacity="0.4"/>
-                  <rect x="35" y="65" width="30" height="8" fill="var(--brown-medium)" opacity="0.3"/>
-                  <line x1="38" y1="30" x2="62" y2="30" stroke="currentColor" strokeWidth="1.5"/>
-                  <line x1="38" y1="35" x2="62" y2="35" stroke="currentColor" strokeWidth="1.5"/>
-                  <line x1="38" y1="50" x2="62" y2="50" stroke="currentColor" strokeWidth="1.5"/>
-                  <line x1="38" y1="55" x2="62" y2="55" stroke="currentColor" strokeWidth="1.5"/>
-                </svg>
+                <img src={droughtImg} alt="Rapid evolution" className="expertise-flower" />
               </div>
-              <h3 className="expertise-title">Herbarium</h3>
-              <div className="expertise-label">
-                <span>Historical</span>
-                <span>Herbarium Collections</span>
+              <h3 className="expertise-title">Rapid evolution</h3>
+              <p className="sticky-subtitle">Can plants adapt fast enough to survive climate extremes?</p>
+            </Link>
+            
+            {/* Latitudinal gradients Box */}
+            <Link to="/research" className="expertise-box sticky-note">
+              <div className="expertise-icon">
+                <img src={latitudeImg} alt="Latitudinal gradients" className="expertise-flower" />
+              </div>
+              <h3 className="expertise-title">Latitudinal gradients</h3>
+              <p className="sticky-subtitle">How do plant defenses vary across latitudes?</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Recent Publications */}
+      <section className="publications-section">
+        <div className="container">
+          <div className="publications-widget-wrapper">
+            <div
+              data-lab-id="cmjrx405l00025j35c0ge1824"
+              data-api-url="https://pubsyncio-production.up.railway.app"
+              data-theme="auto"
+              data-widget-type="recent"
+              data-max-items="5"
+              data-max-height="1100px"
+              data-see-all-url="https://anstettlab.chris-a-talbot.com/publications"
+              data-see-all-text="View all publications"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Recent Updates from WordPress Blog */}
+      <section className="blog-section">
+        <div className="container">
+          <h3 className="section-title">RECENT UPDATES</h3>
+          <div className="blog-posts-wrapper">
+            {wpLoading ? (
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+                Loading recent updates…
+              </p>
+            ) : wpError ? (
+              <p style={{ color: '#c44536', fontSize: '0.9rem' }}>
+                Unable to load recent updates
+              </p>
+            ) : wpPages.length > 0 ? (
+              <div className="blog-posts-grid">
+                {wpPages.map((post) => (
+                  <article key={post.id} className="blog-post-card">
+                    <h4 className="blog-post-title">
+                      <a
+                        href={post.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="blog-post-link"
+                      >
+                        {post.title?.rendered || 'Untitled Post'}
+                      </a>
+                    </h4>
+                    <div
+                      className="blog-post-excerpt"
+                      dangerouslySetInnerHTML={{
+                        __html: post.excerpt?.rendered || post.content?.rendered?.substring(0, 150) + '...' || ''
+                      }}
+                    />
+                    <time
+                      className="blog-post-date"
+                      dateTime={post.date}
+                    >
+                      {new Date(post.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })}
+                    </time>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+                No recent updates found
+              </p>
+            )}
+            <div className="blog-view-all">
+              <a
+                href="https://dnanstett.wordpress.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="blog-link"
+              >
+                View all updates →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Panel */}
+      <section className="contact-panel">
+        <div className="container">
+          <div className="contact-content">
+            <h3 className="contact-title">Get in Touch</h3>
+            <p className="contact-description">
+              We welcome inquiries from prospective students, collaborators, and anyone interested in our research.
+            </p>
+            <div className="contact-details">
+              <div className="contact-item">
+                <strong>Email:</strong>{' '}
+                <span className="contact-email">dna38[at]cornell.edu</span>
+              </div>
+              <div className="contact-item">
+                School of Integrative Plant Science, Cornell University
               </div>
             </div>
-            
-            {/* SciComm Box */}
-            <div className="expertise-box">
-              <div className="expertise-icon">
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="20" y="25" width="60" height="50" stroke="currentColor" strokeWidth="2.5" fill="none"/>
-                  <line x1="25" y1="35" x2="75" y2="35" stroke="currentColor" strokeWidth="2"/>
-                  <line x1="25" y1="45" x2="70" y2="45" stroke="currentColor" strokeWidth="1.5"/>
-                  <line x1="25" y1="52" x2="68" y2="52" stroke="currentColor" strokeWidth="1.5"/>
-                  <line x1="25" y1="59" x2="72" y2="59" stroke="currentColor" strokeWidth="1.5"/>
-                  <line x1="25" y1="66" x2="65" y2="66" stroke="currentColor" strokeWidth="1.5"/>
-                  <path d="M65 30 L70 25 L75 30 L70 20" stroke="currentColor" strokeWidth="2" fill="var(--tan-dark)"/>
-                </svg>
-              </div>
-              <h3 className="expertise-title">SciComm</h3>
-              <div className="expertise-label">
-                <span>Science</span>
-                <span>Communication & Education</span>
-              </div>
-            </div>
-            
-            {/* Web Design Box */}
-            <div className="expertise-box">
-              <div className="expertise-icon">
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="20" y="30" width="60" height="45" stroke="currentColor" strokeWidth="2.5" fill="none" rx="2"/>
-                  <line x1="20" y1="40" x2="80" y2="40" stroke="currentColor" strokeWidth="2.5"/>
-                  <text x="30" y="55" fill="currentColor" fontSize="20" fontFamily="monospace">&lt;/&gt;</text>
-                  <circle cx="25" cy="35" r="1.5" fill="currentColor"/>
-                  <circle cx="30" cy="35" r="1.5" fill="currentColor"/>
-                  <circle cx="35" cy="35" r="1.5" fill="currentColor"/>
-                  <path d="M50 70 L50 85 M45 82 L50 87 L55 82" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                  <ellipse cx="50" cy="88" rx="15" ry="3" fill="var(--brown-medium)" opacity="0.3"/>
-                </svg>
-              </div>
-              <h3 className="expertise-title">Web Design</h3>
-              <div className="expertise-label">
-                <span>Biological Data &</span>
-                <span>Web Development</span>
-              </div>
+            <div className="contact-cta">
+              <Link to="/contact" className="contact-full-link">
+                View full contact information →
+              </Link>
             </div>
           </div>
         </div>

@@ -1,0 +1,398 @@
+/* People Page Styles - Archival Theme with Flowers */
+
+.people-page {
+  padding: 4rem 0 5rem;
+  background-color: rgba(255,255,255,0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Corner decorative flower */
+.corner-flower {
+  position: absolute;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 1.0;
+  transition: opacity 0.3s ease;
+}
+
+.corner-flower img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: sepia(0.35) brightness(0.75) contrast(1.2);
+}
+
+/* Top right corner flower */
+.corner-top-right {
+  top: -375px;
+  right: -170px;
+  width: 600px;
+  height: 750px;
+  transform: rotate(145deg);
+}
+
+/* Bottom right corner flower */
+.corner-bottom-right {
+  bottom: -375px;
+  right: -170px;
+  width: 600px;
+  height: 750px;
+  transform: rotate(310deg);
+}
+
+.page-title {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  color: var(--ink-black);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border-bottom: 2px solid rgba(180, 160, 120, 0.5);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 40%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.6), transparent);
+}
+
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--ink-black);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: -14rem 0 2rem;
+  padding-bottom: 0.75rem;
+  position: relative;
+  z-index: 200;
+}
+
+/* Staggered/stepped two-column layout */
+.people-grid {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Person card with staggered positioning */
+.person-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  margin-bottom: 3rem;
+}
+
+/* Left column cards */
+.person-card.left-column {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Right column cards */
+.person-card.right-column {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Create the staggered offset effect - each card starts 2/3 down from previous */
+.person-card:not(:first-child) {
+  margin-top: -12rem;
+}
+
+/* Flower in empty space - positioned absolutely, peeking from sides */
+.person-flower {
+  position: absolute;
+  width: 500px;
+  height: 650px;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 1.0;
+  transition: opacity 0.3s ease;
+}
+
+.person-flower img {
+  width: 100%;
+  height: 100%;
+  opacity: 0.95;
+  object-fit: contain;
+  filter: sepia(0.35) brightness(0.75) contrast(1.2);
+}
+
+/* Left column: flowers peek from LEFT side into the gap on the right */
+.left-column .person-flower {
+  left: -250px;
+  top: 0;
+  transform: translateY(-30%);
+}
+
+/* Right column: flowers peek from RIGHT side into the gap on the left */
+.right-column .person-flower {
+  right: -250px;
+  top: 0;
+  transform: translateY(-30%);
+}
+
+/* Person content (photo + info) */
+.person-content {
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(135deg, rgba(254, 253, 251, 0.98) 0%, rgba(249, 247, 242, 0.95) 100%);
+  border: 2px solid rgba(180, 160, 120, 0.6);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 
+    0 2px 4px rgba(0,0,0,0.05),
+    0 4px 8px rgba(139, 149, 116, 0.15),
+    0 8px 16px rgba(139, 149, 116, 0.22),
+    0 16px 32px rgba(139, 149, 116, 0.28);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.left-column .person-content {
+  transform: rotate(-0.8deg);
+}
+
+.right-column .person-content {
+  transform: rotate(0.6deg);
+}
+
+.person-content:hover {
+  transform: rotate(0deg) translateY(-5px);
+  box-shadow: 
+    0 4px 8px rgba(0,0,0,0.06),
+    0 8px 16px rgba(139, 149, 116, 0.20),
+    0 12px 24px rgba(139, 149, 116, 0.28),
+    0 20px 40px rgba(139, 149, 116, 0.35);
+}
+
+/* Person photo */
+.person-photo {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border: 2px solid var(--ink-black);
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+}
+
+.person-photo-placeholder {
+  width: 180px;
+  height: 180px;
+  background-color: #e8e8e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: #999;
+  border: 2px solid var(--ink-black);
+  margin-bottom: 1.5rem;
+}
+
+/* Person info */
+.person-info {
+  width: 100%;
+}
+
+.person-name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--ink-black);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.person-role {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink-brown);
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.person-bio {
+  font-family: var(--font-body);
+  line-height: 1.7;
+  color: var(--ink-brown);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.person-links {
+  margin-top: 1rem;
+  line-height: 2;
+}
+
+.person-links a {
+  color: var(--ink-black);
+  text-decoration: underline;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-decoration-color: rgba(180, 160, 120, 0.5);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+
+.person-links a:hover {
+  text-decoration-color: var(--ink-black);
+  text-decoration-thickness: 2px;
+}
+
+/* Size-dependent flower opacity - higher on large screens, very low on small */
+@media (min-width: 1201px) {
+  .person-flower,
+  .corner-flower {
+    opacity: 1.0;
+  }
+}
+
+/* Responsive - single column on smaller screens with flowers behind at low opacity */
+@media (max-width: 1200px) {
+  .person-card {
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .person-card:not(:first-child) {
+    margin-top: 0;
+  }
+  
+  /* Move flowers on top with high z-index but low opacity */
+  .person-flower {
+    opacity: 0.22;
+    z-index: 10000;
+  }
+  
+  /* Apply same opacity to corner flowers */
+  .corner-flower {
+    opacity: 0.35;
+  }
+  
+  /* Position flowers horizontally centered, 2/3 down vertically */
+  .left-column .person-flower,
+  .right-column .person-flower {
+    left: 50% !important;
+    right: auto !important;
+    top: 66% !important;
+    transform: translate(-50%, -50%) rotate(var(--flower-rotation, 0deg)) !important;
+    width: 550px;
+    height: 700px;
+  }
+  
+  .person-content {
+    z-index: 10;
+  }
+  
+  /* Move Lab Companions section back down to prevent overlap */
+  .section-heading {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .person-flower,
+  .corner-flower {
+    opacity: 0.25;
+  }
+  
+  .person-flower {
+    width: 400px;
+    height: 550px;
+  }
+}
+
+@media (max-width: 768px) {
+  .people-page {
+    padding: 3rem 0 4rem;
+  }
+  
+  .page-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .person-content {
+    padding: 1.5rem;
+  }
+  
+  .person-photo,
+  .person-photo-placeholder {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .person-flower,
+  .corner-flower {
+    opacity: 0.18;
+  }
+  
+  .person-flower {
+    width: 350px;
+    height: 500px;
+  }
+  
+  .person-name {
+    font-size: 1.25rem;
+  }
+  
+  .person-bio {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .person-flower,
+  .corner-flower {
+    opacity: 0.15;
+  }
+  
+  .person-flower {
+    width: 320px;
+    height: 470px;
+  }
+}
+
+@media (max-width: 480px) {
+  .person-content {
+    padding: 1.25rem;
+  }
+  
+  .person-photo,
+  .person-photo-placeholder {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .person-flower,
+  .corner-flower {
+    opacity: 0.12;
+  }
+  
+  .person-flower {
+    width: 300px;
+    height: 450px;
+  }
+}
+

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import '../styles/publications.css';
 
 export default function Publications() {
   useEffect(() => {
@@ -18,21 +19,25 @@ export default function Publications() {
   }, []);
 
   return (
-    <div
-      data-lab-id="cmjrx405l00025j35c0ge1824"
-      data-api-url="https://pubsyncio-production.up.railway.app"
-      data-theme="auto"
-      data-max-items="25"
-      data-group-by="year"
-      data-show-citations="true"
-      data-show-abstracts="false"
-      data-max-abstract-length="150"
-      data-separate-highlighted-section="false"
-      data-highlighted-section-title="Featured Publications"
-      data-author-highlighting-enabled="true"
-      data-max-authors-displayed="10"
-      data-show-author-legend="top"
-    />
+    <div className="publications-page">
+      <div
+        data-lab-id="cmjrx405l00025j35c0ge1824"
+        data-api-url="https://pubsyncio-production.up.railway.app"
+        data-theme="auto"
+        data-widget-type="full"
+        data-max-items="250"
+        data-group-by="none"
+        data-show-citations="true"
+        data-show-abstracts="false"
+        data-max-abstract-length="150"
+        data-separate-highlighted-section="false"
+        data-highlighted-section-title="Featured Publications"
+        data-author-highlighting-enabled="true"
+        data-max-authors-displayed="4"
+        data-show-author-legend="bottom"
+        data-google-scholar-url="https://scholar.google.com/citations?user=9vyKmwIAAAAJ&hl=en&oi=ao"
+      ></div>
+    </div>
   );
 }
 

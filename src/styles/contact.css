@@ -1,0 +1,506 @@
+/* Contact Page Styles - Archival Theme */
+
+.contact-wrapper {
+  padding: 4rem 0 5rem;
+  background-color: rgba(255,255,255,0.7);
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100vh - 200px);
+}
+
+/* Contact Grid Wrapper - Contains grid and flower decorations */
+.contact-grid-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Decorative Flower Specimens */
+.flower-specimen {
+  position: absolute;
+  pointer-events: none;
+  z-index: 100000;
+  opacity: 0.28;
+  transition: opacity 0.3s ease;
+}
+
+.flower-specimen img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: sepia(0.35) brightness(0.75) contrast(1.2);
+}
+
+/* Top left corner - chafas_3 at 45 degrees */
+.flower-top-left {
+  top: -480px;
+  left: -300px;
+  width: 550px;
+  height: 700px;
+  transform: rotate(45deg);
+  transform-origin: center center;
+}
+
+/* Top right corner - erycar_8 at 100 degrees */
+.flower-top-right {
+  top: -400px;
+  right: -400px;
+  width: 600px;
+  height: 750px;
+  transform: rotate(100deg);
+  transform-origin: center center;
+}
+
+/* Bottom left corner - trirep_1 at 300 degrees */
+.flower-bottom-left {
+  bottom: -300px;
+  left: -300px;
+  width: 550px;
+  height: 700px;
+  transform: rotate(300deg);
+  transform-origin: center center;
+}
+
+/* Bottom right corner - esccal_4 at 220 degrees */
+.flower-bottom-right {
+  bottom: -300px;
+  right: -300px;
+  width: 600px;
+  height: 750px;
+  transform: rotate(220deg);
+  transform-origin: center center;
+}
+
+/* Responsive sizing - scale down flowers on smaller screens */
+@media (max-width: 1200px) {
+  /* Scale down flowers slightly */
+  .flower-top-left {
+    width: 500px;
+    height: 650px;
+    left: -250px;
+    top: -430px;
+  }
+  
+  .flower-top-right {
+    width: 550px;
+    height: 700px;
+    right: -350px;
+    top: -350px;
+  }
+  
+  .flower-bottom-left {
+    width: 500px;
+    height: 650px;
+    left: -250px;
+    bottom: -250px;
+  }
+  
+  .flower-bottom-right {
+    width: 550px;
+    height: 700px;
+    right: -250px;
+    bottom: -250px;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Further scale down */
+  .flower-top-left {
+    width: 450px;
+    height: 600px;
+    left: -220px;
+    top: -400px;
+  }
+  
+  .flower-top-right {
+    width: 500px;
+    height: 650px;
+    right: -320px;
+    top: -320px;
+  }
+  
+  .flower-bottom-left {
+    width: 450px;
+    height: 600px;
+    left: -220px;
+    bottom: -220px;
+  }
+  
+  .flower-bottom-right {
+    width: 500px;
+    height: 650px;
+    right: -220px;
+    bottom: -220px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Smaller on tablets */
+  .flower-top-left {
+    width: 400px;
+    height: 550px;
+    left: -200px;
+    top: -360px;
+  }
+  
+  .flower-top-right {
+    width: 450px;
+    height: 600px;
+    right: -280px;
+    top: -280px;
+  }
+  
+  .flower-bottom-left {
+    width: 400px;
+    height: 550px;
+    left: -200px;
+    bottom: -200px;
+  }
+  
+  .flower-bottom-right {
+    width: 450px;
+    height: 600px;
+    right: -200px;
+    bottom: -200px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Even smaller on mobile */
+  .flower-top-left {
+    width: 350px;
+    height: 500px;
+    left: -180px;
+    top: -330px;
+  }
+  
+  .flower-top-right {
+    width: 400px;
+    height: 550px;
+    right: -250px;
+    top: -250px;
+  }
+  
+  .flower-bottom-left {
+    width: 350px;
+    height: 500px;
+    left: -180px;
+    bottom: -180px;
+  }
+  
+  .flower-bottom-right {
+    width: 400px;
+    height: 550px;
+    right: -180px;
+    bottom: -180px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Very subtle on small mobile */
+  .flower-top-left {
+    width: 300px;
+    height: 450px;
+    left: -160px;
+    top: -300px;
+  }
+  
+  .flower-top-right {
+    width: 350px;
+    height: 500px;
+    right: -220px;
+    top: -220px;
+  }
+  
+  .flower-bottom-left {
+    width: 300px;
+    height: 450px;
+    left: -160px;
+    bottom: -160px;
+  }
+  
+  .flower-bottom-right {
+    width: 350px;
+    height: 500px;
+    right: -160px;
+    bottom: -160px;
+  }
+}
+
+.page-title {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  color: var(--ink-black);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border-bottom: 2px solid rgba(180, 160, 120, 0.5);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 40%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.6), transparent);
+}
+
+/* Contact Grid - Specimen Card Layout */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Contact Cards - Herbarium Specimen Card Style */
+.contact-card {
+  background: linear-gradient(135deg, rgba(254, 253, 251, 0.98) 0%, rgba(249, 247, 242, 0.95) 100%);
+  border: 2px solid rgba(180, 160, 120, 0.6);
+  border-radius: 2px;
+  padding: 2rem;
+  box-shadow: 
+    2px 2px 0 rgba(0,0,0,0.05),
+    4px 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  transform: rotate(0deg);
+}
+
+/* Removed paper clip effects for cleaner look */
+
+/* Slight rotation for variety */
+.contact-card:nth-child(1) {
+  transform: rotate(-0.8deg);
+}
+
+.contact-card:nth-child(2) {
+  transform: rotate(0.6deg);
+}
+
+.contact-card:nth-child(3) {
+  transform: rotate(-0.5deg);
+}
+
+.contact-card:nth-child(4) {
+  transform: rotate(0.4deg);
+}
+
+.contact-card:hover {
+  transform: rotate(0deg) translateY(-5px) scale(1.01);
+  box-shadow: 
+    0 4px 0 rgba(0,0,0,0.05),
+    0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Card Title - Archival Label Style */
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--ink-black);
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid rgba(180, 160, 120, 0.3);
+  padding-bottom: 0.75rem;
+}
+
+/* Card Text */
+.card-text {
+  font-family: var(--font-body);
+  line-height: 1.7;
+  color: var(--ink-brown);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Address Content */
+.address-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.address-line {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--ink-brown);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.address-line.lab-name {
+  margin-bottom: 0.5rem;
+}
+
+.address-line.lab-name strong {
+  color: var(--ink-black);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+
+/* Email Section within Get in Touch card */
+.email-section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(180, 160, 120, 0.3);
+  display: flex;
+  justify-content: center;
+}
+
+.email-link {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--ink-black);
+  text-decoration: none;
+  background-color: rgba(244, 241, 234, 0.6);
+  padding: 0.65rem 1rem;
+  border-radius: 2px;
+  border: 1px dashed rgba(180, 160, 120, 0.5);
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.email-link:hover {
+  background-color: rgba(244, 241, 234, 0.9);
+  border-color: rgba(180, 160, 120, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Contact Link */
+.contact-link {
+  color: var(--ink-black);
+  text-decoration: underline;
+  text-decoration-color: rgba(180, 160, 120, 0.5);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+
+.contact-link:hover {
+  text-decoration-color: var(--ink-black);
+  text-decoration-thickness: 2px;
+}
+
+/* Special Card Layouts */
+.intro-card {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.address-card {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.students-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(255, 250, 235, 0.98) 0%, rgba(255, 252, 245, 0.95) 100%);
+  position: relative;
+  overflow: visible;
+  z-index: 1000001;
+  opacity: 0.99;
+}
+
+.students-card .card-title {
+  position: relative;
+  display: inline-block;
+}
+
+/* Yellow underline highlight on the title */
+.students-card .card-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+  width: calc(100% + 8px);
+  height: 8px;
+  background: rgba(255, 220, 150, 0.4);
+  z-index: -1;
+}
+
+.students-card:hover {
+  transform: rotate(0deg) translateY(-5px) scale(1.01);
+  box-shadow: 
+    0 6px 0 rgba(0,0,0,0.05),
+    0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact-wrapper {
+    padding: 3rem 0 4rem;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .intro-card,
+  .address-card,
+  .students-card {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-card {
+    padding: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.1rem;
+  }
+  
+  .card-text,
+  .address-line {
+    font-size: 0.875rem;
+  }
+  
+  .email-link {
+    font-size: 1rem;
+    padding: 0.65rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-wrapper {
+    padding: 2rem 0 3rem;
+  }
+  
+  .contact-grid {
+    gap: 1.5rem;
+  }
+  
+  .page-title {
+    font-size: 1.3rem;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-card {
+    padding: 1.25rem;
+  }
+}
+

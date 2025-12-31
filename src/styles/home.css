@@ -5,30 +5,63 @@
   overflow: hidden;
 }
 
-/* Decorative Botanical Background Elements */
-.botanical-bg {
+/* Large Overgrown Specimen Background */
+.overgrown-specimen {
   position: absolute;
-  width: 400px;
-  height: 400px;
-  opacity: 0.08;
+  bottom: 0; /* Anchor to bottom so roots touch the footer */
+  left: 60%;
+  transform: translateX(-50%) rotate(-118deg);
+  height: 3000px; /* Fixed height - never changes regardless of screen size */
+  width: auto; /* Width scales with height maintaining aspect ratio */
+  max-width: none;
+  z-index: 99999;
   pointer-events: none;
-  background-size: contain;
-  background-repeat: no-repeat;
-  z-index: 0;
+  opacity: 1.0; /* Full opacity on large screens */
+  transition: opacity 0.3s ease; /* Smooth transition for width-based opacity changes */
 }
 
-.botanical-left {
-  top: 10%;
-  left: -100px;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100 180 Q80 140 100 100 Q120 60 100 20' stroke='%233d3328' fill='none' stroke-width='2'/%3E%3Cellipse cx='80' cy='140' rx='25' ry='15' fill='%233d3328' opacity='0.3' transform='rotate(-30 80 140)'/%3E%3Cellipse cx='120' cy='120' rx='20' ry='12' fill='%233d3328' opacity='0.3' transform='rotate(20 120 120)'/%3E%3Cellipse cx='85' cy='100' rx='22' ry='14' fill='%233d3328' opacity='0.3' transform='rotate(-20 85 100)'/%3E%3Cellipse cx='115' cy='80' rx='18' ry='11' fill='%233d3328' opacity='0.3' transform='rotate(25 115 80)'/%3E%3Cellipse cx='90' cy='60' rx='20' ry='13' fill='%233d3328' opacity='0.3' transform='rotate(-15 90 60)'/%3E%3Cellipse cx='110' cy='40' rx='16' ry='10' fill='%233d3328' opacity='0.3' transform='rotate(20 110 40)'/%3E%3C/svg%3E");
-  transform: rotate(-15deg);
+.overgrown-specimen img {
+  height: 100%;
+  width: auto;
+  display: block;
+  filter: sepia(0.35) brightness(0.75) contrast(1.2);
 }
 
-.botanical-right {
-  top: 40%;
-  right: -100px;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100 20 Q120 60 100 100 Q80 140 100 180' stroke='%233d3328' fill='none' stroke-width='2'/%3E%3Cellipse cx='120' cy='60' rx='25' ry='15' fill='%233d3328' opacity='0.3' transform='rotate(30 120 60)'/%3E%3Cellipse cx='80' cy='80' rx='20' ry='12' fill='%233d3328' opacity='0.3' transform='rotate(-20 80 80)'/%3E%3Cellipse cx='115' cy='100' rx='22' ry='14' fill='%233d3328' opacity='0.3' transform='rotate(20 115 100)'/%3E%3Cellipse cx='85' cy='120' rx='18' ry='11' fill='%233d3328' opacity='0.3' transform='rotate(-25 85 120)'/%3E%3Cellipse cx='110' cy='140' rx='20' ry='13' fill='%233d3328' opacity='0.3' transform='rotate(15 110 140)'/%3E%3Cellipse cx='90' cy='160' rx='16' ry='10' fill='%233d3328' opacity='0.3' transform='rotate(-20 90 160)'/%3E%3C/svg%3E");
-  transform: rotate(15deg);
+/* Responsive opacity - reduce on smaller screens for better content visibility */
+@media (max-width: 1250px) {
+  .overgrown-specimen {
+    opacity: 0.90; /* Slightly reduced for tablets */
+  }
+}
+
+@media (max-width: 1100px) {
+  .overgrown-specimen {
+    opacity: 0.60; /* Slightly reduced for tablets */
+  }
+}
+
+@media (max-width: 825px) {
+  .overgrown-specimen {
+    opacity: 0.35; /* More transparent on smaller tablets */
+  }
+}
+
+@media (max-width: 650px) {
+  .overgrown-specimen {
+    opacity: 0.25; /* Target opacity for mobile */
+  }
+}
+
+@media (max-width: 500px) {
+  .overgrown-specimen {
+    opacity: 0.20; /* Even more transparent on very small screens */
+  }
+}
+
+/* Home Page Container - Height matches flower height exactly */
+.home-wrapper {
+  min-height: 3200px; /* Must match flower height exactly for proper scrolling */
+  position: relative;
 }
 
 /* Hero Section */
@@ -45,113 +78,89 @@
   align-items: center;
 }
 
-/* Magnifying Glass */
-.magnifying-glass-wrapper {
+/* Herbarium Specimen Display */
+.specimen-display {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.magnifying-glass {
-  position: relative;
-  width: 450px;
-  height: 450px;
-}
-
-.glass-rim {
-  width: 350px;
-  height: 350px;
-  border: 12px solid var(--brown-text);
-  border-radius: 50%;
-  background-color: var(--white-off);
+.specimen-sheet {
+  background-color: rgba(254, 253, 251, 0.95);
+  border: 2px solid var(--brown-text);
+  padding: 2.5rem;
   box-shadow: 
-    inset 0 0 20px rgba(0,0,0,0.1),
-    0 10px 30px rgba(0,0,0,0.15);
-  overflow: hidden;
+    4px 4px 0 rgba(0,0,0,0.1),
+    8px 8px 20px rgba(0,0,0,0.15);
+  max-width: 450px;
   position: relative;
-  transform: rotate(-15deg);
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
 }
 
-.specimen-view {
+.specimen-sheet:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.specimen-image-wrapper {
   width: 100%;
-  height: 100%;
-  padding: 2rem;
+  margin-bottom: 1.5rem;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  transform: rotate(15deg);
+  min-height: 350px;
 }
 
-.specimen-image {
-  width: 180px;
-  height: 200px;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 120' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Stem --%3E%3Cpath d='M50 110 Q48 80 50 50 Q52 20 50 5' stroke='%235d6b4a' fill='none' stroke-width='2' opacity='0.7'/%3E%3C!-- Leaves --%3E%3Cellipse cx='35' cy='85' rx='18' ry='10' fill='%238b9574' opacity='0.6' transform='rotate(-25 35 85)'/%3E%3Cellipse cx='65' cy='75' rx='16' ry='9' fill='%238b9574' opacity='0.6' transform='rotate(20 65 75)'/%3E%3Cellipse cx='32' cy='65' rx='20' ry='11' fill='%238b9574' opacity='0.6' transform='rotate(-30 32 65)'/%3E%3Cellipse cx='68' cy='55' rx='17' ry='10' fill='%238b9574' opacity='0.6' transform='rotate(25 68 55)'/%3E%3Cellipse cx='35' cy='45' rx='19' ry='10' fill='%238b9574' opacity='0.6' transform='rotate(-20 35 45)'/%3E%3Cellipse cx='65' cy='35' rx='15' ry='8' fill='%238b9574' opacity='0.6' transform='rotate(22 65 35)'/%3E%3Cellipse cx='38' cy='25' rx='16' ry='9' fill='%238b9574' opacity='0.6' transform='rotate(-18 38 25)'/%3E%3Cellipse cx='62' cy='15' rx='14' ry='8' fill='%238b9574' opacity='0.6' transform='rotate(18 62 15)'/%3E%3C!-- Leaf veins --%3E%3Cpath d='M35 85 L42 85' stroke='%235d6b4a' stroke-width='0.5' opacity='0.4'/%3E%3Cpath d='M65 75 L58 75' stroke='%235d6b4a' stroke-width='0.5' opacity='0.4'/%3E%3Cpath d='M32 65 L40 65' stroke='%235d6b4a' stroke-width='0.5' opacity='0.4'/%3E%3Cpath d='M68 55 L60 55' stroke='%235d6b4a' stroke-width='0.5' opacity='0.4'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  margin-bottom: 1rem;
+.specimen-photo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  filter: sepia(0.15) brightness(0.98);
 }
 
-.specimen-label {
-  width: 200px;
-  padding: 0.75rem 1rem;
+.specimen-info-card {
   background-color: rgba(255,255,255,0.9);
-  border: 1px solid var(--tan-dark);
+  border: 2px solid var(--ink-brown);
+  padding: 1rem 1.25rem;
+  font-family: var(--font-mono);
+}
+
+.specimen-label-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink-black);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--brown-text);
+  padding-bottom: 0.5rem;
+}
+
+.specimen-details {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  line-height: 1.3;
+  gap: 0.5rem;
 }
 
-.label-text {
-  color: var(--brown-text);
-  display: block;
-}
-
-.label-text em {
-  font-style: italic;
-  color: var(--brown-medium);
-}
-
-.glass-handle {
-  position: absolute;
-  bottom: -10px;
-  right: 20px;
-  width: 120px;
-  height: 160px;
-  background-color: var(--brown-text);
-  border-radius: 0 0 60px 60px;
-  transform: rotate(45deg);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.glass-handle::before {
-  content: '';
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 100px;
-  border: 8px solid var(--brown-text);
-  border-radius: 0 0 40px 40px;
-  border-top: none;
-  background-color: transparent;
-}
-
-.mounted-slides-label {
-  position: absolute;
-  bottom: 50px;
-  right: -50px;
-  font-family: var(--font-body);
+.detail-row {
+  display: flex;
   font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: var(--ink-black);
+  min-width: 90px;
+}
+
+.detail-value {
+  color: var(--ink-brown);
+}
+
+.detail-value em {
   font-style: italic;
-  color: var(--brown-medium);
-  transform: rotate(-5deg);
 }
 
 /* Hero Text */
@@ -159,15 +168,20 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  background-color: rgba(244, 241, 234, 0.85);
+  padding: 2rem;
+  border-radius: 4px;
 }
 
 .hero-title {
   font-family: var(--font-serif);
   font-size: 3.5rem;
   line-height: 1.1;
-  color: var(--brown-text);
+  color: var(--ink-black);
   font-weight: 700;
   margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .title-word {
@@ -175,10 +189,10 @@
 }
 
 .hero-subtitle {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--brown-medium);
-  max-width: 500px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--ink-brown);
+  max-width: 600px;
 }
 
 .btn-hero {
@@ -188,19 +202,33 @@
 /* Expertise Section */
 .expertise-section {
   padding: 5rem 0;
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(244, 241, 234, 0.7);
   position: relative;
   z-index: 1;
 }
 
 .section-title {
-  text-align: center;
-  font-family: var(--font-serif);
-  font-size: 2.5rem;
-  color: var(--brown-text);
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  color: var(--ink-black);
   margin-bottom: 3rem;
   text-transform: uppercase;
   letter-spacing: 0.02em;
+  border-bottom: 2px solid rgba(180, 160, 120, 0.5);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 40%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.6), transparent);
 }
 
 .expertise-grid {
@@ -212,8 +240,8 @@
 }
 
 .expertise-box {
-  background-color: var(--cream);
-  border: 3px solid var(--tan-dark);
+  background-color: rgba(227, 213, 176, 0.95);
+  border: 1px solid #c2b280;
   padding: 2.5rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -221,21 +249,73 @@
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  transform: rotate(0deg);
+}
+
+/* Sticky Note Effect */
+.sticky-note {
+  background: linear-gradient(135deg, #fef9e7 0%, #f9f3d9 100%);
+  border: none;
+  box-shadow: 
+    0 4px 6px rgba(0,0,0,0.1),
+    0 1px 3px rgba(0,0,0,0.08);
+}
+
+.sticky-note::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 30px 30px 0;
+  border-color: transparent #e8ddb5 transparent transparent;
+  box-shadow: -2px 2px 3px rgba(0,0,0,0.15);
+}
+
+.expertise-box:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+.expertise-box:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.sticky-note:nth-child(1) {
+  transform: rotate(-3deg);
+}
+
+.sticky-note:nth-child(3) {
+  transform: rotate(2deg);
+}
+
+.sticky-note:nth-child(4) {
+  transform: rotate(-2.5deg);
 }
 
 .expertise-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transform: rotate(0deg) translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.sticky-note:hover {
+  transform: rotate(0deg) translateY(-10px) scale(1.05);
+  box-shadow: 
+    0 15px 35px rgba(0,0,0,0.2),
+    0 5px 15px rgba(0,0,0,0.12);
 }
 
 .expertise-icon {
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   margin-bottom: 1.5rem;
-  color: var(--brown-text);
+  color: var(--ink-black);
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .expertise-icon svg {
@@ -243,24 +323,711 @@
   height: 100%;
 }
 
+.expertise-flower {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: sepia(0.1) brightness(0.95);
+  transition: filter 0.3s ease;
+}
+
+.expertise-box:hover .expertise-flower {
+  filter: sepia(0) brightness(1);
+}
+
+.expertise-box-invisible {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .expertise-title {
   font-family: var(--font-serif);
-  font-size: 1.3rem;
-  color: var(--brown-text);
+  font-size: 1.5rem;
+  color: var(--ink-black);
   margin-bottom: 1rem;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 .expertise-label {
-  font-size: 0.85rem;
-  color: var(--brown-medium);
+  font-size: 0.95rem;
+  color: var(--ink-brown);
   line-height: 1.5;
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.03em;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+}
+
+.sticky-subtitle {
+  font-size: 0.95rem;
+  color: var(--ink-brown);
+  line-height: 1.5;
+  font-family: var(--font-body);
+  font-style: italic;
+  margin-top: 0.75rem;
+  text-transform: none;
+  font-weight: 400;
+}
+
+/* Publications Section */
+.publications-section {
+  padding: 5rem 0;
+  background-color: rgba(244, 241, 234, 0.65);
+  position: relative;
+  z-index: 100000; /* Above the flower (99999) */
+  opacity: 0.95; /* Allow flower to show through */
+}
+
+/* Publications Widget Wrapper - Custom styling to match site theme */
+.publications-widget-wrapper {
+  /* Match site colors and typography */
+  --pubsync-primary: #5c4d3c; /* var(--ink-brown) */
+  --pubsync-text: #2c241b; /* var(--ink-black) */
+  --pubsync-text-secondary: #5c4d3c; /* var(--ink-brown) */
+  --pubsync-bg: rgba(254, 253, 251, 0.95); /* Match card backgrounds */
+  --pubsync-bg-subtle: rgba(244, 241, 234, 0.85); /* Match section backgrounds */
+  --pubsync-border: rgba(227, 213, 176, 0.95); /* Match sticky note borders */
+
+  /* Match site fonts */
+  --pubsync-font: 'Playfair Display', Georgia, serif;
+  --pubsync-font-mono: 'Special Elite', 'Courier New', monospace;
+
+  /* Even tighter spacing for compact layout */
+  --pubsync-space-1: 1px; /* Minimal extra small space */
+  --pubsync-space-2: 4px; /* Minimal small space */
+  --pubsync-space-3: 6px; /* Minimal medium small space */
+  --pubsync-space-4: 8px; /* Minimal medium space */
+  --pubsync-space-5: 12px; /* Minimal medium large space */
+  --pubsync-space-6: 16px; /* Minimal large space */
+
+  /* Smaller text sizes for maximum compactness */
+  --pubsync-text-sm: 12px;
+  --pubsync-text-base: 13px;
+  --pubsync-text-lg: 14px; /* Subtitle font size */
+
+  /* Custom header sizing */
+  --pubsync-text-2xl: 22px; /* Smaller header */
+}
+
+/* Fix DOI LINK contrast - corrected selector */
+.publications-widget-wrapper .pubsync-export-btn,
+.publications-widget-wrapper .pubsync-doi-link, /* ← Fixed: was .pubsync-doi-btn */
+.publications-widget-wrapper button,
+.publications-widget-wrapper .pubsync-widget button,
+.publications-widget-wrapper .pubsync-widget a { /* ← Added for all links */
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #2c241b !important;
+  border: 1px solid #d3c4a5 !important;
+  font-weight: 500 !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+  text-shadow: none !important;
+}
+
+.publications-widget-wrapper .pubsync-export-btn:hover,
+.publications-widget-wrapper .pubsync-doi-link:hover, /* ← Fixed: was .pubsync-doi-btn */
+.publications-widget-wrapper button:hover,
+.publications-widget-wrapper .pubsync-widget button:hover,
+.publications-widget-wrapper .pubsync-widget a:hover { /* ← Added for all links */
+  background: #f8fafc !important;
+  background-color: #f8fafc !important;
+  background-image: none !important;
+  color: #2c241b !important;
+  border-color: #b8c5d6 !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15) !important;
+}
+
+/* Extra specificity for stubborn widget elements */
+.publications-widget-wrapper div[data-lab-id] button,
+.publications-widget-wrapper div[data-lab-id] .pubsync-export-btn,
+.publications-widget-wrapper div[data-lab-id] .pubsync-doi-link, /* ← Fixed: was .pubsync-doi-btn */
+.publications-widget-wrapper div[data-lab-id] a {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #2c241b !important;
+  border: 1px solid #d3c4a5 !important;
+}
+
+/* Minimize padding on publication cards for ultra-tight spacing */
+.publications-widget-wrapper .pubsync-publication-card {
+  padding: 8px !important;
+  margin-bottom: 8px !important;
+}
+
+/* Make publication titles even smaller */
+.publications-widget-wrapper .pubsync-pub-title { /* ← Fixed: was .pubsync-publication-title */
+  font-size: 13px !important;
+  line-height: 1.3 !important;
+  margin-bottom: 4px !important;
+}
+
+/* Minimize spacing between publication elements */
+.publications-widget-wrapper .pubsync-pub-meta {
+  margin-top: 4px !important;
+  margin-bottom: 4px !important;
+  font-size: 12px !important;
+}
+
+/* Reduce button sizes and spacing */
+.publications-widget-wrapper .pubsync-export-btn,
+.publications-widget-wrapper .pubsync-doi-link { /* ← Fixed: was .pubsync-doi-btn */
+  padding: 4px 8px !important;
+  font-size: 11px !important;
+  margin-right: 4px !important;
+}
+
+/* Tighten overall widget container spacing */
+.publications-widget-wrapper .pubsync-widget {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Custom styling for widget header */
+.publications-widget-wrapper .pubsync-lab-name {
+  color: #2c241b !important; /* Site's ink-black color */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1) !important; /* Subtle shadow */
+  border-bottom: 2px solid #d4af37 !important; /* Gold underline */
+  padding-bottom: 4px !important;
+  font-size: 18px !important; /* Custom size */
+  font-weight: 700 !important; /* Custom weight */
+  text-transform: uppercase !important; /* Custom styling */
+  letter-spacing: 1px !important; /* Custom spacing */
+}
+
+.publications-widget-wrapper .pubsync-count {
+  color: #666 !important;
+  font-weight: 400 !important;
+  text-transform: lowercase !important;
+  font-size: 14px !important;
+  font-style: italic !important;
+}
+
+/* Custom scrollbar styling for publications widget */
+.publications-widget-wrapper .pubsync-widget::-webkit-scrollbar {
+  width: 8px;
+}
+
+.publications-widget-wrapper .pubsync-widget::-webkit-scrollbar-track {
+  background: rgba(244, 241, 234, 0.85);
+  border-radius: 4px;
+}
+
+.publications-widget-wrapper .pubsync-widget::-webkit-scrollbar-thumb {
+  background: rgba(180, 160, 120, 0.6);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.publications-widget-wrapper .pubsync-widget::-webkit-scrollbar-thumb:hover {
+  background: rgba(180, 160, 120, 0.8);
+}
+
+/* Blog Section */
+.blog-section {
+  padding: 3rem 0; /* Smaller padding */
+  background-color: rgba(244, 241, 234, 0.75);
+  position: relative;
+  z-index: 100001; /* Above publications section */
+  opacity: 0.9; /* Slightly more opaque than publications */
+  display: none; /* Hidden by default */
+}
+
+/* Blog Posts Wrapper */
+.blog-posts-wrapper {
+  max-width: 100%;
+}
+
+/* Blog Posts Grid */
+.blog-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Blog Post Card - Herbarium Card Style */
+.blog-post-card {
+  background: linear-gradient(135deg, rgba(254, 253, 251, 0.98) 0%, rgba(249, 247, 242, 0.95) 100%);
+  border: 2px solid rgba(180, 160, 120, 0.6);
+  border-radius: 2px;
+  padding: 1.5rem;
+  box-shadow: 
+    2px 2px 0 rgba(0,0,0,0.05),
+    4px 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  transform: rotate(0deg);
+}
+
+/* Add paper clip effect to alternating cards */
+.blog-post-card:nth-child(odd)::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: 20px;
+  width: 24px;
+  height: 8px;
+  background: linear-gradient(to bottom, #a8a8a8 0%, #c0c0c0 50%, #a8a8a8 100%);
+  border-radius: 30% 30% 50% 50% / 60% 60% 40% 40%;
+  box-shadow: 
+    inset 0 1px 1px rgba(255,255,255,0.4),
+    0 2px 3px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.blog-post-card:nth-child(odd)::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: 23px;
+  width: 18px;
+  height: 6px;
+  background: linear-gradient(to bottom, #888 0%, #aaa 50%, #888 100%);
+  border-radius: 30% 30% 50% 50% / 60% 60% 40% 40%;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.3);
+}
+
+/* Slight rotation for variety */
+.blog-post-card:nth-child(1) {
+  transform: rotate(-0.8deg);
+}
+
+.blog-post-card:nth-child(2) {
+  transform: rotate(0.6deg);
+}
+
+.blog-post-card:nth-child(3) {
+  transform: rotate(-0.5deg);
+}
+
+.blog-post-card:hover {
+  transform: rotate(0deg) translateY(-5px) scale(1.01);
+  box-shadow: 
+    0 4px 0 rgba(0,0,0,0.05),
+    0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Blog Post Title */
+.blog-post-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.3;
+  color: var(--ink-black);
+}
+
+.blog-post-link {
+  color: var(--ink-black);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.blog-post-link:hover {
+  color: var(--ink-brown);
+}
+
+/* Blog Post Excerpt */
+.blog-post-excerpt {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--ink-brown);
+  margin-bottom: 1rem;
+}
+
+.blog-post-excerpt p {
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-clamp: 3; /* Standard property for line clamping */
+}
+
+.blog-post-excerpt a {
+  color: var(--ink-brown);
+  text-decoration: underline;
+}
+
+/* Blog Post Date */
+.blog-post-date {
+  font-size: 0.75rem;
+  color: var(--brown-light);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Blog View All Link */
+.blog-view-all {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.blog-link {
+  color: var(--ink-brown);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.blog-link:hover {
+  color: var(--ink-black);
+}
+
+/* Footer Contact Info - shows on smaller screens */
+.footer-contact {
+  display: none;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.footer-contact-item {
+  font-size: 0.8rem;
+  color: var(--ink-brown);
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+}
+
+.footer-contact-item strong {
+  color: var(--ink-black);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.footer-contact-link {
+  color: var(--ink-brown);
+  text-decoration: underline;
+  text-decoration-color: var(--ink-brown);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+
+.footer-contact-link:hover {
+  color: var(--ink-black);
+  text-decoration-color: var(--ink-black);
+  text-decoration-thickness: 2px;
+}
+
+/* Show footer contact on smaller screens with better layout */
+@media (max-width: 1200px) and (min-width: 900px) {
+  /* Medium screens: keep horizontal but show contact */
+  .footer-contact {
+    display: block !important;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    margin-left: 2rem;
+  }
+  
+  .footer-left {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 899px) and (min-width: 600px) {
+  /* Smaller tablet screens: stack vertically but show contact */
+  .footer-contact {
+    display: block !important;
+  }
+
+  .footer-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .footer-text {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-contact {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+}
+
+@media (max-width: 599px) {
+  /* Mobile: hide footer contact to keep it clean */
+  .footer-contact {
+    display: none !important;
+  }
+  
+  .footer-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+/* Contact Panel - Pinned Specimen Card Style */
+.contact-panel {
+  padding: 4rem 0;
+  background-color: rgba(244, 241, 234, 0.8);
+  position: relative;
+  z-index: 100002; /* Above blog section */
+  opacity: 0.92;
+  display: none; /* Hidden by default on mobile */
+}
+
+.contact-content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(244, 241, 234, 0.98) 0%, rgba(244, 241, 234, 0.96) 100%);
+  border: 2px solid rgba(180, 160, 120, 0.5);
+  padding: 2.5rem 2rem;
+  box-shadow: 
+    3px 3px 0 rgba(0,0,0,0.06),
+    6px 6px 18px rgba(0,0,0,0.1);
+  position: relative;
+  transform: rotate(-0.5deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Push pin effect */
+.contact-content::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle at 30% 30%, #d4af37, #b8941f);
+  border-radius: 50% 50% 50% 0;
+  box-shadow: 
+    inset -2px -2px 4px rgba(0,0,0,0.2),
+    0 3px 6px rgba(0,0,0,0.3);
+  z-index: 10;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* Pin shadow on card */
+.contact-content::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, rgba(0,0,0,0.15), transparent);
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.contact-content:hover {
+  transform: rotate(0deg) translateY(-3px);
+  box-shadow: 
+    0 5px 0 rgba(0,0,0,0.06),
+    0 10px 25px rgba(0,0,0,0.15);
+}
+
+.contact-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink-black);
+  margin-bottom: 1rem;
+  font-family: var(--font-serif);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid rgba(180, 160, 120, 0.3);
+  padding-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.contact-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-brown);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.contact-details {
+  margin-bottom: 2rem;
+  background-color: rgba(244, 241, 234, 0.5);
+  padding: 1.25rem;
+  border: 1px dashed rgba(180, 160, 120, 0.4);
+  border-radius: 2px;
+}
+
+.contact-item {
+  font-size: 0.9rem;
+  color: var(--ink-brown);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.contact-item strong {
+  color: var(--ink-black);
+  font-weight: 600;
+}
+
+.contact-email {
+  font-family: var(--font-mono);
+  background-color: rgba(244, 241, 234, 0.6);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  font-size: 0.85rem;
+}
+
+.contact-link {
+  color: var(--ink-brown);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: var(--ink-black);
+}
+
+.contact-cta {
+  margin-top: 1.5rem;
+}
+
+.contact-full-link {
+  color: var(--ink-brown);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid rgba(180, 160, 120, 0.3);
+  padding-bottom: 2px;
+}
+
+.contact-full-link:hover {
+  color: var(--ink-black);
+  border-bottom-color: var(--ink-black);
+}
+
+/* Responsive: Show blog section only on larger screens (disappears first) */
+@media (min-width: 1200px) {
+  .blog-section {
+    display: block; /* Show on large screens - aligned with research grid 2-column breakpoint */
+  }
+}
+
+/* Responsive: Show contact panel only on larger screens, but keep it small */
+@media (min-width: 1200px) {
+  .contact-panel {
+    display: block; /* Show on large screens only - same breakpoint as blog widget */
+    padding: 1rem 0; /* Shorter padding */
+  }
+
+  .contact-content {
+    max-width: 400px; /* Smaller width */
+    padding: 1.5rem 1.5rem; /* More compact padding */
+  }
+
+  .contact-title {
+    font-size: 1.2rem; /* Smaller title */
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .contact-description {
+    font-size: 0.85rem; /* Smaller description */
+    margin-bottom: 1rem;
+  }
+
+  .contact-details {
+    padding: 1rem; /* Smaller padding */
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-item {
+    font-size: 0.8rem; /* Smaller contact details */
+    margin-bottom: 0.25rem;
+  }
+
+  .contact-email {
+    font-size: 0.75rem;
+  }
+
+  .contact-full-link {
+    font-size: 0.8rem; /* Smaller link */
+  }
+}
+
+/* Specimens Gallery Section */
+.specimens-gallery {
+  padding: 5rem 0;
+  background-color: rgba(255,255,255,0.65);
+  position: relative;
+  z-index: 1;
+}
+
+.specimens-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 3rem auto 0;
+}
+
+.specimen-card {
+  background-color: rgba(254, 253, 251, 0.95);
+  border: 2px solid var(--brown-text);
+  padding: 2rem;
+  box-shadow: 
+    3px 3px 0 rgba(0,0,0,0.08),
+    6px 6px 15px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.specimen-card:nth-child(1) {
+  transform: rotate(-1.5deg);
+}
+
+.specimen-card:nth-child(2) {
+  transform: rotate(0.5deg);
+}
+
+.specimen-card:nth-child(3) {
+  transform: rotate(-0.8deg);
+}
+
+.specimen-card:hover {
+  transform: rotate(0deg) translateY(-8px);
+  box-shadow: 
+    0 6px 0 rgba(0,0,0,0.08),
+    0 12px 30px rgba(0,0,0,0.18);
+}
+
+.specimen-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1rem;
+  filter: sepia(0.12) brightness(0.97);
+}
+
+.specimen-caption {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--ink-brown);
+  text-align: center;
+  padding: 0.5rem;
+  border-top: 1px solid var(--paper-darker);
+}
+
+.specimen-caption em {
+  font-style: italic;
 }
 
 /* Responsive Design */
@@ -269,14 +1036,13 @@
     gap: 3rem;
   }
   
-  .magnifying-glass {
-    width: 380px;
-    height: 380px;
+  .specimen-sheet {
+    max-width: 380px;
+    padding: 2rem;
   }
-  
-  .glass-rim {
-    width: 300px;
-    height: 300px;
+
+  .specimen-image-wrapper {
+    min-height: 280px;
   }
   
   .hero-title {
@@ -285,6 +1051,24 @@
   
   .expertise-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Place all visible boxes in the right column at 2-column layout */
+  .expertise-box.sticky-note:nth-child(1) {
+    grid-column: 2; /* First visible box goes to right column */
+  }
+  
+  .expertise-box.sticky-note:nth-child(3) {
+    grid-column: 2; /* Second visible box (3rd child - skipping invisible) goes to right column */
+  }
+  
+  .expertise-box.sticky-note:nth-child(4) {
+    grid-column: 2; /* Third visible box goes to right column */
+  }
+
+  .specimens-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 }
 
@@ -295,30 +1079,26 @@
     text-align: center;
   }
   
-  .magnifying-glass {
-    width: 320px;
-    height: 320px;
+  .specimen-sheet {
+    max-width: 320px;
+    padding: 1.5rem;
   }
-  
-  .glass-rim {
-    width: 250px;
-    height: 250px;
+
+  .specimen-image-wrapper {
+    min-height: 220px;
   }
-  
-  .specimen-image {
-    width: 120px;
-    height: 140px;
+
+  .specimen-info-card {
+    padding: 0.875rem 1rem;
   }
-  
-  .specimen-label {
-    width: 160px;
-    font-size: 0.7rem;
-    padding: 0.5rem 0.75rem;
+
+  .detail-label {
+    min-width: 75px;
+    font-size: 0.8rem;
   }
-  
-  .glass-handle {
-    width: 100px;
-    height: 140px;
+
+  .detail-value {
+    font-size: 0.8rem;
   }
   
   .hero-title {
@@ -339,9 +1119,21 @@
     gap: 1.5rem;
   }
   
-  .botanical-bg {
-    width: 300px;
-    height: 300px;
+  /* Reset grid-column for single-column layout - center the cards */
+  .expertise-box.sticky-note:nth-child(1),
+  .expertise-box.sticky-note:nth-child(3),
+  .expertise-box.sticky-note:nth-child(4) {
+    grid-column: auto; /* Reset to default so cards are centered */
+  }
+  
+  /* Hide the invisible box in single-column layout to remove gap */
+  .expertise-box-invisible {
+    display: none;
+  }
+
+  .specimens-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
 
@@ -350,14 +1142,13 @@
     padding: 2rem 0 3rem;
   }
   
-  .magnifying-glass {
-    width: 280px;
-    height: 280px;
+  .specimen-sheet {
+    max-width: 280px;
+    padding: 1.25rem;
   }
-  
-  .glass-rim {
-    width: 220px;
-    height: 220px;
+
+  .specimen-image-wrapper {
+    min-height: 180px;
   }
   
   .hero-title {
@@ -365,11 +1156,20 @@
   }
   
   .section-title {
-    font-size: 2rem;
+    font-size: 1.2rem;
   }
   
   .expertise-section {
     padding: 3rem 0;
+  }
+
+  .specimens-gallery {
+    padding: 3rem 0;
+  }
+
+  .expertise-icon {
+    width: 110px;
+    height: 110px;
   }
 }
 

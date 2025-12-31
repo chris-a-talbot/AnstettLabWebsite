@@ -1,0 +1,232 @@
+/* Publications Page Styles - Archival Theme */
+
+.publications-page {
+  padding: 40px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.publications-page h1 {
+  font-family: var(--font-serif);
+  color: var(--ink-black);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--ink-black);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Publications Widget - Custom styling to match site theme */
+[data-lab-id] {
+  /* Match site colors and typography */
+  --pubsync-primary: #5c4d3c; /* var(--ink-brown) */
+  --pubsync-text: #2c241b; /* var(--ink-black) */
+  --pubsync-text-secondary: #5c4d3c; /* var(--ink-brown) */
+  --pubsync-bg: rgba(254, 253, 251, 0.95); /* Match card backgrounds */
+  --pubsync-bg-subtle: rgba(244, 241, 234, 0.85); /* Match section backgrounds */
+  --pubsync-border: rgba(227, 213, 176, 0.95); /* Match sticky note borders */
+
+  /* Match site fonts */
+  --pubsync-font: 'Playfair Display', Georgia, serif;
+  --pubsync-font-mono: 'Special Elite', 'Courier New', monospace;
+
+  /* Tighter spacing for compact layout */
+  --pubsync-space-1: 1px;
+  --pubsync-space-2: 4px;
+  --pubsync-space-3: 6px;
+  --pubsync-space-4: 8px;
+  --pubsync-space-5: 12px;
+  --pubsync-space-6: 16px;
+
+  /* Text sizes for full publications page */
+  --pubsync-text-sm: 13px;
+  --pubsync-text-base: 14px;
+  --pubsync-text-lg: 16px;
+
+  /* Header sizing */
+  --pubsync-text-2xl: 24px; /* Header */
+  --pubsync-text-xl: 18px; /* Subheader */
+}
+
+/* Button and link styling with proper contrast */
+[data-lab-id] .pubsync-export-btn,
+[data-lab-id] .pubsync-doi-link,
+[data-lab-id] button,
+[data-lab-id] .pubsync-widget button,
+[data-lab-id] .pubsync-widget a {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #2c241b !important;
+  border: 1px solid #d3c4a5 !important;
+  font-weight: 500 !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+  text-shadow: none !important;
+  transition: all 0.2s ease !important;
+}
+
+[data-lab-id] .pubsync-export-btn:hover,
+[data-lab-id] .pubsync-doi-link:hover,
+[data-lab-id] button:hover,
+[data-lab-id] .pubsync-widget button:hover,
+[data-lab-id] .pubsync-widget a:hover {
+  background: #f8fafc !important;
+  background-color: #f8fafc !important;
+  background-image: none !important;
+  color: #2c241b !important;
+  border-color: #b8c5d6 !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15) !important;
+}
+
+/* Publication card spacing - tighter */
+[data-lab-id] .pubsync-publication-card {
+  padding: 8px !important;
+  margin-bottom: 8px !important;
+}
+
+/* Publication title styling - tighter */
+[data-lab-id] .pubsync-pub-title {
+  font-size: 13px !important;
+  line-height: 1.3 !important;
+  margin-bottom: 4px !important;
+  font-family: var(--font-serif) !important;
+  color: var(--ink-black) !important;
+}
+
+/* Publication metadata - tighter */
+[data-lab-id] .pubsync-pub-meta {
+  margin-top: 4px !important;
+  margin-bottom: 4px !important;
+  font-size: 12px !important;
+}
+
+/* Button sizes - more compact */
+[data-lab-id] .pubsync-export-btn,
+[data-lab-id] .pubsync-doi-link {
+  padding: 4px 8px !important;
+  font-size: 11px !important;
+  margin-right: 4px !important;
+}
+
+/* Custom styling for widget header - more compact */
+[data-lab-id] .pubsync-lab-name {
+  color: #2c241b !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1) !important;
+  border-bottom: 2px solid #d4af37 !important;
+  padding-bottom: 4px !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-family: var(--font-serif) !important;
+  margin-bottom: 8px !important;
+}
+
+[data-lab-id] .pubsync-count {
+  color: #666 !important;
+  font-weight: 400 !important;
+  text-transform: lowercase !important;
+  font-size: 14px !important;
+  font-style: italic !important;
+}
+
+/* Year grouping headers - tighter spacing */
+[data-lab-id] h2,
+[data-lab-id] h3 {
+  font-family: var(--font-serif) !important;
+  color: var(--ink-black) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  border-bottom: 1px solid rgba(180, 160, 120, 0.4) !important;
+  padding-bottom: 0.4rem !important;
+  margin-bottom: 0.75rem !important;
+  margin-top: 1.5rem !important;
+}
+
+/* Author highlighting legend - more compact */
+[data-lab-id] .pubsync-legend {
+  background-color: rgba(244, 241, 234, 0.6) !important;
+  border: 1px solid rgba(180, 160, 120, 0.4) !important;
+  border-radius: 4px !important;
+  padding: 10px !important;
+  margin-bottom: 16px !important;
+}
+
+[data-lab-id] .pubsync-legend-title {
+  font-family: var(--font-serif) !important;
+  color: var(--ink-black) !important;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Tighten overall widget spacing */
+[data-lab-id] .pubsync-widget {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Reduce spacing between button groups */
+[data-lab-id] .pubsync-actions,
+[data-lab-id] .pubsync-button-group {
+  gap: 4px !important;
+  margin: 4px 0 !important;
+}
+
+/* Custom scrollbar styling */
+[data-lab-id] .pubsync-widget::-webkit-scrollbar {
+  width: 10px;
+}
+
+[data-lab-id] .pubsync-widget::-webkit-scrollbar-track {
+  background: rgba(244, 241, 234, 0.85);
+  border-radius: 4px;
+}
+
+[data-lab-id] .pubsync-widget::-webkit-scrollbar-thumb {
+  background: rgba(180, 160, 120, 0.6);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+[data-lab-id] .pubsync-widget::-webkit-scrollbar-thumb:hover {
+  background: rgba(180, 160, 120, 0.8);
+}
+
+/* Responsive - tighter on mobile */
+@media (max-width: 768px) {
+  .publications-page {
+    padding: 30px 15px;
+  }
+
+  .publications-page h1 {
+    margin-bottom: 1.5rem;
+  }
+
+  [data-lab-id] .pubsync-pub-title {
+    font-size: 12px !important;
+  }
+
+  [data-lab-id] .pubsync-pub-meta {
+    font-size: 11px !important;
+  }
+
+  [data-lab-id] .pubsync-export-btn,
+  [data-lab-id] .pubsync-doi-link {
+    padding: 3px 6px !important;
+    font-size: 10px !important;
+  }
+
+  [data-lab-id] .pubsync-publication-card {
+    padding: 6px !important;
+    margin-bottom: 6px !important;
+  }
+
+  [data-lab-id] h2,
+  [data-lab-id] h3 {
+    margin-top: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+}
+

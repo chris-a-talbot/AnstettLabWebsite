@@ -1,73 +1,88 @@
+import '../styles/contact.css';
+
+// Import flower specimens for decoration
+import erycar8 from '../assets/flowers/erycar_8.png';
+import trirep1 from '../assets/flowers/trirep_1.png';
+import esccal4 from '../assets/flowers/esccal_4.png';
+import chafas3 from '../assets/flowers/chafas_3.png';
+
 export default function Contact() {
   return (
-    <div className="contact-page" style={{ maxWidth: '900px', margin: '0 auto' }}>
-      <h1 className="page-title">Contact</h1>
-      
-      <section style={{ marginBottom: '3rem' }}>
-        <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', fontWeight: 700 }}>
-          Get in Touch
-        </h2>
-        <p style={{ marginBottom: '1.5rem', lineHeight: 1.7, color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-          We welcome inquiries from prospective students, collaborators, and anyone interested 
-          in our research.
-        </p>
-      </section>
-      
-      <section style={{ marginBottom: '3rem' }}>
-        <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', fontWeight: 700 }}>
-          Lab Address
-        </h2>
-        <p style={{ marginBottom: '0.5rem', lineHeight: 1.7, color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-          <strong style={{ color: 'var(--text-primary)' }}>The Anstett Lab</strong>
-        </p>
-        <p style={{ marginBottom: '0.5rem', lineHeight: 1.7, color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-          School of Integrative Plant Science
-        </p>
-        <p style={{ marginBottom: '0.5rem', lineHeight: 1.7, color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-          Plant Biology Section
-        </p>
-        <p style={{ marginBottom: '0.5rem', lineHeight: 1.7, color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-          Cornell University College of Agriculture and Life Sciences
-        </p>
-        <p style={{ marginBottom: '0.5rem', lineHeight: 1.7, color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-          Emerson Hall, Room 331
-        </p>
-        <p style={{ marginBottom: '0.5rem', lineHeight: 1.7, color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-          236 Mann Drive
-        </p>
-        <p style={{ marginBottom: '1.5rem', lineHeight: 1.7, color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-          Ithaca, NY 14850
-        </p>
-        <p style={{ marginBottom: '1.5rem', lineHeight: 1.7, color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-          Phone: <a href="tel:+16072554781" style={{ color: 'var(--text-primary)', textDecoration: 'underline' }}>(607) 255-4781</a>
-        </p>
-      </section>
-      
-      <section style={{ marginBottom: '3rem' }}>
-        <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', fontWeight: 700 }}>
-          Email
-        </h2>
-        <p style={{ lineHeight: 1.7, fontSize: '0.95rem' }}>
-          <a href="mailto:dna38{at}cornell.edu" style={{ 
-            color: 'var(--text-primary)',
-            textDecoration: 'underline'
-          }}>
-            dna38&#123;at&#125;cornell.edu
-          </a>
-        </p>
-      </section>
-      
-      <section style={{ marginBottom: '3rem' }}>
-        <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', fontWeight: 700 }}>
-          Prospective Students
-        </h2>
-        <p style={{ lineHeight: 1.7, color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-          If you are interested in joining the lab as a graduate student, post-doctoral researcher, 
-          or undergraduate researcher, please reach out to discuss potential projects and opportunities. 
-          We are always looking for motivated individuals passionate about evolutionary ecology and 
-          conservation science.
-        </p>
-      </section>
+    <div className="contact-wrapper">
+      <div className="container">
+        <h1 className="page-title">Contact</h1>
+        
+        <div className="contact-grid-wrapper">
+          {/* Decorative flower specimens */}
+          <div className="flower-specimen flower-top-left">
+            <img src={chafas3} alt="Pressed flower specimen" />
+          </div>
+          <div className="flower-specimen flower-top-right">
+            <img src={erycar8} alt="Pressed flower specimen" />
+          </div>
+          <div className="flower-specimen flower-bottom-left">
+            <img src={trirep1} alt="Pressed flower specimen" />
+          </div>
+          <div className="flower-specimen flower-bottom-right">
+            <img src={esccal4} alt="Pressed flower specimen" />
+          </div>
+          
+          <div className="contact-grid">
+          {/* Get in Touch Card */}
+          <section className="contact-card intro-card">
+            <h2 className="card-title">Get in Touch</h2>
+            <p className="card-text">
+              We welcome inquiries from prospective students, collaborators, and anyone interested 
+              in our research.
+            </p>
+            <div className="email-section">
+              <a href="mailto:dna38@cornell.edu" className="email-link">
+                dna38[at]cornell.edu
+              </a>
+            </div>
+          </section>
+          
+          {/* Lab Address Card */}
+          <section className="contact-card address-card">
+            <h2 className="card-title">Lab Address</h2>
+            <div className="address-content">
+              <p className="address-line lab-name">
+                <strong>The Anstett Lab</strong>
+              </p>
+              <p className="address-line">
+                School of Integrative Plant Science
+              </p>
+              <p className="address-line">
+                Plant Biology Section
+              </p>
+              <p className="address-line">
+                Cornell University College of Agriculture and Life Sciences
+              </p>
+              <p className="address-line">
+                Emerson Hall, Room 331
+              </p>
+              <p className="address-line">
+                236 Mann Drive
+              </p>
+              <p className="address-line">
+                Ithaca, NY 14850
+              </p>
+            </div>
+          </section>
+          
+          {/* Prospective Students Card */}
+          <section className="contact-card students-card">
+            <h2 className="card-title">Prospective Students</h2>
+            <p className="card-text">
+              If you are interested in joining the lab as a graduate student, post-doctoral researcher, 
+              or undergraduate researcher, please reach out to discuss potential projects and opportunities. 
+              We are always looking for motivated individuals passionate about evolutionary ecology and 
+              conservation science.
+            </p>
+          </section>
+        </div>
+        </div>
+      </div>
     </div>
   )
 }
