@@ -17,17 +17,7 @@ export default function Home() {
   const [wpError, setWpError] = useState<string | null>(null)
 
 
-  // Calculate width-based opacity based on current screen width
-  const getWidthBasedOpacity = useCallback((width: number): number => {
-    if (width <= 500) return 0.20;
-    if (width <= 650) return 0.25;
-    if (width <= 825) return 0.35;
-    if (width <= 1100) return 0.60;
-    if (width <= 1250) return 0.90;
-    return 1.0; // Large screens
-  }, []);
-
-  // Handle scroll-based opacity changes
+  // Handle scroll-based opacity - cumulative with CSS width-based opacity
   const handleScrollOpacity = useCallback(() => {
     const flowerElement = document.querySelector('.overgrown-specimen') as HTMLElement;
     if (!flowerElement) return;
@@ -35,26 +25,20 @@ export default function Home() {
     const scrolled = window.pageYOffset;
     const maxScroll = Math.max(
       document.documentElement.scrollHeight - window.innerHeight,
-      1 // Prevent division by zero
+      1
     );
 
     // Calculate scroll progress (0 at top, 1 at bottom)
     const scrollProgress = Math.min(scrolled / maxScroll, 1);
 
-    // Calculate scroll-based opacity (1.0 at top, 0.3 at bottom)
-    const scrollOpacity = 1 - (scrollProgress * 0.7);
+    // Calculate scroll-based opacity multiplier (1.0 at top, 0.3 at bottom)
+    const scrollMultiplier = 1 - (scrollProgress * 0.7);
 
-    // Get current width-based opacity
-    const widthOpacity = getWidthBasedOpacity(window.innerWidth);
+    // Set as CSS custom property - multiplies with width-based opacity
+    flowerElement.style.setProperty('--scroll-opacity', scrollMultiplier.toString());
+  }, []);
 
-    // Apply multiplicative opacity (scroll opacity is always <= width opacity)
-    const finalOpacity = widthOpacity * scrollOpacity;
-
-    // Apply the opacity with smooth transition
-    flowerElement.style.opacity = finalOpacity.toString();
-  }, [getWidthBasedOpacity]);
-
-  // Set up scroll listener and initial opacity
+  // Set up scroll listener
   useEffect(() => {
     // Set initial opacity
     handleScrollOpacity();
@@ -62,17 +46,9 @@ export default function Home() {
     // Add scroll listener with passive option for better performance
     window.addEventListener('scroll', handleScrollOpacity, { passive: true });
 
-    // Also listen for resize events to recalculate width-based opacity
-    const handleResize = () => {
-      handleScrollOpacity();
-    };
-
-    window.addEventListener('resize', handleResize, { passive: true });
-
-    // Cleanup listeners
+    // Cleanup listener
     return () => {
       window.removeEventListener('scroll', handleScrollOpacity);
-      window.removeEventListener('resize', handleResize);
     };
   }, [handleScrollOpacity]);
 

@@ -7,13 +7,13 @@ import annaImg from '../assets/people/anna.png'
 import totoroImg from '../assets/people/totoro.png'
 
 // Import random flowers for decorations
-import esccal3 from '../assets/flowers/esccal_3.png'
+import erycar1 from '../assets/flowers/erycar_1.png'
 import erycar5 from '../assets/flowers/erycar_5.png'
+import erycar3 from '../assets/flowers/erycar_3.png'
 import dalpur2 from '../assets/flowers/dalpur_2.png'
-import rubhir2 from '../assets/flowers/rubhir_2.png'
 import trirep2 from '../assets/flowers/trirep_2.png'
+import oenbie2 from '../assets/flowers/oenbie_2.png'
 import oenbie3 from '../assets/flowers/oenbie_3.png'
-import chafas4 from '../assets/flowers/chafas_4.png'
 
 import '../styles/people.css'
 
@@ -31,8 +31,8 @@ export default function People() {
         <div className="people-grid">
           {/* PI - Daniel Anstett - LEFT */}
           <div className="person-card left-column">
-            <div className="person-flower" style={{ transform: 'translateY(-50%) rotate(-15deg)', top: '5%', left: '-350px' }}>
-              <img src={esccal3} alt="" />
+            <div className="person-flower">
+              <img src={erycar1} alt="" style={{ transform: 'rotate(-15deg)' }} />
             </div>
             <div className="person-content">
               <img
@@ -55,8 +55,8 @@ export default function People() {
 
           {/* Post-doc - Anna Peschel - RIGHT */}
           <div className="person-card right-column">
-            <div className="person-flower" style={{ transform: 'translateY(-50%) rotate(180deg)', top: '1%' }}>
-              <img src={erycar5} alt="" />
+            <div className="person-flower">
+              <img src={erycar5} alt="" style={{ transform: 'rotate(180deg)' }} />
             </div>
             <div className="person-content">
               <img
@@ -78,8 +78,8 @@ export default function People() {
 
           {/* PhD Student - Katie Debbas - LEFT */}
           <div className="person-card left-column">
-            <div className="person-flower" style={{ transform: 'translateY(-50%) rotate(-25deg)' }}>
-              <img src={dalpur2} alt="" />
+            <div className="person-flower">
+              <img src={dalpur2} alt="" style={{ transform: 'rotate(-25deg)' }} />
             </div>
             <div className="person-content">
               <img
@@ -101,8 +101,8 @@ export default function People() {
 
           {/* Collaborating PhD Student - Chris Talbot - RIGHT */}
           <div className="person-card right-column">
-            <div className="person-flower" style={{ transform: 'translateY(-50%) rotate(30deg)', top: '3%' }}>
-              <img src={rubhir2} alt="" />
+            <div className="person-flower">
+              <img src={erycar3} alt="" style={{ transform: 'rotate(200deg)' }} />
             </div>
             <div className="person-content">
               <img
@@ -123,16 +123,11 @@ export default function People() {
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Lab Companions Section */}
-        <h2 className="section-heading">Lab Companions</h2>
-        
-        <div className="people-grid">
           {/* Totoro - LEFT */}
           <div className="person-card left-column">
-            <div className="person-flower" style={{ transform: 'translateY(-50%) rotate(-20deg)' }}>
-              <img src={trirep2} alt="" />
+            <div className="person-flower">
+              <img src={trirep2} alt="" style={{ transform: 'rotate(-20deg)' }} />
             </div>
             <div className="person-content">
               <img
@@ -150,8 +145,8 @@ export default function People() {
 
           {/* Arctostaphylos - RIGHT */}
           <div className="person-card right-column">
-            <div className="person-flower" style={{ transform: 'translateY(-50%) rotate(200deg)', top: '-5%' }}>
-              <img src={oenbie3} alt="" />
+            <div className="person-flower">
+              <img src={oenbie3} alt="" style={{ transform: 'rotate(200deg)' }} />
             </div>
             <div className="person-content">
               <img
@@ -169,8 +164,8 @@ export default function People() {
 
           {/* Mr. Little Guy - LEFT */}
           <div className="person-card left-column">
-            <div className="person-flower" style={{ transform: 'translateY(-50%) rotate(-30deg)', top: '25%' }}>
-              <img src={chafas4} alt="" />
+            <div className="person-flower">
+              <img src={oenbie2} alt="" style={{ transform: 'rotate(-30deg)' }} />
             </div>
             <div className="person-content">
               <img

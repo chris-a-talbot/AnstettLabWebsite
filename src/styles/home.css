@@ -1,23 +1,57 @@
-/* Home Page Styles */
+/* Home Page Styles - Modern Grid System */
+
+/* ========================================
+   1. CONTAINER SETUP - CSS Grid Layout
+   ======================================== */
 
 .home-wrapper {
+  display: grid;
+  grid-template-columns: 
+    [full-start] minmax(20px, 1fr)
+    [content-start] minmax(0, 1400px)
+    [content-end] minmax(20px, 1fr)
+    [full-end];
   position: relative;
+  min-height: 100vh;
   overflow: hidden;
 }
 
-/* Large Overgrown Specimen Background */
+/* ========================================
+   2. FLOWER BACKGROUND - Responsive Positioning
+   ======================================== */
+
 .overgrown-specimen {
+  /* Span full width and height */
+  grid-column: full-start / full-end;
+  grid-row: 1;
+  
+  /* Position relative to allow for proper centering */
   position: absolute;
-  bottom: 0; /* Anchor to bottom so roots touch the footer */
-  left: 60%;
-  transform: translateX(-50%) rotate(-118deg);
-  height: 3000px; /* Fixed height - never changes regardless of screen size */
-  width: auto; /* Width scales with height maintaining aspect ratio */
+  top: 21vh; /* Position flower head to align with hero content */
+  left: 50%;
+  
+  /* Flower sizing - responsive using CSS custom properties */
+  --flower-height: 300vh; /* 3x viewport height */
+  --flower-horizontal-offset: 3%; /* Slight offset to the right */
+  --base-opacity: 1.0; /* Base opacity, modified by media queries */
+  --scroll-opacity: 1.0; /* Scroll multiplier, set by JavaScript */
+  
+  height: var(--flower-height);
+  width: auto;
   max-width: none;
-  z-index: 99999;
+  
+  /* Center horizontally with offset */
+  transform: translateX(calc(-50% + var(--flower-horizontal-offset)));
+  
+  z-index: 100; /* High z-index to appear above hero and sticky notes */
   pointer-events: none;
-  opacity: 1.0; /* Full opacity on large screens */
-  transition: opacity 0.3s ease; /* Smooth transition for width-based opacity changes */
+  
+  /* Opacity: multiply width-based and scroll-based */
+  opacity: calc(var(--base-opacity) * var(--scroll-opacity));
+  transition: opacity 0.3s ease, top 0.4s ease; /* Smooth transitions */
+  
+  /* Performance optimization */
+  will-change: opacity, top;
 }
 
 .overgrown-specimen img {
@@ -25,163 +59,174 @@
   width: auto;
   display: block;
   filter: sepia(0.35) brightness(0.75) contrast(1.2);
+  transform: rotate(-118deg);
+  transform-origin: center center;
 }
 
-/* Responsive opacity - reduce on smaller screens for better content visibility */
-@media (max-width: 1250px) {
+/* Width-based opacity - dramatic fade from 2-column to 1-column */
+/* Stays at 100% in 2-column, drops dramatically as width decreases */
+
+@media (max-width: 1400px) {
   .overgrown-specimen {
-    opacity: 0.90; /* Slightly reduced for tablets */
+    --base-opacity: 1.0; /* Still full opacity */
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1300px) {
   .overgrown-specimen {
-    opacity: 0.60; /* Slightly reduced for tablets */
+    --base-opacity: 0.85; /* Start fading */
   }
 }
 
-@media (max-width: 825px) {
+@media (max-width: 1220px) {
   .overgrown-specimen {
-    opacity: 0.35; /* More transparent on smaller tablets */
+    --base-opacity: 0.60; /* Faster drop */
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 1180px) {
   .overgrown-specimen {
-    opacity: 0.25; /* Target opacity for mobile */
+    --base-opacity: 0.40; /* Continue dropping */
+  }
+}
+
+/* Layout switches to single column at 1150px */
+/* Drop to 20% at single column for text readability */
+
+@media (max-width: 1150px) {
+  .overgrown-specimen {
+    --base-opacity: 0.20; /* Very transparent at single column */
+  }
+}
+
+@media (max-width: 900px) {
+  .overgrown-specimen {
+    --base-opacity: 0.18; /* Slightly less on smaller screens */
+  }
+}
+
+@media (max-width: 700px) {
+  .overgrown-specimen {
+    --base-opacity: 0.15;
   }
 }
 
 @media (max-width: 500px) {
   .overgrown-specimen {
-    opacity: 0.20; /* Even more transparent on very small screens */
+    --base-opacity: 0.12; /* Very subtle on mobile */
   }
 }
 
 /* Adjust flower position on very large screens */
 @media (min-width: 1600px) {
   .overgrown-specimen {
-    left: 55%; /* Move flower further to the left on very large screens */
+    --flower-horizontal-offset: 0%; /* Centered on very large screens */
+    top: 13vh;
   }
 }
 
-/* Home Page Container */
-.home-wrapper {
-  min-height: 3200px; /* Must match flower height exactly for proper scrolling */
-  position: relative;
+/* Fine-tune for medium screens */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .overgrown-specimen {
+    --flower-horizontal-offset: 2%;
+    top: 21vh;
+  }
 }
 
-/* Hero Section */
+/* Transition zone - 2-column layout but narrower */
+@media (min-width: 1151px) and (max-width: 1199px) {
+  .overgrown-specimen {
+    --flower-horizontal-offset: 1%;
+    top: 19vh;
+    /* Opacity controlled by width-based media queries above */
+  }
+}
+
+/* ========================================
+   3. HERO SECTION - Grid-based Layout
+   ======================================== */
+
 .hero-section {
-  min-height: 80vh;
-  padding: 6rem 0 5rem;
+  /* Grid positioning */
+  grid-column: content-start / content-end;
+  grid-row: 1;
+  
+  /* Fill viewport on load - account for header/nav height */
+  min-height: 85vh; /* Reduced from 100vh to account for header */
+  display: grid;
+  align-content: center;
+  padding: 2rem;
+  
   position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
+  z-index: 2; /* Below flower for unfiltered appearance */
+  
+  /* Semi-transparent to show flower */
+  background-color: rgba(244, 241, 234, 0.75);
+  border-radius: 4px;
+  margin: 0.5rem 0; /* Reduced top margin - closer to top */
 }
 
 .hero-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 3rem;
   align-items: center;
   width: 100%;
+  /* Prevent early wrapping */
+  min-width: 0;
 }
 
-/* Herbarium Specimen Display */
+/* ========================================
+   4. FLOWER HEAD DISPLAY (Left Side)
+   ======================================== */
+
 .specimen-display {
+  grid-column: 1 / 6; /* 5 columns for flower head */
   position: relative;
+  min-height: 45vh;
+  
+  /* Create a window to show the flower head behind */
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  /* Fully transparent - let flower show through unfiltered */
+  background-color: transparent;
+  border-radius: 4px;
+  
+  /* Optional: Add subtle border for visual separation during development */
+  /* border: 2px dashed rgba(180, 160, 120, 0.3); */
 }
 
-.specimen-sheet {
-  background-color: rgba(254, 253, 251, 0.95);
-  border: 2px solid var(--brown-text);
-  padding: 2.5rem;
-  box-shadow: 
-    4px 4px 0 rgba(0,0,0,0.1),
-    8px 8px 20px rgba(0,0,0,0.15);
-  max-width: 450px;
-  position: relative;
-  transform: rotate(-2deg);
-  transition: transform 0.3s ease;
+/* Visual vignette effect - subtle darkening at edges */
+.specimen-display::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    rgba(244, 241, 234, 0.3) 100%
+  );
+  pointer-events: none;
+  border-radius: 4px;
 }
 
-.specimen-sheet:hover {
-  transform: rotate(0deg) scale(1.02);
-}
+/* ========================================
+   5. HERO TEXT (Right Side)
+   ======================================== */
 
-.specimen-image-wrapper {
-  width: 100%;
-  margin-bottom: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 350px;
-}
-
-.specimen-photo {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  filter: sepia(0.15) brightness(0.98);
-}
-
-.specimen-info-card {
-  background-color: rgba(255,255,255,0.9);
-  border: 2px solid var(--ink-brown);
-  padding: 1rem 1.25rem;
-  font-family: var(--font-mono);
-}
-
-.specimen-label-header {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--ink-black);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.75rem;
-  border-bottom: 1px solid var(--brown-text);
-  padding-bottom: 0.5rem;
-}
-
-.specimen-details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.detail-row {
-  display: flex;
-  font-size: 0.85rem;
-  line-height: 1.4;
-}
-
-.detail-label {
-  font-weight: 600;
-  color: var(--ink-black);
-  min-width: 90px;
-}
-
-.detail-value {
-  color: var(--ink-brown);
-}
-
-.detail-value em {
-  font-style: italic;
-}
-
-/* Hero Text */
 .hero-text {
+  grid-column: 7 / 13; /* 6 columns for text */
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  background-color: rgba(244, 241, 234, 0.85);
-  padding: 2rem;
-  border-radius: 4px;
+  background-color: rgba(244, 241, 234, 0.95);
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 
+    0 4px 6px rgba(0,0,0,0.05),
+    0 8px 16px rgba(0,0,0,0.1);
 }
 
 .hero-title {
@@ -210,12 +255,32 @@
   align-self: flex-start;
 }
 
-/* Expertise Section */
-.expertise-section {
-  padding: 5rem 0;
-  background-color: rgba(244, 241, 234, 0.7);
+/* ========================================
+   6. CONTENT SECTIONS - Standardized Grid
+   ======================================== */
+
+/* All main content sections */
+.expertise-section,
+.publications-section,
+.blog-section,
+.contact-panel {
+  /* Grid positioning */
+  grid-column: content-start / content-end;
   position: relative;
-  z-index: 1;
+  z-index: 2; /* Below flower (z-index: 100) for unfiltered appearance */
+  
+  /* Semi-transparent background to show flower weaving */
+  background-color: rgba(244, 241, 234, 0.85);
+  padding: 4rem 2rem;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+  
+  /* Subtle shadow for depth */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.expertise-section {
+  background-color: rgba(244, 241, 234, 0.75); /* More transparent to show flower */
 }
 
 .section-title {
@@ -242,12 +307,31 @@
   background: linear-gradient(90deg, rgba(212, 175, 55, 0.6), transparent);
 }
 
+/* ========================================
+   7. EXPERTISE GRID - Flexible Auto-fit System
+   ======================================== */
+
 .expertise-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* Flexible columns: 4 → 2 → 1 based on available space */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 2rem auto 0;
+}
+
+/* Force 4 columns on large screens */
+@media (min-width: 1200px) {
+  .expertise-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Force 2 columns on medium screens */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .expertise-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .expertise-box {
@@ -383,13 +467,17 @@
   font-weight: 400;
 }
 
-/* Publications Section */
+/* ========================================
+   8. PUBLICATIONS & BLOG SECTIONS
+   ======================================== */
+
 .publications-section {
-  padding: 5rem 0;
-  background-color: rgba(244, 241, 234, 0.65);
-  position: relative;
-  z-index: 100000; /* Above the flower (99999) */
-  opacity: 0.95; /* Allow flower to show through */
+  background-color: rgba(244, 241, 234, 0.88);
+  z-index: 150; /* Above flower (100) so widgets appear on top */
+}
+
+.blog-section {
+  z-index: 150; /* Above flower (100) so widgets appear on top */
 }
 
 /* Publications Widget Wrapper - Custom styling to match site theme */
@@ -538,14 +626,10 @@
   background: rgba(180, 160, 120, 0.8);
 }
 
-/* Blog Section */
 .blog-section {
-  padding: 3rem 0; /* Smaller padding */
-  background-color: rgba(244, 241, 234, 0.75);
-  position: relative;
-  z-index: 100001; /* Above publications section */
-  opacity: 0.9; /* Slightly more opaque than publications */
+  background-color: rgba(244, 241, 234, 0.9);
   display: none; /* Hidden by default */
+  /* z-index set above in section 8 */
 }
 
 /* Blog Posts Wrapper */
@@ -783,13 +867,8 @@
   }
 }
 
-/* Contact Panel - Pinned Specimen Card Style */
 .contact-panel {
-  padding: 4rem 0;
-  background-color: rgba(244, 241, 234, 0.8);
-  position: relative;
-  z-index: 100002; /* Above blog section */
-  opacity: 0.92;
+  background-color: rgba(244, 241, 234, 0.92);
   display: none; /* Hidden by default on mobile */
 }
 
@@ -925,199 +1004,126 @@
   border-bottom-color: var(--ink-black);
 }
 
-/* Responsive: Show blog section only on larger screens (disappears first) */
+/* ========================================
+   11. CONDITIONAL VISIBILITY - Blog & Contact
+   ======================================== */
+
+/* Show blog and contact sections on large screens */
 @media (min-width: 1200px) {
   .blog-section {
-    display: block; /* Show on large screens - aligned with research grid 2-column breakpoint */
+    display: block;
   }
-}
-
-/* Responsive: Show contact panel only on larger screens, but keep it small */
-@media (min-width: 1200px) {
+  
   .contact-panel {
-    display: block; /* Show on large screens only - same breakpoint as blog widget */
-    padding: 1rem 0; /* Shorter padding */
+    display: block;
   }
 
   .contact-content {
-    max-width: 400px; /* Smaller width */
-    padding: 1.5rem 1.5rem; /* More compact padding */
+    max-width: 450px;
+    padding: 2rem;
   }
 
   .contact-title {
-    font-size: 1.2rem; /* Smaller title */
+    font-size: 1.3rem;
     margin-bottom: 0.75rem;
     padding-bottom: 0.5rem;
   }
 
   .contact-description {
-    font-size: 0.85rem; /* Smaller description */
+    font-size: 0.9rem;
     margin-bottom: 1rem;
   }
 
   .contact-details {
-    padding: 1rem; /* Smaller padding */
+    padding: 1.25rem;
     margin-bottom: 1.5rem;
   }
 
   .contact-item {
-    font-size: 0.8rem; /* Smaller contact details */
+    font-size: 0.85rem;
     margin-bottom: 0.25rem;
   }
 
   .contact-email {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
 
   .contact-full-link {
-    font-size: 0.8rem; /* Smaller link */
+    font-size: 0.85rem;
   }
 }
 
-/* Specimens Gallery Section */
-.specimens-gallery {
-  padding: 5rem 0;
-  background-color: rgba(255,255,255,0.65);
-  position: relative;
-  z-index: 1;
-}
 
-.specimens-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  max-width: 1200px;
-  margin: 3rem auto 0;
-}
+/* ========================================
+   9. RESPONSIVE BREAKPOINTS - Systematic
+   ======================================== */
 
-.specimen-card {
-  background-color: rgba(254, 253, 251, 0.95);
-  border: 2px solid var(--brown-text);
-  padding: 2rem;
-  box-shadow: 
-    3px 3px 0 rgba(0,0,0,0.08),
-    6px 6px 15px rgba(0,0,0,0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-}
+/* Large Desktop (1200px+) - Default styles above */
 
-.specimen-card:nth-child(1) {
-  transform: rotate(-1.5deg);
-}
-
-.specimen-card:nth-child(2) {
-  transform: rotate(0.5deg);
-}
-
-.specimen-card:nth-child(3) {
-  transform: rotate(-0.8deg);
-}
-
-.specimen-card:hover {
-  transform: rotate(0deg) translateY(-8px);
-  box-shadow: 
-    0 6px 0 rgba(0,0,0,0.08),
-    0 12px 30px rgba(0,0,0,0.18);
-}
-
-.specimen-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 1rem;
-  filter: sepia(0.12) brightness(0.97);
-}
-
-.specimen-caption {
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  color: var(--ink-brown);
-  text-align: center;
-  padding: 0.5rem;
-  border-top: 1px solid var(--paper-darker);
-}
-
-.specimen-caption em {
-  font-style: italic;
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .hero-content {
-    gap: 3rem;
-  }
-  
-  .specimen-sheet {
-    max-width: 380px;
-    padding: 2rem;
-  }
-
-  .specimen-image-wrapper {
-    min-height: 280px;
-  }
-  
+/* Medium Desktop & Tablet Landscape (900px - 1199px) */
+@media (max-width: 1199px) {
   .hero-title {
     font-size: 3rem;
   }
   
-  .expertise-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .hero-content {
+    gap: 2.5rem;
   }
   
-  /* Place all visible boxes in the right column at 2-column layout */
+  .overgrown-specimen {
+    --flower-height: 280vh; /* Slightly shorter flower */
+  }
+  
+  /* Place visible sticky notes in right column for 2-col layout */
   .expertise-box.sticky-note:nth-child(1) {
-    grid-column: 2; /* First visible box goes to right column */
+    grid-column: 2;
   }
   
   .expertise-box.sticky-note:nth-child(3) {
-    grid-column: 2; /* Second visible box (3rd child - skipping invisible) goes to right column */
+    grid-column: 2;
   }
   
   .expertise-box.sticky-note:nth-child(4) {
-    grid-column: 2; /* Third visible box goes to right column */
-  }
-
-  .specimens-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-column: 2;
   }
 }
 
-@media (max-width: 768px) {
-  .hero-section {
-    min-height: 50vh; /* Increased height to provide more space for scroll arrow */
-    padding: 1rem 0 10rem; /* Extra bottom padding for scroll arrow */
-    display: block;
+/* Switch to single column at wider breakpoint (1150px and below) */
+@media (max-width: 1150px) {
+  .home-wrapper {
+    grid-template-columns: 
+      [full-start] minmax(15px, 1fr)
+      [content-start] minmax(0, 1400px)
+      [content-end] minmax(15px, 1fr)
+      [full-end];
   }
-
+  
+  .hero-section {
+    min-height: 85vh;
+    padding: 1rem 1.5rem; /* Reduce top/bottom padding */
+    margin: 0 0; /* No top margin in single column - as high as possible */
+  }
+  
   .hero-content {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    padding-top: 0; /* Remove any top padding from content */
+  }
+  
+  .hero-content {
+    grid-template-columns: 1fr; /* Switch to single column */
+    gap: 0; /* No gap - let flower and text overlap */
     text-align: center;
   }
   
-  .specimen-sheet {
-    max-width: 320px;
-    padding: 1.5rem;
-  }
-
-  .specimen-image-wrapper {
-    min-height: 220px;
-  }
-
-  .specimen-info-card {
-    padding: 0.875rem 1rem;
-  }
-
-  .detail-label {
-    min-width: 75px;
-    font-size: 0.8rem;
-  }
-
-  .detail-value {
-    font-size: 0.8rem;
+  .specimen-display {
+    display: none; /* Hide in single column - flower overlaps text directly */
   }
   
+  .hero-text {
+    grid-column: 1 / -1;
+    padding: 2rem;
+    background-color: rgba(244, 241, 234, 0.98); /* More opaque for readability */
+  }
+
   .hero-title {
     font-size: 2.5rem;
   }
@@ -1127,73 +1133,180 @@
     margin: 0 auto;
   }
   
-  .btn-hero {
-    align-self: center;
+  /* Already in single column from 1000px breakpoint */
+  /* Just adjust spacing and sizing for smaller screens */
+  
+  .hero-section {
+    padding: 0.75rem 1rem; /* Less vertical padding */
+    margin: 0 0; /* No top margin - keep high on page */
   }
   
+  .hero-text {
+    padding: 1.75rem;
+  }
+  
+  .hero-title {
+    font-size: 2.3rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  /* Specimen display already hidden from 1000px breakpoint */
+  
+  /* Single column grid for expertise */
   .expertise-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
   
-  /* Reset grid-column for single-column layout - center the cards */
+  /* Reset grid-column for single-column layout */
   .expertise-box.sticky-note:nth-child(1),
   .expertise-box.sticky-note:nth-child(3),
   .expertise-box.sticky-note:nth-child(4) {
-    grid-column: auto; /* Reset to default so cards are centered */
+    grid-column: auto;
   }
   
-  /* Hide the invisible box in single-column layout to remove gap */
+  /* Hide the invisible box in single-column layout */
   .expertise-box-invisible {
     display: none;
   }
-
-  .specimens-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  
+  /* Reduce section padding */
+  .expertise-section,
+  .publications-section,
+  .blog-section,
+  .contact-panel {
+    padding: 3rem 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  /* Single column layout - flower positioning */
+  .overgrown-specimen {
+    --flower-height: 220vh;
+    --flower-horizontal-offset: 0%; /* Center on mobile */
+    top: 15vh; /* Keep consistent positioning */
+    /* Opacity controlled by width-based media query above */
   }
 }
 
-@media (max-width: 480px) {
-  .hero-section {
-    padding: 2rem 0 3rem;
+/* Mobile Portrait (600px and below) */
+@media (max-width: 600px) {
+  .home-wrapper {
+    grid-template-columns: 
+      [full-start] minmax(10px, 1fr)
+      [content-start] minmax(0, 1400px)
+      [content-end] minmax(10px, 1fr)
+      [full-end];
   }
   
-  .specimen-sheet {
-    max-width: 280px;
-    padding: 1.25rem;
+  .hero-section {
+    padding: 0.5rem 0.75rem; /* Less vertical padding on mobile */
+    margin: 0 0; /* No top margin on mobile */
   }
-
-  .specimen-image-wrapper {
-    min-height: 180px;
+  
+  /* specimen-display already hidden from 1000px breakpoint */
+  
+  .hero-text {
+    padding: 1.5rem;
   }
   
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.95rem;
   }
   
   .section-title {
     font-size: 1.2rem;
   }
   
-  .expertise-section {
-    padding: 3rem 0;
+  .expertise-section,
+  .publications-section,
+  .blog-section,
+  .contact-panel {
+    padding: 2.5rem 1rem;
+    margin: 0.75rem 0;
   }
-
-  .specimens-gallery {
-    padding: 3rem 0;
-  }
-
+  
   .expertise-icon {
     width: 110px;
     height: 110px;
   }
+  
+  /* More opaque backgrounds for readability */
+  .hero-text,
+  .expertise-section,
+  .publications-section,
+  .blog-section,
+  .contact-panel {
+    background-color: rgba(244, 241, 234, 0.98);
+  }
+  
+  .overgrown-specimen {
+    --flower-height: 200vh;
+    --flower-horizontal-offset: 0%;
+    top: 15vh; /* Keep consistent positioning */
+    /* Opacity controlled by width-based media query above */
+  }
 }
 
-/* Scroll Arrow */
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 80vh;
+    padding: 0.5rem;
+    margin: 0.25rem 0; /* Consistent minimal top margin */
+  }
+  
+  /* specimen-display already hidden from 1000px breakpoint */
+  
+  .hero-text {
+    padding: 1.25rem;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .section-title {
+    font-size: 1.1rem;
+  }
+  
+  .expertise-section,
+  .publications-section,
+  .blog-section,
+  .contact-panel {
+    padding: 2rem 0.75rem;
+  }
+  
+  .expertise-icon {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .overgrown-specimen {
+    --flower-height: 180vh;
+    --flower-horizontal-offset: 0%;
+    top: 15vh; /* Keep consistent positioning */
+    /* Opacity controlled by width-based media query above */
+  }
+}
+
+/* ========================================
+   10. SCROLL ARROW - Positioned in Hero
+   ======================================== */
+
 .scroll-arrow {
   position: absolute;
-  bottom: 2rem;
+  bottom: 3rem; /* Higher up so it's visible */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -1212,14 +1325,14 @@
 .scroll-arrow-icon {
   width: 40px;
   height: 40px;
-  background-color: rgba(244, 241, 234, 0.9);
+  background-color: rgba(244, 241, 234, 0.95);
   border: 2px solid rgba(180, 160, 120, 0.6);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
 }
 
@@ -1238,7 +1351,7 @@
   font-family: var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  background-color: rgba(244, 241, 234, 0.9);
+  background-color: rgba(244, 241, 234, 0.95);
   padding: 0.25rem 0.75rem;
   border-radius: 12px;
   border: 1px solid rgba(180, 160, 120, 0.4);
@@ -1246,7 +1359,7 @@
   white-space: nowrap;
 }
 
-/* Bounce animation for scroll arrow */
+/* Bounce animation */
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateX(-50%) translateY(0);
@@ -1259,10 +1372,10 @@
   }
 }
 
-/* Responsive adjustments for scroll arrow */
+/* Responsive scroll arrow */
 @media (max-width: 768px) {
   .scroll-arrow {
-    bottom: 2rem; /* Further increased spacing to avoid overlap with single-column content */
+    bottom: 2.5rem; /* Higher up on mobile */
   }
 
   .scroll-arrow-icon {
@@ -1283,7 +1396,7 @@
 
 @media (max-width: 480px) {
   .scroll-arrow {
-    bottom: 1rem;
+    bottom: 2rem; /* Higher up on small mobile */
   }
 
   .scroll-arrow-icon {
@@ -1301,4 +1414,5 @@
     padding: 0.15rem 0.5rem;
   }
 }
+
 

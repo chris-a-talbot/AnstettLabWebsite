@@ -1,24 +1,25 @@
 /* Research Page Styles - Archival Theme */
 
+/* ========================================
+   MAIN LAYOUT - CSS Grid Structure
+   ======================================== */
+
 .research-page {
+  /* Grid Layout: Summary → Flower Divider → Cards */
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 2.5rem; /* Uniform spacing creates "halfway" positioning */
+  
+  /* Container sizing */
   padding: 60px 50px;
   max-width: 1200px;
   margin: 0 auto;
-  min-height: auto; /* Override the 80vh min-height from theme.css to prevent excess space */
+  min-height: auto;
 }
 
-.research-page h1 {
-  font-family: var(--font-serif);
-  color: var(--ink-black);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-bottom: 2px solid var(--ink-black);
-  display: inline-block;
-  padding-bottom: 0.5rem;
-  margin-bottom: 3rem;
-  font-size: 2.5rem;
-  font-weight: 700;
-}
+/* ========================================
+   TYPOGRAPHY - Base Styles
+   ======================================== */
 
 .research-page h2 {
   font-family: var(--font-serif);
@@ -46,25 +47,6 @@
   color: var(--ink-brown);
 }
 
-.research-page hr {
-  border: none;
-  border-top: 1px solid var(--paper-darker);
-  margin: 3rem 0;
-}
-
-.research-page ul {
-  padding-left: 2rem;
-  margin-bottom: 1rem;
-  line-height: 1.8;
-  list-style-type: square;
-}
-
-.research-page li {
-  color: var(--ink-brown);
-  margin-bottom: 0.75rem;
-  font-family: var(--font-body);
-}
-
 .research-page a {
   color: var(--ink-black);
   text-decoration: underline;
@@ -76,57 +58,66 @@
   opacity: 0.7;
 }
 
-/* Research Overview */
+/* ========================================
+   RESEARCH OVERVIEW - Summary Paragraph
+   ======================================== */
+
 .research-overview {
-  margin-bottom: 4rem;
+  /* Grid Row 1 */
+  width: 100%;
 }
 
 .research-overview p {
   font-size: 1.1rem;
   line-height: 1.8;
   color: var(--ink-brown);
+  margin-bottom: 0; /* Remove bottom margin - gap handles spacing */
 }
 
-/* Research Divider - Decorative Flower Line */
+/* ========================================
+   FLOWER DIVIDER - Decorative Line
+   ======================================== */
+
 .research-divider {
-  position: relative;
+  /* Grid Row 2 */
   width: 100%;
-  height: 470px;
-  margin: 1rem 0 -8rem;
   display: flex;
-  align-items: center;
   justify-content: center;
-  overflow: visible;
-  z-index: 1;
+  align-items: center;
+  /* No fixed height - image determines it naturally */
 }
 
 .divider-flower {
-  position: relative;
-  pointer-events: none;
-  z-index: 1000000003;
-  opacity: 0.9;
   width: 100%;
-  height: 100%;
+  max-width: 900px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  /* Always full opacity - no overlap needed */
+  opacity: 1.0;
+  pointer-events: none;
 }
 
 .divider-flower img {
-  width: 160vw;
-  max-width: 160vw;
+  width: 100%;
   height: auto;
+  max-height: 300px; /* Limit vertical space */
   object-fit: contain;
+  object-position: center;
+  
+  /* Archival aesthetic */
   filter: sepia(0.35) brightness(0.75) contrast(1.2);
   transform: rotate(1deg);
 }
 
-/* Research Areas */
+/* ========================================
+   RESEARCH AREAS - Sticky Note Cards
+   ======================================== */
+
 .research-areas {
-  position: relative;
-  z-index: 10;
-  margin: -30rem 0 2rem;
-  padding-top: 2rem;
+  /* Grid Row 3 */
+  width: 100%;
+  /* No negative margins - clean grid structure */
 }
 
 .research-areas h2 {
@@ -138,13 +129,19 @@
   letter-spacing: 0.5px;
 }
 
-/* Research Cards Grid */
+/* ========================================
+   RESEARCH CARDS GRID
+   ======================================== */
+
 .research-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  margin-top: 2rem;
 }
+
+/* ========================================
+   INDIVIDUAL CARDS - Sticky Note Effect
+   ======================================== */
 
 .research-card {
   background-color: rgba(227, 213, 176, 0.95);
@@ -155,7 +152,6 @@
   box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Sticky Note Effect for Research Cards */
 .sticky-note-card {
   background: linear-gradient(135deg, #fef9e7 0%, #f9f3d9 100%);
   border: none;
@@ -165,6 +161,7 @@
   position: relative;
 }
 
+/* Folded corner effect */
 .sticky-note-card::before {
   content: '';
   position: absolute;
@@ -178,6 +175,7 @@
   box-shadow: -2px 2px 3px rgba(0,0,0,0.15);
 }
 
+/* Rotate cards for natural sticky note look */
 .research-card:nth-child(1) {
   transform: rotate(-2.5deg);
 }
@@ -201,6 +199,10 @@
     0 18px 40px rgba(0,0,0,0.25),
     0 8px 18px rgba(0,0,0,0.15);
 }
+
+/* ========================================
+   CARD CONTENT
+   ======================================== */
 
 .research-card-image {
   width: 100%;
@@ -245,7 +247,10 @@
   font-weight: 400;
 }
 
-/* Pop-up Panel Overlay */
+/* ========================================
+   POP-UP PANEL OVERLAY
+   ======================================== */
+
 .panel-overlay {
   position: fixed;
   top: 0;
@@ -270,7 +275,10 @@
   }
 }
 
-/* Notebook Panel */
+/* ========================================
+   NOTEBOOK PANEL
+   ======================================== */
+
 .panel-notebook {
   background-color: var(--paper-white);
   background-image: 
@@ -372,31 +380,85 @@
   color: var(--ink-brown);
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .research-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Large Screens - Optimize flower size */
+@media (min-width: 1400px) {
+  .research-page {
+    gap: 3rem; /* More breathing room on large screens */
+  }
+  
+  .divider-flower {
+    max-width: 1000px;
+  }
+  
+  .divider-flower img {
+    max-height: 350px;
   }
 }
 
+/* Medium Screens - Maintain 3-column layout */
+@media (max-width: 1199px) and (min-width: 769px) {
+  .research-page {
+    padding: 50px 40px;
+    gap: 2rem;
+  }
+  
+  .divider-flower {
+    max-width: 800px;
+  }
+  
+  .divider-flower img {
+    max-height: 250px;
+  }
+  
+  .research-cards-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* Tablet - Switch to single column */
 @media (max-width: 768px) {
   .research-page {
     padding: 40px 20px;
+    gap: 2rem; /* Tighter spacing on smaller screens */
   }
   
-  .research-page h1 {
-    font-size: 2rem;
+  .research-overview p {
+    font-size: 1rem;
   }
   
-  .research-page h2 {
-    font-size: 1.25rem;
+  .divider-flower {
+    max-width: 600px;
   }
-
+  
+  .divider-flower img {
+    max-height: 200px; /* Smaller flower on tablets */
+  }
+  
   .research-cards-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Single column */
     gap: 1.5rem;
   }
-
+  
+  /* Reset card rotations in single column */
+  .research-card:nth-child(1),
+  .research-card:nth-child(2),
+  .research-card:nth-child(3) {
+    transform: rotate(0deg);
+  }
+  
+  .research-card:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+  
+  .sticky-note-card:hover {
+    transform: translateY(-12px) scale(1.03);
+  }
+  
+  /* Panel adjustments */
   .panel-notebook {
     padding: 2rem 2rem 2rem 4rem;
     margin: 1rem;
@@ -411,85 +473,69 @@
   }
 }
 
-/* Tablet adjustments for flower divider */
-@media (max-width: 1300px) and (min-width: 769px) {
-  .research-divider {
-    height: 400px;
-    margin: 0.75rem 0 -6rem;
+/* Mobile - Further optimize spacing */
+@media (max-width: 600px) {
+  .research-page {
+    padding: 30px 15px;
+    gap: 1.5rem; /* Even tighter on mobile */
   }
-
-  .research-areas {
-    margin: -20rem 0 2rem;
-    padding-top: 1.5rem;
+  
+  .research-overview p {
+    font-size: 0.95rem;
+    line-height: 1.7;
   }
-}
-
-@media (max-width: 1024px) and (min-width: 769px) {
-  .research-divider {
-    height: 350px;
-    margin: 0.75rem 0 -6rem;
-  }
-
-  .research-areas {
-    margin: -20rem 0 2rem;
-    padding-top: 1.5rem;
-  }
-}
-
-/* Mobile adjustments for flower divider */
-@media (max-width: 768px) {
-  .research-divider {
-    height: 250px;
-    margin: 0.5rem 0 -5rem;
-  }
-
-  .research-areas {
-    margin: -15rem 0 4rem;
-    padding-top: 1rem;
-  }
-
+  
   .divider-flower {
-    opacity: 0.5;
+    max-width: 400px;
   }
-}
-
-/* Mobile adjustments for flower divider */
-@media (max-width: 650px) {
-  .research-divider {
+  
+  .divider-flower img {
+    max-height: 150px; /* Smaller flower on mobile */
+  }
+  
+  .research-cards-grid {
+    gap: 1.25rem;
+  }
+  
+  .research-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .research-card-image {
     height: 150px;
-    margin: 0.5rem 0 -5rem;
+    margin-bottom: 1rem;
   }
-
-  .research-areas {
-    margin: -10rem 0 2rem;
-    padding-top: 1rem;
+  
+  .research-card h3 {
+    font-size: 1.1rem;
   }
-
-  .divider-flower {
-    opacity: 0.5;
+  
+  .card-subtitle {
+    font-size: 0.8rem;
   }
 }
 
-/* Adjust flower divider width on very large screens */
-@media (min-width: 1600px) {
+/* Small Mobile - Minimal spacing */
+@media (max-width: 480px) {
+  .research-page {
+    padding: 20px 10px;
+    gap: 1.25rem;
+  }
+  
   .divider-flower img {
-    width: 120vw; /* Reduce width to prevent overlap with text */
-    max-width: 120vw;
+    max-height: 120px;
+  }
+  
+  .panel-notebook {
+    padding: 1.5rem 1.5rem 1.5rem 3rem;
+    margin: 0.5rem;
+  }
+  
+  .panel-content h2 {
+    font-size: 1.3rem;
+  }
+  
+  .panel-content p {
+    font-size: 0.95rem;
   }
 }
-
-@media (min-width: 2000px) {
-  .divider-flower img {
-    width: 100vw; /* Further reduce width on ultra-wide screens */
-    max-width: 100vw;
-  }
-}
-
-@media (min-width: 2400px) {
-  .divider-flower img {
-    width: 90vw; /* Significantly reduce width on extremely large screens */
-    max-width: 90vw;
-  }
-}
-
-

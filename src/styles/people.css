@@ -1,45 +1,22 @@
 /* People Page Styles - Archival Theme with Flowers */
 
+/* ========================================
+   MAIN PAGE CONTAINER
+   ======================================== */
+
 .people-page {
-  padding: 4rem 0 5rem;
+  /* Constrain max width so cards stay near edges on large screens */
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 4rem 3rem 5rem;
   background-color: rgba(255,255,255,0.7);
   position: relative;
   overflow: hidden;
 }
 
-/* Corner decorative flower */
-.corner-flower {
-  position: absolute;
-  pointer-events: none;
-  z-index: 50;
-  opacity: 1.0;
-  transition: opacity 0.3s ease;
-}
-
-.corner-flower img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: sepia(0.35) brightness(0.75) contrast(1.2);
-}
-
-/* Top right corner flower */
-.corner-top-right {
-  top: -375px;
-  right: -170px;
-  width: 600px;
-  height: 750px;
-  transform: rotate(145deg);
-}
-
-/* Bottom right corner flower */
-.corner-bottom-right {
-  bottom: -375px;
-  right: -170px;
-  width: 600px;
-  height: 750px;
-  transform: rotate(310deg);
-}
+/* ========================================
+   SECTION HEADINGS
+   ======================================== */
 
 .page-title {
   font-family: var(--font-mono);
@@ -70,21 +47,44 @@
   color: var(--ink-black);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin: -14rem 0 2rem;
+  margin: 6rem 0 2rem; /* Normal spacing, no negative margin hack */
   padding-bottom: 0.75rem;
   position: relative;
   z-index: 200;
 }
 
-/* Staggered/stepped two-column layout */
+/* Inline section heading within the grid */
+.section-heading-inline {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--ink-black);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-bottom: 0.75rem;
+  position: relative;
+  z-index: 200;
+  
+  /* Span full width within staggered grid */
+  width: 100%;
+  margin: 0 0 3rem 0; /* No top margin to maintain card flow */
+  text-align: center;
+}
+
+/* ========================================
+   PEOPLE GRID - Two Column Staggered
+   ======================================== */
+
 .people-grid {
   position: relative;
-  max-width: 1400px;
+  max-width: 100%; /* Use full available width */
   margin: 0 auto;
   padding: 2rem 0;
 }
 
-/* Person card with staggered positioning */
+/* ========================================
+   PERSON CARDS
+   ======================================== */
+
 .person-card {
   position: relative;
   display: flex;
@@ -93,32 +93,43 @@
   margin-bottom: 3rem;
 }
 
-/* Left column cards */
+/* Left column cards - aligned to left edge */
 .person-card.left-column {
   margin-left: 0;
   margin-right: auto;
 }
 
-/* Right column cards */
+/* Right column cards - aligned to right edge */
 .person-card.right-column {
   margin-left: auto;
   margin-right: 0;
 }
 
-/* Create the staggered offset effect - each card starts 2/3 down from previous */
+/* Staggered offset effect - each card starts 2/3 down from previous */
 .person-card:not(:first-child) {
   margin-top: -12rem;
 }
 
-/* Flower in empty space - positioned absolutely, peeking from sides */
+/* ========================================
+   DECORATIVE FLOWERS - Fixed to Page Edges
+   ======================================== */
+
 .person-flower {
+  /* Position relative to the card for vertical, but extend to page edge horizontally */
   position: absolute;
-  width: 500px;
-  height: 650px;
   z-index: 100;
   pointer-events: none;
+  
+  /* Dynamic sizing using CSS custom properties */
+  --flower-width: 400px;
+  --flower-height: calc(var(--flower-width) * 1.3); /* Maintain aspect ratio */
+  
+  width: var(--flower-width);
+  height: var(--flower-height);
+  
+  /* Full opacity - flowers won't overlap content */
   opacity: 1.0;
-  transition: opacity 0.3s ease;
+  transition: width 0.3s ease, height 0.3s ease;
 }
 
 .person-flower img {
@@ -127,23 +138,31 @@
   opacity: 0.95;
   object-fit: contain;
   filter: sepia(0.35) brightness(0.75) contrast(1.2);
+  /* Rotation handled by inline styles */
 }
 
-/* Left column: flowers peek from LEFT side into the gap on the right */
+/* Left column: flowers extend from left edge with ~50% overhang */
 .left-column .person-flower {
-  left: -250px;
+  /* Position left edge of flower off the left side of the card */
+  /* Card is at left edge (margin-left: 0), so this extends into page margin */
+  left: calc(-0.5 * var(--flower-width));
   top: 0;
   transform: translateY(-30%);
 }
 
-/* Right column: flowers peek from RIGHT side into the gap on the left */
+/* Right column: flowers extend from right edge with ~50% overhang */
 .right-column .person-flower {
-  right: -250px;
+  /* Position right edge of flower off the right side of the card */
+  /* Card is at right edge (margin-right: 0), so this extends into page margin */
+  right: calc(-0.5 * var(--flower-width));
   top: 0;
   transform: translateY(-30%);
 }
 
-/* Person content (photo + info) */
+/* ========================================
+   PERSON CONTENT - Manila Folder Cards
+   ======================================== */
+
 .person-content {
   position: relative;
   z-index: 10;
@@ -163,6 +182,7 @@
   text-align: center;
 }
 
+/* Slight rotation for natural appearance */
 .left-column .person-content {
   transform: rotate(-0.8deg);
 }
@@ -180,7 +200,10 @@
     0 20px 40px rgba(139, 149, 116, 0.35);
 }
 
-/* Person photo */
+/* ========================================
+   PERSON PHOTO
+   ======================================== */
+
 .person-photo {
   width: 180px;
   height: 180px;
@@ -203,7 +226,10 @@
   margin-bottom: 1.5rem;
 }
 
-/* Person info */
+/* ========================================
+   PERSON INFORMATION
+   ======================================== */
+
 .person-info {
   width: 100%;
 }
@@ -258,79 +284,115 @@
   text-decoration-thickness: 2px;
 }
 
-/* Size-dependent flower opacity - higher on large screens, very low on small */
-@media (min-width: 1201px) {
-  .person-flower,
-  .corner-flower {
-    opacity: 1.0;
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Extra Large Screens - Full flower size */
+@media (min-width: 1600px) {
+  .person-flower {
+    --flower-width: 440px;
   }
 }
 
-/* Responsive - single column on smaller screens with flowers behind at low opacity */
-@media (max-width: 1200px) {
+/* Large Screens - Maintain full-size flowers */
+@media (max-width: 1599px) and (min-width: 1400px) {
+  .person-flower {
+    --flower-width: 400px;
+  }
+  
+  .people-page {
+    padding: 4rem 2.5rem 5rem;
+  }
+}
+
+/* Medium-Large Screens - Scale flowers down slightly */
+@media (max-width: 1399px) and (min-width: 1200px) {
+  .person-flower {
+    --flower-width: 360px;
+  }
+  
+  .people-page {
+    padding: 4rem 2rem 5rem;
+  }
+}
+
+/* Medium Screens - Further reduce flower size */
+@media (max-width: 1199px) and (min-width: 1000px) {
+  .person-flower {
+    --flower-width: 320px;
+  }
+  
   .person-card {
-    width: 100%;
-    max-width: 600px;
+    width: 48%; /* Slightly wider cards */
+  }
+}
+
+/* Tablet Landscape - Smaller flowers, maintain two-column */
+@media (max-width: 999px) and (min-width: 900px) {
+  .person-flower {
+    --flower-width: 280px;
+  }
+  
+  .person-card {
+    width: 48%;
+  }
+  
+  .person-card:not(:first-child) {
+    margin-top: -10rem; /* Less overlap */
+  }
+  
+  .people-page {
+    padding: 3rem 1.5rem 4rem;
+  }
+}
+
+/* Tablet Portrait - Switch to single column */
+@media (max-width: 899px) and (min-width: 768px) {
+  .person-card {
+    width: 70%;
+    max-width: 550px;
+  }
+  
+  /* Maintain alternating left/right in single column */
+  .person-card.left-column {
+    margin-left: 0;
+    margin-right: auto;
+  }
+  
+  .person-card.right-column {
+    margin-left: auto;
+    margin-right: 0;
+  }
+  
+  .person-card:not(:first-child) {
+    margin-top: -8rem;
+  }
+  
+  .person-flower {
+    --flower-width: 260px;
+  }
+  
+  .people-page {
+    padding: 3rem 1.5rem 4rem;
+  }
+}
+
+/* Mobile Landscape - Scale flowers smaller, maintain full opacity */
+@media (max-width: 767px) and (min-width: 600px) {
+  .person-card {
+    width: 80%;
+    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
   }
   
   .person-card:not(:first-child) {
-    margin-top: 0;
-  }
-  
-  /* Move flowers on top with high z-index but low opacity */
-  .person-flower {
-    opacity: 0.22;
-    z-index: 10000;
-  }
-  
-  /* Apply same opacity to corner flowers */
-  .corner-flower {
-    opacity: 0.35;
-  }
-  
-  /* Position flowers horizontally centered, 2/3 down vertically */
-  .left-column .person-flower,
-  .right-column .person-flower {
-    left: 50% !important;
-    right: auto !important;
-    top: 66% !important;
-    transform: translate(-50%, -50%) rotate(var(--flower-rotation, 0deg)) !important;
-    width: 550px;
-    height: 700px;
-  }
-  
-  .person-content {
-    z-index: 10;
-  }
-  
-  /* Move Lab Companions section back down to prevent overlap */
-  .section-heading {
-    margin-top: 2rem;
-  }
-}
-
-@media (max-width: 900px) {
-  .person-flower,
-  .corner-flower {
-    opacity: 0.25;
+    margin-top: -6rem;
   }
   
   .person-flower {
-    width: 400px;
-    height: 550px;
-  }
-}
-
-@media (max-width: 768px) {
-  .people-page {
-    padding: 3rem 0 4rem;
-  }
-  
-  .page-title {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+    --flower-width: 220px;
   }
   
   .person-content {
@@ -343,14 +405,36 @@
     height: 150px;
   }
   
-  .person-flower,
-  .corner-flower {
-    opacity: 0.18;
+  .people-page {
+    padding: 3rem 1rem 4rem;
+  }
+}
+
+/* Mobile Portrait - Smaller flowers still at edge */
+@media (max-width: 599px) and (min-width: 480px) {
+  .person-card {
+    width: 85%;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .person-card:not(:first-child) {
+    margin-top: -5rem;
   }
   
   .person-flower {
-    width: 350px;
-    height: 500px;
+    --flower-width: 200px;
+  }
+  
+  .person-content {
+    padding: 1.5rem;
+  }
+  
+  .person-photo,
+  .person-photo-placeholder {
+    width: 140px;
+    height: 140px;
   }
   
   .person-name {
@@ -362,19 +446,23 @@
   }
 }
 
-@media (max-width: 600px) {
-  .person-flower,
-  .corner-flower {
-    opacity: 0.15;
+/* Small Mobile - Minimal flower size, keep at edges */
+@media (max-width: 479px) {
+  .person-card {
+    width: 90%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .person-card:not(:first-child) {
+    margin-top: -4rem;
   }
   
   .person-flower {
-    width: 320px;
-    height: 470px;
+    --flower-width: 180px;
   }
-}
-
-@media (max-width: 480px) {
+  
   .person-content {
     padding: 1.25rem;
   }
@@ -385,14 +473,27 @@
     height: 130px;
   }
   
-  .person-flower,
-  .corner-flower {
-    opacity: 0.12;
+  .person-name {
+    font-size: 1.2rem;
   }
   
-  .person-flower {
-    width: 300px;
-    height: 450px;
+  .person-role {
+    font-size: 0.85rem;
+  }
+  
+  .person-bio {
+    font-size: 0.85rem;
+  }
+  
+  .person-links a {
+    font-size: 0.8rem;
+  }
+  
+  .people-page {
+    padding: 2rem 0.75rem 3rem;
+  }
+  
+  .section-heading {
+    margin: 4rem 0 2rem;
   }
 }
-

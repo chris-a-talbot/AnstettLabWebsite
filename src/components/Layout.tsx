@@ -1,5 +1,4 @@
-import { Outlet, Link, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { Outlet, Link } from 'react-router-dom'
 import { useState } from 'react'
 import FolderTab from './FolderTab'
 import logoFlower from '../assets/logos/profile.png'
@@ -10,22 +9,6 @@ import cornellIcon from '../assets/icons/cornell.svg'
 
 export default function Layout() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const location = useLocation()
-  const isHomePage = location.pathname === '/'
-
-  // Check if we're on very large screens (2000px+)
-  const [isVeryLargeScreen, setIsVeryLargeScreen] = useState(false)
-
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsVeryLargeScreen(window.innerWidth >= 2000)
-    }
-
-    checkScreenSize()
-    window.addEventListener('resize', checkScreenSize)
-
-    return () => window.removeEventListener('resize', checkScreenSize)
-  }, [])
 
   return (
     <div className="site-wrapper">
@@ -99,70 +82,10 @@ export default function Layout() {
       {/* Main Content */}
       <main className="main-content">
         <Outlet />
-        {/* Footer inside main-content on home page (not very large screens) */}
-        {isHomePage && !isVeryLargeScreen && (
-          <footer className="site-footer site-footer-inside">
-            <div className="container">
-              <div className="footer-content">
-                <div className="footer-left">
-                  <img
-                    src={cornellLogoBlack}
-                    alt="Cornell University School of Integrative Plant Science"
-                    className="footer-logo"
-                  />
-                  <div className="footer-text">
-                    <strong>Cataloged by D.N. Anstett</strong> © {new Date().getFullYear()}. All Rights Reserved.
-                    <br />
-                    <span>Site designed by <a href="https://chris-a-talbot.com" target="_blank" rel="noopener noreferrer" className="footer-credit-link">Chris Talbot</a> | <a href="https://github.com/chris-a-talbot/AnstettLabWebsite" target="_blank" rel="noopener noreferrer" className="footer-credit-link">GitHub</a></span>
-                    <br />
-                    <span>Pressed flower photos courtesy of <a href="https://cals.cornell.edu/people/katie-debbas" target="_blank" rel="noopener noreferrer" className="footer-credit-link">Katie Debbas</a> and the <a href="http://bhort.bh.cornell.edu/" target="_blank" rel="noopener noreferrer" className="footer-credit-link">L. H. Bailey Hortorium</a> at Cornell</span>
-                  </div>
-                </div>
-
-                <div className="footer-social">
-                  <span className="footer-label">Follow:</span>
-
-                  {/* Flickr */}
-                  <a
-                    href="https://www.flickr.com/photos/133009705@N05/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-icon"
-                    aria-label="Flickr"
-                  >
-                    <img src={flickrIcon} alt="Flickr" />
-                  </a>
-
-                  {/* Google Scholar */}
-                  <a
-                    href="https://scholar.google.com/citations?user=9vyKmwIAAAAJ&hl=en"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-icon"
-                    aria-label="Google Scholar"
-                  >
-                    <img src={scholarIcon} alt="Google Scholar" />
-                  </a>
-
-                  {/* Cornell */}
-                  <a
-                    href="https://cals.cornell.edu/people/daniel-anstett"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-icon"
-                    aria-label="Cornell University"
-                  >
-                    <img src={cornellIcon} alt="Cornell University" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </footer>
-        )}
       </main>
       
-      {/* Footer - outside main-content (shown on non-home pages and very large home screens) */}
-      {(!isHomePage || (isHomePage && isVeryLargeScreen)) && <footer className="site-footer">
+      {/* Footer - outside main-content for all pages */}
+      <footer className="site-footer">
         <div className="container">
           <div className="footer-content">
             <div className="footer-left">
@@ -230,7 +153,7 @@ export default function Layout() {
             </div>
           </div>
         </div>
-      </footer>}
+      </footer>
     </div>
   )
 }

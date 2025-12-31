@@ -18,8 +18,6 @@ export default function Research() {
 
   return (
     <div className="research-page fade-in">
-      <h1>Research</h1>
-      
       <section className="research-overview">
         <p>
           Our work examines the distribution and spread of adaptive genetic variation across

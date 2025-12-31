@@ -593,27 +593,6 @@ a:hover {
   z-index: 1;
 }
 
-/* Footer inside main-content (home page all sizes) */
-.site-footer-inside {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 3rem 0;
-  background-color: rgba(244, 241, 234, 0.95);
-  border-top: 1px solid rgba(180, 160, 120, 0.4);
-  z-index: 100003; /* Above contact panel */
-  /* Overlay the flower image like other panels */
-}
-
-/* Responsive adjustments for footer inside main-content */
-@media (max-width: 768px) {
-  .site-footer-inside {
-    padding: 1.5rem 0;
-  }
-}
-
 .footer-content {
   display: flex;
   justify-content: space-between;
