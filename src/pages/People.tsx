@@ -45,8 +45,9 @@ export default function People() {
                 <p className="person-role">Principal Investigator</p>
                 <p className="person-bio">{loremMedium}</p>
                 <p className="person-links">
-                  <a href="mailto:dna38@cornell.edu">Email</a> • 
-                  <a href="https://scholar.google.ca/citations?hl=en&user=9vyKmwIAAAAJ" target="_blank" rel="noopener noreferrer"> Google Scholar</a>
+                  <a href="mailto:dna38@cornell.edu">Email</a> •
+                  <a href="https://scholar.google.ca/citations?hl=en&user=9vyKmwIAAAAJ" target="_blank" rel="noopener noreferrer"> Google Scholar</a> •
+                  <a href="https://dnanstett.wordpress.com/wp-content/uploads/2024/02/2.-cv_anstett_website.pdf" target="_blank" rel="noopener noreferrer"> CV</a>
                 </p>
               </div>
             </div>
@@ -114,8 +115,9 @@ export default function People() {
                 <p className="person-role">Collaborating PhD Student</p>
                 <p className="person-bio">{loremMedium}</p>
                 <p className="person-links">
-                  <a href="mailto:example@cornell.edu">Email</a> • 
-                  <a href="https://chris-a-talbot.com" target="_blank" rel="noopener noreferrer"> Website</a> • 
+                  <a href="mailto:example@cornell.edu">Email</a> •
+                  <a href="https://chris-a-talbot.com" target="_blank" rel="noopener noreferrer"> Website</a> •
+                  <a href="https://chris-a-talbot.com/CV.html" target="_blank" rel="noopener noreferrer"> CV</a> •
                   <a href="#"> GitHub</a>
                 </p>
               </div>
