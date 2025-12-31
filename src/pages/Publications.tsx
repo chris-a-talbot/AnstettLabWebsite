@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import '../styles/publications.css';
+import erycar4 from '../assets/flowers/erycar_4.png';
+import esccal7 from '../assets/flowers/esccal_7.png';
 
 export default function Publications() {
   useEffect(() => {
@@ -20,6 +22,24 @@ export default function Publications() {
 
   return (
     <div className="publications-page">
+      {/* Left vertical flower decoration */}
+      <div className="publications-flower-left">
+        <img
+          src={erycar4}
+          alt="Decorative flower specimen"
+          className="vertical-flower"
+        />
+      </div>
+
+      {/* Right vertical flower decoration */}
+      <div className="publications-flower-right">
+        <img
+          src={esccal7}
+          alt="Decorative flower specimen"
+          className="vertical-flower"
+        />
+      </div>
+
       <div
         data-lab-id="cmjrx405l00025j35c0ge1824"
         data-api-url="https://pubsyncio-production.up.railway.app"

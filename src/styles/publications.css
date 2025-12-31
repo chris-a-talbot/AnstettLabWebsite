@@ -4,6 +4,52 @@
   padding: 40px 40px;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+}
+
+/* Vertical flower decorations */
+.publications-flower-left,
+.publications-flower-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.publications-flower-left {
+  left: -700px;
+  transform: scale(0.8) translateY(-80%) translateX(-5%);
+}
+
+.publications-flower-right {
+  right: -1100px;
+  transform: translateX(2%);
+}
+
+.vertical-flower {
+  width: auto;
+  height: 140vh;
+  max-height: 140vh;
+  transform: rotate(270deg);
+  filter: sepia(0.35) brightness(0.75) contrast(1.2);
+  opacity: 0.8;
+}
+
+/* Responsive behavior - hide flowers on smaller screens to avoid overlap */
+@media (max-width: 1024px) {
+  .publications-flower-left,
+  .publications-flower-right {
+    opacity: 0.05;
+  }
+}
+
+@media (max-width: 768px) {
+  .publications-flower-left,
+  .publications-flower-right {
+    display: none;
+  }
 }
 
 .publications-page h1 {
