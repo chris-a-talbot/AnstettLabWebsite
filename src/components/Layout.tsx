@@ -97,7 +97,7 @@ export default function Layout() {
               <div className="footer-text">
                 <strong>Cataloged by D.N. Anstett</strong> © {new Date().getFullYear()}. All Rights Reserved.
                 <br />
-                <span>Site designed by <a href="https://chris-a-talbot.com" target="_blank" rel="noopener noreferrer" className="footer-credit-link">Chris Talbot</a> | <a href="https://github.com/chris-a-talbot/AnstettLabWebsite" target="_blank" rel="noopener noreferrer" className="footer-credit-link">GitHub</a></span>
+                <span>Site designed by Katie Debbas and Chris Talbot; implemented by <a href="https://chris-a-talbot.com" target="_blank" rel="noopener noreferrer" className="footer-credit-link">Chris Talbot</a> | <a href="https://github.com/chris-a-talbot/AnstettLabWebsite" target="_blank" rel="noopener noreferrer" className="footer-credit-link">GitHub</a></span>
                 <br />
                 <span>Pressed flower photos courtesy of <a href="https://cals.cornell.edu/people/katie-debbas" target="_blank" rel="noopener noreferrer" className="footer-credit-link">Katie Debbas</a> and the <a href="http://bhort.bh.cornell.edu/" target="_blank" rel="noopener noreferrer" className="footer-credit-link">L. H. Bailey Hortorium</a> at Cornell</span>
               </div>
