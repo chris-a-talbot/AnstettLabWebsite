@@ -89,8 +89,8 @@ export default function Layout() {
             <Link to="/" onClick={() => setMenuOpen(false)}>The Lab</Link>
             <Link to="/research" onClick={() => setMenuOpen(false)}>Research</Link>
             <Link to="/publications" onClick={() => setMenuOpen(false)}>Publications</Link>
-            <Link to="/people" onClick={() => setMenuOpen(false)}>The Herbarium</Link>
-            <Link to="/photos" onClick={() => setMenuOpen(false)}>SciComm & Design</Link>
+            <Link to="/people" onClick={() => setMenuOpen(false)}>People</Link>
+            <Link to="/photos" onClick={() => setMenuOpen(false)}>Photos</Link>
             <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
           </div>
         </nav>
