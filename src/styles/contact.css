@@ -485,22 +485,84 @@
   .contact-wrapper {
     padding: 2rem 0 3rem;
   }
-  
+
   .contact-grid {
     gap: 1.5rem;
   }
-  
+
   .page-title {
     font-size: 1.3rem;
   }
-  
+
   .card-title {
     font-size: 1rem;
     margin-bottom: 1rem;
   }
-  
+
   .contact-card {
     padding: 1.25rem;
   }
 }
+
+/* Adjust corner flowers for very large screens */
+@media (min-width: 1600px) {
+  .flower-top-left {
+    width: 700px;
+    height: 900px;
+    left: -400px;
+    top: -580px;
+  }
+
+  .flower-top-right {
+    width: 750px;
+    height: 950px;
+    right: -500px;
+    top: -500px;
+  }
+
+  .flower-bottom-left {
+    width: 700px;
+    height: 900px;
+    left: -400px;
+    bottom: -400px;
+  }
+
+  .flower-bottom-right {
+    width: 750px;
+    height: 950px;
+    right: -400px;
+    bottom: -400px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .flower-top-left {
+    width: 850px;
+    height: 1100px;
+    left: -500px;
+    top: -700px;
+  }
+
+  .flower-top-right {
+    width: 900px;
+    height: 1150px;
+    right: -600px;
+    top: -600px;
+  }
+
+  .flower-bottom-left {
+    width: 850px;
+    height: 1100px;
+    left: -500px;
+    bottom: -500px;
+  }
+
+  .flower-bottom-right {
+    width: 900px;
+    height: 1150px;
+    right: -500px;
+    bottom: -500px;
+  }
+}
+
 

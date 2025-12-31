@@ -58,6 +58,13 @@
   }
 }
 
+/* Adjust flower position on very large screens */
+@media (min-width: 1600px) {
+  .overgrown-specimen {
+    left: 55%; /* Move flower further to the left on very large screens */
+  }
+}
+
 /* Home Page Container */
 .home-wrapper {
   min-height: 3200px; /* Must match flower height exactly for proper scrolling */

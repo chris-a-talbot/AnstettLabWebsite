@@ -1,4 +1,5 @@
 import { Outlet, Link, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import { useState } from 'react'
 import FolderTab from './FolderTab'
 import logoFlower from '../assets/logos/profile.png'
@@ -11,6 +12,20 @@ export default function Layout() {
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
   const isHomePage = location.pathname === '/'
+
+  // Check if we're on very large screens (2000px+)
+  const [isVeryLargeScreen, setIsVeryLargeScreen] = useState(false)
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsVeryLargeScreen(window.innerWidth >= 2000)
+    }
+
+    checkScreenSize()
+    window.addEventListener('resize', checkScreenSize)
+
+    return () => window.removeEventListener('resize', checkScreenSize)
+  }, [])
 
   return (
     <div className="site-wrapper">
@@ -84,8 +99,8 @@ export default function Layout() {
       {/* Main Content */}
       <main className="main-content">
         <Outlet />
-        {/* Footer inside main-content on home page desktop */}
-        {isHomePage && (
+        {/* Footer inside main-content on home page (not very large screens) */}
+        {isHomePage && !isVeryLargeScreen && (
           <footer className="site-footer site-footer-inside">
             <div className="container">
               <div className="footer-content">
@@ -146,8 +161,8 @@ export default function Layout() {
         )}
       </main>
       
-      {/* Footer - outside main-content (never shown on home page now) */}
-      {!isHomePage && <footer className="site-footer">
+      {/* Footer - outside main-content (shown on non-home pages and very large home screens) */}
+      {(!isHomePage || (isHomePage && isVeryLargeScreen)) && <footer className="site-footer">
         <div className="container">
           <div className="footer-content">
             <div className="footer-left">
