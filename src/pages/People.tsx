@@ -1,10 +1,11 @@
-import danielImg from '../assets/people/daniel.jpg'
-import katieImg from '../assets/people/katie.jpg'
-import chrisImg from '../assets/people/chris.jpg'
-import arctostaphylosImg from '../assets/people/arctostaphylos.jpg'
-import mrLittleGuyImg from '../assets/people/mrlittleguy.jpg'
-import annaImg from '../assets/people/anna.png'
-import totoroImg from '../assets/people/totoro.png'
+// People photos are now served directly from public/assets/people/
+const danielImg = '/assets/people/daniel.jpg'
+const katieImg = '/assets/people/katie.jpg'
+const chrisImg = '/assets/people/chris.jpg'
+const arctostaphylosImg = '/assets/people/arctostaphylos.jpg'
+const mrLittleGuyImg = '/assets/people/mrlittleguy.jpg'
+const annaImg = '/assets/people/anna.png'
+const totoroImg = '/assets/people/totoro.png'
 
 // Import random flowers for decorations
 import erycar1 from '../assets/flowers/erycar_1.png'
