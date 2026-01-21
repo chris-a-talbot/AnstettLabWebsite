@@ -134,8 +134,8 @@ export default function Home() {
     const heroSection = document.querySelector('.hero-section') as HTMLElement;
     if (heroSection) {
       const heroHeight = heroSection.offsetHeight;
-      // Scroll down by hero height minus some overlap to show transition
-      const scrollDistance = heroHeight - 100; // Leave 100px of hero visible for context
+      // Scroll down by hero height minus a smaller overlap to show transition
+      const scrollDistance = heroHeight - 50; // Leave 50px of hero visible for context
 
       window.scrollTo({
         top: scrollDistance,
