@@ -68,8 +68,8 @@ export default function People() {
                 <p className="person-role">Post-doctoral Researcher</p>
                 <p className="person-bio">Anna is a Postdoctoral researcher with Dr. Daniel Anstett. Her research evaluates the capacity for native plant communities to adapt to environmental change and how the results can inform conservation management practices like seed sourcing. Prior to joining the Anstett research group, Anna investigated these questions using wild plant populations in the tallgrass prairie ecosystem at the University of Minnesota with Dr. Ruth Shaw. She enjoys reading and exploring Ithaca's natural areas with her family.</p>
                 <p className="person-links">
-                  <a href="mailto:example@cornell.edu">Email</a> • 
-                  <a href="#"> Google Scholar</a>
+                  <a href="mailto:arp326@cornell.edu">Email</a> •
+                  <a href="https://scholar.google.com/citations?user=BRnddhEAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer"> Google Scholar</a>
                 </p>
               </div>
             </div>
@@ -91,7 +91,7 @@ export default function People() {
                 <p className="person-role">PhD Student</p>
                 <p className="person-bio">Katie Debbas is a PhD student in Dr. Daniel Anstett's lab investigating the unintended effects of California's native plant industry. Her research uses two iconic wildflowers, the California poppy (<em>Eschscholzia californica</em>) and baby blue eyes (<em>Nemophila menziesii</em>), to assess whether cultivated genotypes are introgressing into wild populations and potentially reducing their adaptive capacity to stressors such as drought. This work aims to conserve the biodiversity in California's precious wild ecosystems by bridging the gap between conservation science and horticultural practice.</p>
                 <p className="person-links">
-                  <a href="mailto:example@cornell.edu">Email</a> • 
+                  <a href="mailto:cd696@cornell.edu">Email</a> •
                   <a href="#"> Google Scholar</a>
                 </p>
               </div>
@@ -114,7 +114,8 @@ export default function People() {
                 <p className="person-role">Collaborating PhD Student</p>
                 <p className="person-bio">Chris Talbot is a collaborating PhD student in Dr. Philipp Messer's lab in the field of Computational Biology. He is interested in applying simulation models to understand how genetics can inform conservation efforts across spatial and temporal scales.</p>
                 <p className="person-links">
-                  <a href="mailto:example@cornell.edu">Email</a> •
+                  <a href="mailto:cat267@cornell.edu">Email</a> •
+                  <a href="https://scholar.google.com/citations?user=iC5hGLYAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer"> Google Scholar</a> •
                   <a href="https://chris-a-talbot.com" target="_blank" rel="noopener noreferrer"> Website</a> •
                   <a href="https://chris-a-talbot.com/CV.html" target="_blank" rel="noopener noreferrer"> CV</a> •
                   <a href="#"> GitHub</a>
