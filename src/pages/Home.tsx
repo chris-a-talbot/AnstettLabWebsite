@@ -27,6 +27,20 @@ export default function Home() {
     setActivePanel(null)
   }
 
+  // Disable body scroll when modal is open
+  useEffect(() => {
+    if (activePanel) {
+      document.body.classList.add('modal-open')
+    } else {
+      document.body.classList.remove('modal-open')
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.classList.remove('modal-open')
+    }
+  }, [activePanel])
+
 
   // Handle scroll-based opacity - cumulative with CSS width-based opacity
   const handleScrollOpacity = useCallback(() => {

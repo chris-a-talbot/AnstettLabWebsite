@@ -20,9 +20,6 @@ import oenbie3 from '../assets/flowers/oenbie_3.png'
 import '../styles/people.css'
 
 export default function People() {
-  // Lorem ipsum text for bios
-  const loremShort = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-  const loremMedium = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel sapien ac nisi cursus varius. Nulla facilisi. Praesent euismod libero vel eros dignissim, ut consectetur urna molestie. Cras ultricies magna vel felis volutpat blandit."
   
   return (
     <div className="people-page fade-in">
@@ -45,7 +42,7 @@ export default function People() {
               <div className="person-info">
                 <h2 className="person-name">Daniel Anstett</h2>
                 <p className="person-role">Principal Investigator</p>
-                <p className="person-bio">{loremMedium}</p>
+                <p className="person-bio">Daniel Anstett is an Assistant Professor at Cornell University in the School of Integrative Plant Science. His research focuses on evolutionary ecology across large spatial scales, studying rapid adaptation to climate change, latitudinal gradients in plant-herbivore interactions, and landscape genomics. He uses plants as model systems to understand when evolution can rescue populations from environmental extremes.</p>
                 <p className="person-links">
                   <a href="mailto:dna38@cornell.edu">Email</a> •
                   <a href="https://scholar.google.ca/citations?hl=en&user=9vyKmwIAAAAJ" target="_blank" rel="noopener noreferrer"> Google Scholar</a> •
@@ -140,7 +137,6 @@ export default function People() {
               <div className="person-info">
                 <h2 className="person-name">Totoro</h2>
                 <p className="person-role">Lab Dog</p>
-                <p className="person-bio">{loremShort}</p>
               </div>
             </div>
           </div>
@@ -159,7 +155,6 @@ export default function People() {
               <div className="person-info">
                 <h2 className="person-name">Arctostaphylos uva-ursi</h2>
                 <p className="person-role">Lab Cat</p>
-                <p className="person-bio">{loremShort}</p>
               </div>
             </div>
           </div>
@@ -178,7 +173,6 @@ export default function People() {
               <div className="person-info">
                 <h2 className="person-name">Mr. Little Guy</h2>
                 <p className="person-role">Lab Cat</p>
-                <p className="person-bio">{loremShort}</p>
               </div>
             </div>
           </div>
@@ -197,7 +191,6 @@ export default function People() {
               <div className="person-info">
                 <h2 className="person-name">Little Bluestem</h2>
                 <p className="person-role">Lab Cat</p>
-                <p className="person-bio">{loremShort}</p>
               </div>
             </div>
           </div>
