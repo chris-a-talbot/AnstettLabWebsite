@@ -4,8 +4,9 @@ const katieImg = '/assets/people/katie.jpg'
 const chrisImg = '/assets/people/chris.jpg'
 const arctostaphylosImg = '/assets/people/arctostaphylos.jpg'
 const mrLittleGuyImg = '/assets/people/mrlittleguy.jpg'
-const annaImg = '/assets/people/anna.png'
+const annaImg = '/assets/people/anna.jpg'
 const totoroImg = '/assets/people/totoro.png'
+const littleBluestemImg = '/assets/people/littlebluestem.jpg'
 
 // Import random flowers for decorations
 import erycar1 from '../assets/flowers/erycar_1.png'
@@ -68,7 +69,7 @@ export default function People() {
               <div className="person-info">
                 <h2 className="person-name">Anna Peschel</h2>
                 <p className="person-role">Post-doctoral Researcher</p>
-                <p className="person-bio">{loremMedium}</p>
+                <p className="person-bio">Anna is a Postdoctoral researcher with Dr. Daniel Anstett. Her research evaluates the capacity for native plant communities to adapt to environmental change and how the results can inform conservation management practices like seed sourcing. Prior to joining the Anstett research group, Anna investigated these questions using wild plant populations in the tallgrass prairie ecosystem at the University of Minnesota with Dr. Ruth Shaw. She enjoys reading and exploring Ithaca's natural areas with her family.</p>
                 <p className="person-links">
                   <a href="mailto:example@cornell.edu">Email</a> • 
                   <a href="#"> Google Scholar</a>
@@ -91,7 +92,7 @@ export default function People() {
               <div className="person-info">
                 <h2 className="person-name">Katie Debbas</h2>
                 <p className="person-role">PhD Student</p>
-                <p className="person-bio">{loremMedium}</p>
+                <p className="person-bio">Katie Debbas is a PhD student in Dr. Daniel Anstett's lab investigating the unintended effects of California's native plant industry. Her research uses two iconic wildflowers, the California poppy (<em>Eschscholzia californica</em>) and baby blue eyes (<em>Nemophila menziesii</em>), to assess whether cultivated genotypes are introgressing into wild populations and potentially reducing their adaptive capacity to stressors such as drought. This work aims to conserve the biodiversity in California's precious wild ecosystems by bridging the gap between conservation science and horticultural practice.</p>
                 <p className="person-links">
                   <a href="mailto:example@cornell.edu">Email</a> • 
                   <a href="#"> Google Scholar</a>
@@ -114,7 +115,7 @@ export default function People() {
               <div className="person-info">
                 <h2 className="person-name">Chris Talbot</h2>
                 <p className="person-role">Collaborating PhD Student</p>
-                <p className="person-bio">{loremMedium}</p>
+                <p className="person-bio">Chris Talbot is a collaborating PhD student in Dr. Philipp Messer's lab in the field of Computational Biology. He is interested in applying simulation models to understand how genetics can inform conservation efforts across spatial and temporal scales.</p>
                 <p className="person-links">
                   <a href="mailto:example@cornell.edu">Email</a> •
                   <a href="https://chris-a-talbot.com" target="_blank" rel="noopener noreferrer"> Website</a> •
@@ -176,6 +177,25 @@ export default function People() {
               />
               <div className="person-info">
                 <h2 className="person-name">Mr. Little Guy</h2>
+                <p className="person-role">Lab Cat</p>
+                <p className="person-bio">{loremShort}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Little Bluestem - RIGHT */}
+          <div className="person-card right-column">
+            <div className="person-flower">
+              <img src={erycar1} alt="" style={{ transform: 'rotate(150deg)' }} />
+            </div>
+            <div className="person-content">
+              <img
+                src={littleBluestemImg}
+                alt="Little Bluestem"
+                className="person-photo"
+              />
+              <div className="person-info">
+                <h2 className="person-name">Little Bluestem</h2>
                 <p className="person-role">Lab Cat</p>
                 <p className="person-bio">{loremShort}</p>
               </div>
