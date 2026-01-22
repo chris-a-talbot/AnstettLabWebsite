@@ -11,7 +11,8 @@
 //
 // Sorting: Photos are sorted by date (most recent first)
 //   Priority: 1) config override, 2) EXIF metadata, 3) file modification time
-//   Run `npm run extract-dates` to regenerate photo-dates.json
+//   Run `npm run extract-dates` locally to regenerate photo-dates.json, then commit it.
+//   The file is committed to git and used directly during builds (no extraction on Railway).
 
 import galleryConfigJson from '../assets/photos/gallery.config.json'
 import photoDatesJson from './photo-dates.json'

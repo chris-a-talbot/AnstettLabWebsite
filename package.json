@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "prebuild": "node scripts/extract-photo-dates.js",
     "extract-dates": "node scripts/extract-photo-dates.js",
     "lint": "eslint .",
     "preview": "vite preview"
