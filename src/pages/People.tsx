@@ -9,13 +9,13 @@ const totoroImg = '/assets/people/totoro.png'
 const littleBluestemImg = '/assets/people/littlebluestem.jpg'
 
 // Import random flowers for decorations
-import erycar1 from '../assets/flowers/erycar_1.png'
-import erycar5 from '../assets/flowers/erycar_5.png'
-import erycar3 from '../assets/flowers/erycar_3.png'
-import dalpur2 from '../assets/flowers/dalpur_2.png'
-import trirep2 from '../assets/flowers/trirep_2.png'
-import oenbie2 from '../assets/flowers/oenbie_2.png'
-import oenbie3 from '../assets/flowers/oenbie_3.png'
+import erycar1 from '../assets/photos/Herbarium/erycar_1.png'
+import erycar5 from '../assets/photos/Herbarium/erycar_5.png'
+import erycar3 from '../assets/photos/Herbarium/erycar_3.png'
+import dalpur2 from '../assets/photos/Herbarium/dalpur_2.png'
+import trirep2 from '../assets/photos/Herbarium/trirep_2.png'
+import oenbie2 from '../assets/photos/Herbarium/oenbie_2.png'
+import oenbie3 from '../assets/photos/Herbarium/oenbie_3.png'
 
 import '../styles/people.css'
 

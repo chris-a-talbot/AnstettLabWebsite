@@ -3,7 +3,7 @@ import '../styles/research.css'
 import genomicsImg from '../assets/research/genomics.png'
 import droughtImg from '../assets/research/drought.webp'
 import latitudeImg from '../assets/research/latitude.webp'
-import dalpur5 from '../assets/flowers/dalpur_5.png'
+import dalpur5 from '../assets/photos/Herbarium/dalpur_5.png'
 
 export default function Research() {
   const [activePanel, setActivePanel] = useState<string | null>(null)

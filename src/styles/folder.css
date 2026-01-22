@@ -1,0 +1,304 @@
+/* Folder Item Styles */
+
+.folder-item {
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding-top: 50px; /* Space for photos sticking out */
+}
+
+.folder-item:hover {
+  transform: scale(1.02) translateY(-5px);
+}
+
+/* Tab - lowest z-index, can be overlapped by photos */
+.gallery-folder-tab {
+  position: absolute;
+  top: 50px; /* Align with top of folder body */
+  left: 12px;
+  background: linear-gradient(to bottom, #c9a86c, #b8965a);
+  color: #4a3c2a;
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  transform: translateY(-100%);
+}
+
+/* Preview photos - middle z-index, above tab but below folder body */
+.folder-previews {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  z-index: 2;
+}
+
+.folder-preview-img {
+  position: absolute;
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  background-color: #f5f0e6; /* Background for transparent PNGs */
+  top: 0;
+}
+
+/* Folder body - highest z-index, covers bottom of photos */
+.folder-body {
+  position: relative;
+  background: linear-gradient(135deg, #d4b896 0%, #c9a86c 100%);
+  border: 1px solid #b8965a;
+  border-radius: 0 8px 8px 8px;
+  padding: 1.5rem 1rem;
+  min-height: 120px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* Paper texture overlay */
+.folder-body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+.folder-info {
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+.folder-label {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4a3c2a;
+  margin-bottom: 2px;
+}
+
+.folder-count {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  color: #6b5a45;
+}
+
+/* Folder Overlay (Modal) */
+.folder-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999999;
+  animation: folderFadeIn 0.3s ease;
+}
+
+.folder-modal {
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+  max-width: 1200px;
+  background: linear-gradient(135deg, #f5f0e6 0%, #ebe4d4 100%);
+  border-radius: 0 12px 12px 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  animation: folderScaleIn 0.3s ease;
+  overflow: hidden;
+}
+
+.folder-modal-tab {
+  position: absolute;
+  top: -36px;
+  left: 20px;
+  background: linear-gradient(to bottom, #c9a86c, #b8965a);
+  color: #4a3c2a;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 8px 24px;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.folder-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(74, 60, 42, 0.8);
+  color: white;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background-color 0.2s ease;
+}
+
+.folder-modal-close:hover {
+  background: rgba(74, 60, 42, 1);
+}
+
+.folder-modal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+/* Custom scrollbar for folder content */
+.folder-modal-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.folder-modal-content::-webkit-scrollbar-track {
+  background: #ddd5c5;
+  border-radius: 5px;
+}
+
+.folder-modal-content::-webkit-scrollbar-thumb {
+  background: #b8965a;
+  border-radius: 5px;
+}
+
+.folder-modal-content::-webkit-scrollbar-thumb:hover {
+  background: #a68548;
+}
+
+/* Pinned Photos inside folder */
+.pinned-photo {
+  background: white;
+  padding: 10px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  max-width: 280px;
+}
+
+.pinned-photo:hover {
+  transform: scale(1.05) rotate(0deg) !important;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.25);
+  z-index: 5;
+}
+
+.pinned-photo img {
+  display: block;
+  max-width: 260px;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.pinned-photo-caption {
+  display: block;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: #4a3c2a;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #e5ddd0;
+}
+
+/* Animations */
+@keyframes folderFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes folderScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .folder-modal {
+    width: 95vw;
+    height: 95vh;
+  }
+
+  .folder-modal-tab {
+    font-size: 1rem;
+    padding: 6px 18px;
+    top: -32px;
+  }
+
+  .folder-modal-content {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .pinned-photo {
+    max-width: 45%;
+    padding: 6px;
+  }
+
+  .pinned-photo img {
+    max-width: 100%;
+    max-height: 200px;
+  }
+
+  .folder-item {
+    padding-top: 40px;
+  }
+
+  .gallery-folder-tab {
+    top: 40px;
+  }
+
+  .folder-preview-img {
+    width: 60px;
+    height: 80px;
+  }
+
+  .folder-previews {
+    height: 80px;
+  }
+
+  .folder-body {
+    min-height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pinned-photo {
+    max-width: 100%;
+  }
+}

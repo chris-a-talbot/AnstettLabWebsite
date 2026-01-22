@@ -1,0 +1,105 @@
+/* Masonry Grid Layout using CSS Columns */
+
+.masonry-grid {
+  column-count: 3;
+  column-gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+
+/* Photo Items in Masonry Grid */
+.masonry-photo-item {
+  background-color: #e3d5b0;
+  border: 1px solid #c2b280;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.masonry-photo-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.masonry-photo-item:hover img {
+  transform: scale(1.05);
+}
+
+.masonry-photo-item .photo-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  padding: 2rem 1rem 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.masonry-photo-item:hover .photo-overlay {
+  opacity: 1;
+}
+
+.masonry-photo-item .photo-caption {
+  color: white;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  display: block;
+}
+
+/* Subtle rotation for archival feel */
+.masonry-item:nth-child(3n) .masonry-photo-item {
+  transform: rotate(-0.5deg);
+}
+
+.masonry-item:nth-child(3n+1) .masonry-photo-item {
+  transform: rotate(0.5deg);
+}
+
+.masonry-item:nth-child(3n+2) .masonry-photo-item {
+  transform: rotate(-0.3deg);
+}
+
+.masonry-photo-item:hover {
+  transform: rotate(0deg) translateY(-5px) scale(1.02);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive column counts */
+@media (max-width: 1200px) {
+  .masonry-grid {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 900px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .masonry-grid {
+    column-count: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .masonry-grid {
+    column-gap: 1rem;
+  }
+
+  .masonry-item {
+    margin-bottom: 1rem;
+  }
+}

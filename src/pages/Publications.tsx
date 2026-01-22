@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import '../styles/publications.css';
-import erycar4 from '../assets/flowers/erycar_4.png';
-import esccal7 from '../assets/flowers/esccal_7.png';
+import erycar4 from '../assets/photos/Herbarium/erycar_4.png';
+import esccal7 from '../assets/photos/Herbarium/esccal_7.png';
 
 export default function Publications() {
   useEffect(() => {

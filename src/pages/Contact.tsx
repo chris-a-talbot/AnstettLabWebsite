@@ -1,10 +1,10 @@
 import '../styles/contact.css';
 
 // Import flower specimens for decoration
-import erycar8 from '../assets/flowers/erycar_8.png';
-import trirep1 from '../assets/flowers/trirep_1.png';
-import esccal4 from '../assets/flowers/esccal_4.png';
-import chafas3 from '../assets/flowers/chafas_3.png';
+import erycar8 from '../assets/photos/Herbarium/erycar_8.png';
+import trirep1 from '../assets/photos/Herbarium/trirep_1.png';
+import esccal4 from '../assets/photos/Herbarium/esccal_4.png';
+import chafas3 from '../assets/photos/Herbarium/chafas_3.png';
 
 export default function Contact() {
   return (

@@ -3,7 +3,7 @@ import { useEffect, useCallback, useState } from 'react'
 import '../styles/home.css'
 
 // Import background flower image
-import rubhir3 from '../assets/flowers/rubhir_3.png'
+import rubhir3 from '../assets/photos/Herbarium/rubhir_3.png'
 
 // Import research images
 import genomicsImg from '../assets/research/genomics.png'
