@@ -145,6 +145,12 @@
    ======================================== */
 
 .research-card {
+  /* Sticky notes are buttons - reset native button styling */
+  display: block;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  text-align: center;
   background-color: rgba(227, 213, 176, 0.95);
   border: 2px solid #c2b280;
   padding: 2rem 1.5rem;
@@ -195,10 +201,15 @@
 }
 
 .sticky-note-card:hover {
-  transform: rotate(0deg) translateY(-12px) scale(1.05);
-  box-shadow: 
-    0 18px 40px rgba(0,0,0,0.25),
-    0 8px 18px rgba(0,0,0,0.15);
+  transform: rotate(0deg) translateY(-6px) scale(1.02);
+  box-shadow:
+    0 12px 28px rgba(0,0,0,0.18),
+    0 4px 12px rgba(0,0,0,0.1);
+}
+
+.research-card:focus-visible {
+  outline: 2px solid var(--ink-brown);
+  outline-offset: 4px;
 }
 
 /* ========================================
@@ -227,190 +238,23 @@
   filter: sepia(0) brightness(1);
 }
 
-.research-card h3 {
-  font-family: var(--font-serif);
-  font-size: 1.2rem;
-  color: var(--ink-black);
-  text-align: center;
-  text-transform: uppercase;
+/* Handwritten note text (matches the home page notes) */
+.research-card-title {
+  display: block;
+  font-family: var(--font-hand);
+  font-size: 1.55rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  line-height: 1.25;
+  color: var(--ink-black);
+  margin-bottom: 0.4rem;
 }
 
 .card-subtitle {
-  font-size: 0.85rem;
-  color: var(--ink-brown);
-  line-height: 1.5;
-  font-family: var(--font-body);
-  font-style: italic;
-  margin-top: 0.75rem;
-  text-align: center;
-  font-weight: 400;
-}
-
-/* ========================================
-   MODAL BODY SCROLL PREVENTION
-   ======================================== */
-
-body.modal-open {
-  overflow: hidden;
-}
-
-body.modal-open .main-content {
-  overflow: visible; /* Allow modal overlay to extend beyond main-content boundaries */
-}
-
-body.modal-open .site-header,
-body.modal-open .site-nav {
-  opacity: 0.3; /* Dim navigation elements when modal is open */
-  pointer-events: none; /* Prevent interaction with navigation */
-}
-
-/* ========================================
-   POP-UP PANEL OVERLAY
-   ======================================== */
-
-.panel-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999999; /* Extremely high to ensure it's above all navigation and header elements */
-  padding: 2rem;
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* ========================================
-   NOTEBOOK PANEL
-   ======================================== */
-
-.panel-notebook {
-  background-color: var(--paper-white);
-  background-image:
-    repeating-linear-gradient(
-      transparent,
-      transparent calc(1.1rem * 1.7), /* Tighter spacing for better notebook appearance */
-      rgba(61, 51, 40, 0.1) calc(1.1rem * 1.7),
-      rgba(61, 51, 40, 0.1) calc(1.1rem * 1.7 + 1px)
-    ),
-    linear-gradient(
-      to right,
-      rgba(194, 178, 128, 0.3) 0,
-      rgba(194, 178, 128, 0.3) 60px,
-      transparent 60px
-    );
-  max-width: 800px; /* Base width for smaller screens */
-  width: 100%;
-  max-height: 80vh;
-  overflow-y: auto;
-  padding: 3rem 3rem 3rem 5rem;
-  border: 2px solid var(--brown-text);
-  box-shadow:
-    0 10px 40px rgba(0,0,0,0.3),
-    inset 0 0 0 1px rgba(255,255,255,0.5);
-  position: relative;
-  animation: slideUp 0.4s ease;
-}
-
-/* Larger screens - expand notebook for better reading experience */
-@media (min-width: 1200px) {
-  .panel-notebook {
-    max-width: 1000px; /* Wider on large screens */
-    max-height: 85vh; /* Allow more vertical space */
-  }
-}
-
-@media (min-width: 1600px) {
-  .panel-notebook {
-    max-width: 1200px; /* Even wider on very large screens */
-    max-height: 90vh; /* More vertical space on ultra-wide displays */
-  }
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Notebook spiral holes effect */
-.panel-notebook::before {
-  content: '';
-  position: absolute;
-  left: 20px;
-  top: 2rem;
-  bottom: 2rem;
-  width: 20px;
-  background-image: repeating-linear-gradient(
-    transparent,
-    transparent 28px,
-    rgba(61, 51, 40, 0.2) 28px,
-    rgba(61, 51, 40, 0.2) 36px
-  );
-}
-
-.panel-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 2.5rem;
-  color: var(--ink-brown);
-  cursor: pointer;
-  line-height: 1;
-  padding: 0;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.2s ease;
-}
-
-.panel-close:hover {
-  color: var(--ink-black);
-}
-
-.panel-content {
-  font-family: var(--font-body);
-  color: var(--ink-brown);
-}
-
-.panel-content h2 {
-  font-family: var(--font-serif);
-  font-size: 2rem;
-  color: var(--ink-black);
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--ink-black);
-}
-
-.panel-content p {
+  display: block;
+  font-family: var(--font-hand);
   font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: calc(1.1rem * 1.8); /* Exactly 1 line height for proper paragraph spacing */
+  font-weight: 400;
+  line-height: 1.45;
   color: var(--ink-brown);
 }
 
@@ -489,23 +333,9 @@ body.modal-open .site-nav {
   }
   
   .sticky-note-card:hover {
-    transform: translateY(-12px) scale(1.03);
+    transform: translateY(-6px) scale(1.02);
   }
-  
-  /* Panel adjustments */
-  .panel-notebook {
-    padding: 2rem 2rem 2rem 4rem;
-    margin: 1rem;
   }
-
-  .panel-content h2 {
-    font-size: 1.5rem;
-  }
-
-  .panel-content p {
-    font-size: 1rem;
-  }
-}
 
 /* Mobile - Further optimize spacing */
 @media (max-width: 600px) {
@@ -540,12 +370,12 @@ body.modal-open .site-nav {
     margin-bottom: 1rem;
   }
   
-  .research-card h3 {
-    font-size: 1.1rem;
+  .research-card-title {
+    font-size: 1.4rem;
   }
-  
+
   .card-subtitle {
-    font-size: 0.8rem;
+    font-size: 1.05rem;
   }
 }
 
@@ -559,17 +389,5 @@ body.modal-open .site-nav {
   .divider-flower img {
     max-height: 120px;
   }
-  
-  .panel-notebook {
-    padding: 1.5rem 1.5rem 1.5rem 3rem;
-    margin: 0.5rem;
-  }
-  
-  .panel-content h2 {
-    font-size: 1.3rem;
-  }
-  
-  .panel-content p {
-    font-size: 0.95rem;
-  }
+
 }

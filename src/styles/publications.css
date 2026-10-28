@@ -1,367 +1,156 @@
 /* Publications Page Styles - Archival Theme */
 
 .publications-page {
-  padding: 40px 40px;
-  max-width: 1200px;
+  padding: 40px 40px 64px;
+  max-width: 1100px;
   margin: 0 auto;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.publications-header {
+  max-width: 46rem;
+  margin-bottom: 2.5rem;
+}
+
+.publications-title {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--ink-black);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border-bottom: 2px solid rgba(180, 160, 120, 0.5);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
   position: relative;
 }
 
-/* Vertical flower decorations - Hidden for now */
-.publications-flower-left,
-.publications-flower-right {
-  display: none; /* Hidden until positioning can be properly resolved */
+.publications-title::after {
+  content: '';
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5; /* Lower than publications widget */
-  pointer-events: none;
-  opacity: 0.9;
+  bottom: -2px;
+  left: 0;
+  width: 40%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.6), transparent);
 }
 
-.publications-flower-left {
-  left: -200px;
-  transform: scale(0.6) translateY(-50%) translateX(-10%);
+.publications-intro {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink-brown);
 }
 
-.publications-flower-right {
-  right: -300px;
-  transform: scale(0.6) translateY(-50%) translateX(10%);
+.publications-intro a {
+  color: var(--ink-black);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(180, 160, 120, 0.9);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
 
-.vertical-flower {
-  width: auto;
-  height: 80vh;
-  max-height: 80vh;
-  transform: rotate(270deg);
-  filter: sepia(0.35) brightness(0.75) contrast(1.2);
-  opacity: 0.8;
+.publications-intro a:hover {
+  text-decoration-color: var(--ink-black);
 }
 
-/* Responsive sizing for different screen sizes */
-@media (max-width: 1200px) {
-  .vertical-flower {
-    height: 70vh;
-    max-height: 70vh;
-  }
-
-  .publications-flower-left {
-    left: -150px;
-    transform: scale(0.5) translateY(-50%) translateX(-10%);
-  }
-
-  .publications-flower-right {
-    right: -200px;
-    transform: scale(0.5) translateY(-50%) translateX(10%);
-  }
+.publications-intro a:focus-visible {
+  outline: 2px solid var(--ink-brown);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
-@media (max-width: 1400px) {
-  .publications-flower-left,
-  .publications-flower-right {
-    opacity: 0.5;
-  }
+/* ========================================
+   SECONDARY GROUP - lab members' other work
+   ======================================== */
+
+.publications-group {
+  margin-top: 4rem;
+  scroll-margin-top: 1.5rem;
 }
 
-@media (max-width: 1200px) {
-  .publications-flower-left,
-  .publications-flower-right {
-    opacity: 0.3;
-  }
-}
-
-@media (max-width: 1024px) {
-  .vertical-flower {
-    height: 60vh;
-    max-height: 60vh;
-  }
-
-  .publications-flower-left,
-  .publications-flower-right {
-    opacity: 0.4;
-  }
-
-  .publications-flower-left {
-    left: -100px;
-    transform: scale(0.4) translateY(-50%) translateX(-10%);
-  }
-
-  .publications-flower-right {
-    right: -150px;
-    transform: scale(0.4) translateY(-50%) translateX(10%);
-  }
-}
-
-@media (max-width: 768px) {
-  .publications-flower-left,
-  .publications-flower-right {
-    opacity: 0.3; /* Keep them more visible on mobile */
-  }
-}
-
-.publications-page h1 {
-  font-family: var(--font-serif);
+.publications-subtitle {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  font-weight: 400;
   color: var(--ink-black);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  border-bottom: 2px solid var(--ink-black);
-  display: inline-block;
-  padding-bottom: 0.5rem;
-  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.75rem;
 }
 
-/* Publications Widget - Custom styling to match site theme */
-[data-lab-id] {
-  /* Match site colors and typography */
-  --pubsync-primary: #5c4d3c; /* var(--ink-brown) */
-  --pubsync-text: #2c241b; /* var(--ink-black) */
-  --pubsync-text-secondary: #5c4d3c; /* var(--ink-brown) */
-  --pubsync-bg: rgba(254, 253, 251, 0.95); /* Match card backgrounds */
-  --pubsync-bg-subtle: rgba(244, 241, 234, 0.85); /* Match section backgrounds */
-  --pubsync-border: rgba(227, 213, 176, 0.95); /* Match sticky note borders */
-
-  /* Match site fonts */
-  --pubsync-font: 'Playfair Display', Georgia, serif;
-  --pubsync-font-mono: 'Special Elite', 'Courier New', monospace;
-
-  /* Tighter spacing for compact layout */
-  --pubsync-space-1: 1px;
-  --pubsync-space-2: 4px;
-  --pubsync-space-3: 6px;
-  --pubsync-space-4: 8px;
-  --pubsync-space-5: 12px;
-  --pubsync-space-6: 16px;
-
-  /* Text sizes for full publications page */
-  --pubsync-text-sm: 13px;
-  --pubsync-text-base: 14px;
-  --pubsync-text-lg: 16px;
-
-  /* Header sizing */
-  --pubsync-text-2xl: 24px; /* Header */
-  --pubsync-text-xl: 18px; /* Subheader */
+.publications-group-intro {
+  max-width: 46rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ink-brown);
+  margin-bottom: 1.5rem;
 }
 
-/* Button and link styling with proper contrast */
-[data-lab-id] .pubsync-export-btn,
-[data-lab-id] .pubsync-doi-link,
-[data-lab-id] button,
-[data-lab-id] .pubsync-widget button,
-[data-lab-id] .pubsync-widget a {
-  background: #ffffff !important;
-  background-color: #ffffff !important;
-  background-image: none !important;
-  color: #2c241b !important;
-  border: 1px solid #d3c4a5 !important;
-  font-weight: 500 !important;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
-  text-shadow: none !important;
-  transition: all 0.2s ease !important;
+/* ========================================
+   SHEET - one paper sheet holding the list
+   ======================================== */
+
+.publications-sheet {
+  background: var(--paper-white);
+  border: 1px solid rgba(180, 160, 120, 0.5);
+  box-shadow:
+    2px 2px 0 rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(92, 77, 60, 0.12);
+  padding: 2.5rem 3rem;
 }
 
-[data-lab-id] .pubsync-export-btn:hover,
-[data-lab-id] .pubsync-doi-link:hover,
-[data-lab-id] button:hover,
-[data-lab-id] .pubsync-widget button:hover,
-[data-lab-id] .pubsync-widget a:hover {
-  background: #f8fafc !important;
-  background-color: #f8fafc !important;
-  background-image: none !important;
-  color: #2c241b !important;
-  border-color: #b8c5d6 !important;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.15) !important;
+/* Year in the left margin, entries to the right */
+.pub-year-group {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 46rem);
+  column-gap: 2rem;
+  padding: 1.5rem 0;
+  border-top: 2px solid rgba(180, 160, 120, 0.45);
 }
 
-/* Publication card spacing - tighter */
-[data-lab-id] .pubsync-publication-card {
-  padding: 8px !important;
-  margin-bottom: 8px !important;
+.pub-year-group:first-child {
+  border-top: none;
+  padding-top: 0;
 }
 
-/* Publication title styling - tighter */
-[data-lab-id] .pubsync-pub-title {
-  font-size: 13px !important;
-  line-height: 1.3 !important;
-  margin-bottom: 4px !important;
-  font-family: var(--font-serif) !important;
-  color: var(--ink-black) !important;
+.pub-year {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--ink-brown);
+  line-height: 1.35;
+  margin: 0;
 }
 
-/* Publication metadata - tighter */
-[data-lab-id] .pubsync-pub-meta {
-  margin-top: 4px !important;
-  margin-bottom: 4px !important;
-  font-size: 12px !important;
-}
+/* ========================================
+   RESPONSIVE
+   ======================================== */
 
-/* Button sizes - more compact */
-[data-lab-id] .pubsync-export-btn,
-[data-lab-id] .pubsync-doi-link {
-  padding: 4px 8px !important;
-  font-size: 11px !important;
-  margin-right: 4px !important;
-}
-
-/* Custom styling for widget header - more compact */
-[data-lab-id] .pubsync-lab-name {
-  color: #2c241b !important;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1) !important;
-  border-bottom: 2px solid #d4af37 !important;
-  padding-bottom: 4px !important;
-  font-size: 18px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1px !important;
-  font-family: var(--font-serif) !important;
-  margin-bottom: 8px !important;
-}
-
-[data-lab-id] .pubsync-count {
-  color: #666 !important;
-  font-weight: 400 !important;
-  text-transform: lowercase !important;
-  font-size: 14px !important;
-  font-style: italic !important;
-}
-
-/* Year grouping headers - tighter spacing */
-[data-lab-id] h2,
-[data-lab-id] h3 {
-  font-family: var(--font-serif) !important;
-  color: var(--ink-black) !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.5px !important;
-  border-bottom: 1px solid rgba(180, 160, 120, 0.4) !important;
-  padding-bottom: 0.4rem !important;
-  margin-bottom: 0.75rem !important;
-  margin-top: 1.5rem !important;
-}
-
-/* Author highlighting legend - more compact */
-[data-lab-id] .pubsync-legend {
-  background-color: rgba(244, 241, 234, 0.6) !important;
-  border: 1px solid rgba(180, 160, 120, 0.4) !important;
-  border-radius: 4px !important;
-  padding: 10px !important;
-  margin-bottom: 16px !important;
-}
-
-[data-lab-id] .pubsync-legend-title {
-  font-family: var(--font-serif) !important;
-  color: var(--ink-black) !important;
-  font-size: 13px !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.5px !important;
-}
-
-/* Tighten overall widget spacing */
-[data-lab-id] .pubsync-widget {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Reduce spacing between button groups */
-[data-lab-id] .pubsync-actions,
-[data-lab-id] .pubsync-button-group {
-  gap: 4px !important;
-  margin: 4px 0 !important;
-}
-
-/* Custom scrollbar styling */
-[data-lab-id] .pubsync-widget::-webkit-scrollbar {
-  width: 10px;
-}
-
-[data-lab-id] .pubsync-widget::-webkit-scrollbar-track {
-  background: rgba(244, 241, 234, 0.85);
-  border-radius: 4px;
-}
-
-[data-lab-id] .pubsync-widget::-webkit-scrollbar-thumb {
-  background: rgba(180, 160, 120, 0.6);
-  border-radius: 4px;
-  transition: background 0.2s ease;
-}
-
-[data-lab-id] .pubsync-widget::-webkit-scrollbar-thumb:hover {
-  background: rgba(180, 160, 120, 0.8);
-}
-
-/* Responsive - tighter on mobile */
 @media (max-width: 768px) {
   .publications-page {
-    padding: 30px 15px;
+    padding: 30px 15px 48px;
   }
 
-  .publications-page h1 {
-    margin-bottom: 1.5rem;
+  .publications-title {
+    font-size: 1.5rem;
   }
 
-  [data-lab-id] .pubsync-pub-title {
-    font-size: 12px !important;
+  .publications-sheet {
+    padding: 1.5rem 1.25rem;
   }
 
-  [data-lab-id] .pubsync-pub-meta {
-    font-size: 11px !important;
+  /* Year stacks above its entries */
+  .pub-year-group {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.75rem;
   }
 
-  [data-lab-id] .pubsync-export-btn,
-  [data-lab-id] .pubsync-doi-link {
-    padding: 3px 6px !important;
-    font-size: 10px !important;
-  }
-
-  [data-lab-id] .pubsync-publication-card {
-    padding: 6px !important;
-    margin-bottom: 6px !important;
-  }
-
-  [data-lab-id] h2,
-  [data-lab-id] h3 {
-    margin-top: 1rem !important;
-    margin-bottom: 0.5rem !important;
+  .pub-year {
+    font-size: 1.1rem;
   }
 }
-
-/* Adjust flower sizing and positioning on very large screens */
-@media (min-width: 1600px) {
-  .vertical-flower {
-    height: 90vh;
-    max-height: 90vh;
-  }
-
-  .publications-flower-left {
-    left: -1000px;
-    transform: scale(0.7) translateY(-50%) translateX(-10%);
-  }
-
-  .publications-flower-right {
-    right: -1200px;
-    transform: scale(0.7) translateY(-50%) translateX(10%);
-  }
-}
-
-@media (min-width: 2000px) {
-  .vertical-flower {
-    height: 100vh;
-    max-height: 100vh;
-  }
-
-  .publications-flower-left {
-    left: -1200px;
-    transform: scale(0.8) translateY(-50%) translateX(-10%);
-  }
-
-  .publications-flower-right {
-    right: -1400px;
-    transform: scale(0.8) translateY(-50%) translateX(10%);
-  }
-}
-
-@media (min-width: 2200px) {
-  .publications-flower-left,
-  .publications-flower-right {
-    opacity: 0.1; /* Very low opacity on ultra-wide screens */
-  }
-}
-

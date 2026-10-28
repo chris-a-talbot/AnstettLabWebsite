@@ -1,5 +1,5 @@
-import { Outlet, Link } from 'react-router-dom'
-import { useState } from 'react'
+import { Outlet, Link, useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import FolderTab from './FolderTab'
 import logoFlower from '../assets/logos/profile.png'
 import cornellLogoBlack from '../assets/logos/cornell_seal_simple_web_black.png'
@@ -9,6 +9,17 @@ import cornellIcon from '../assets/icons/cornell.svg'
 
 export default function Layout() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { pathname, hash } = useLocation()
+
+  // Start each page at the top - React Router otherwise keeps the previous
+  // page's scroll position. Links with a #hash scroll to that section instead.
+  useEffect(() => {
+    if (hash) {
+      document.getElementById(hash.slice(1))?.scrollIntoView()
+    } else {
+      window.scrollTo(0, 0)
+    }
+  }, [pathname, hash])
 
   return (
     <div className="site-wrapper">

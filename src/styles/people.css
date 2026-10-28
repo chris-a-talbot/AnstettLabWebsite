@@ -254,6 +254,30 @@
   letter-spacing: 0.5px;
 }
 
+/* Pronouns shown inline after the name (pets, who have no bio) */
+.person-pronouns {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--ink-brown);
+  text-transform: none;
+  letter-spacing: 0;
+  margin-left: 0.4rem;
+  white-space: nowrap;
+}
+
+/* Optional second line under the role (fellowships, awards) */
+.person-fellowship {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--ink-brown);
+  margin-top: -0.75rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .person-bio {
   font-family: var(--font-body);
   line-height: 1.7;
@@ -480,7 +504,11 @@
   .person-role {
     font-size: 0.85rem;
   }
-  
+
+  .person-fellowship {
+    font-size: 0.75rem;
+  }
+
   .person-bio {
     font-size: 0.85rem;
   }
